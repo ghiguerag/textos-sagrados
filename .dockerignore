@@ -1,0 +1,16 @@
+# Mantener liviano el contexto de construcción de la imagen.
+**/.venv
+**/__pycache__
+**/*.pyc
+**/.pytest_cache
+backend/data/*.db
+backend/data/*.db-shm
+backend/data/*.db-wal
+backend/dist
+backend/build
+.git
+app
+docs
+assets
+*.bat
+*.sh
