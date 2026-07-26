@@ -300,6 +300,25 @@ def load_gita_gutenberg() -> Iterator[VerseRecord]:
                 )
 
 
+# El Gita de Arnold, empaquetado en el propio repositorio. Se incluye como
+# archivo local porque sus fuentes web son intermitentes —una devuelve 504 y la
+# otra cambió su API—, y sin él el corpus se quedaba sin la tradición hinduista
+# al desplegar en la nube. Es pequeño (~145 KB) y de dominio público.
+GITA_LOCAL = Path(__file__).resolve().parents[1] / "data" / "gita_arnold.json"
+
+
+def load_gita_local() -> Iterator[VerseRecord]:
+    """Bhagavad Gita (Arnold, 1885) desde el archivo empaquetado en el repo."""
+    datos = json.loads(GITA_LOCAL.read_text(encoding="utf-8"))
+    for item in datos:
+        yield VerseRecord(
+            division_ordinal=item["division_ordinal"],
+            division_name=item["division_name"],
+            chapter=item["chapter"], number=item["number"],
+            text=item["text"], section=item.get("section"),
+        )
+
+
 GITA_API = "https://bhagavadgitaapi.in/slok/{ch}/{v}/"
 GITA_CHAPTER_VERSES = [47,72,43,42,29,47,30,28,34,42,55,20,35,27,20,24,28,78]
 
@@ -390,7 +409,7 @@ SOURCES: dict[str, tuple[CorpusSource, Any]] = {
             division_label="capitulo", verse_label="sloka",
             ref_format=lambda v: f"BG {v.chapter}:{v.number}",
         ),
-        load_gita_gutenberg,
+        load_gita_local,
     ),
     "gita-sivananda": (
         CorpusSource(

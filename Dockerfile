@@ -25,9 +25,12 @@ RUN pip install -r requirements-base.txt
 # 2) Código de la aplicación.
 COPY backend/ /app/
 
-# 3) Construir el corpus durante el montaje. --skip-failed evita que una fuente
-#    caída tumbe todo el despliegue; el resto de textos se ingiere igual.
-RUN python scripts/fetch_corpus.py --all --skip-failed --out data/corpus.db
+# 3) Construir el corpus durante el montaje. Sin --all se usa el conjunto por
+#    defecto: las cuatro obras canónicas, una por tradición (Biblia, Tanaj,
+#    Corán y Bhagavad Gita). El Gita va empaquetado en el repo, así que las
+#    cuatro tradiciones quedan garantizadas aunque una fuente web falle.
+#    --skip-failed evita que una descarga caída tumbe todo el despliegue.
+RUN python scripts/fetch_corpus.py --skip-failed --out data/corpus.db
 
 # 4) La carpeta de datos debe ser escribible: la app guarda ahí la caché de
 #    traducciones (Hugging Face ejecuta el contenedor con un usuario sin root).
