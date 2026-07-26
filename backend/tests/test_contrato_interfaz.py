@@ -116,6 +116,8 @@ class TestFuncionesConectadas:
         "sinResultados", "traducirTodoLoVisible", "activarTraduccion",
         "pintarSecciones", "pintarColocaciones", "viewPerfil", "viewGuia",
         "activarDetalles", "activarParalelos", "montarIdiomas",
+        "activarGlosaDePalabras", "mostrarGlosa", "ocultarGlosa",
+        "cabecera", "icono",
     ])
     def test_cada_funcion_se_invoca(self, funcion):
         definiciones = len(re.findall(rf"function {funcion}\b", HTML))
@@ -137,6 +139,34 @@ class TestFuncionesConectadas:
         cuerpo = HTML.split("async function viewFreq")[1].split("async function")[0]
         assert "sinResultados" in cuerpo, (
             "viewFreq no llama a sinResultados cuando no hay resultados"
+        )
+
+
+class TestGlosaDePalabras:
+    """La glosa que traduce cada palabra del análisis bajo el término inglés."""
+
+    def test_el_endpoint_existe(self):
+        assert '"/traducir-palabra"' in MAIN, "falta el endpoint /traducir-palabra"
+
+    def test_la_prestacion_esta_declarada(self):
+        assert "traducir-palabra" in MAIN, "la prestación no está en FEATURES"
+
+    def test_la_interfaz_pide_la_glosa(self):
+        assert "/traducir-palabra?q=" in HTML, (
+            "la interfaz no llama al endpoint de glosa"
+        )
+
+    def test_la_glosa_solo_actua_si_los_idiomas_difieren(self):
+        # Sin esta guarda, se pediría traducir inglés a inglés: gasto inútil.
+        cuerpo = HTML.split("function activarGlosaDePalabras")[1].split("async function")[0]
+        assert "IDIOMA_UI === STATE.lang" in cuerpo, (
+            "la glosa no comprueba que interfaz y corpus estén en idiomas distintos"
+        )
+
+    def test_traduce_del_corpus_a_la_interfaz(self):
+        # desde = idioma del corpus, hasta = idioma de la interfaz.
+        assert "desde=${STATE.lang}" in HTML and "hasta=${IDIOMA_UI}" in HTML, (
+            "la dirección de la traducción es incorrecta"
         )
 
 

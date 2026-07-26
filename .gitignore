@@ -13,6 +13,10 @@ informe-*.txt
 
 # Datos generados: se reconstruyen con los scripts de ingesta.
 backend/data/*.db
+# Archivos temporales de SQLite (modo WAL), se crean al ejecutar la app.
+backend/data/*.db-shm
+backend/data/*.db-wal
+backend/data/*.db-journal
 backend/data/cache/
 
 # Flutter

@@ -37,14 +37,14 @@ from .schemas import (
 # servidor arrancó con código antiguo, que es lo que pasa al copiar archivos
 # nuevos sin reiniciar: el proceso mantiene en memoria la versión anterior y
 # las rutas nuevas devuelven 404 sin explicación.
-API_VERSION = "1.10.0"
+API_VERSION = "1.11.0"
 
 # Prestaciones que la interfaz puede comprobar antes de usarlas.
 FEATURES = [
     "frequency", "divisions", "concordance", "parallel",
     "forms", "collocations", "search", "semantic-fields",
     "sections", "distinctive", "semantic-status", "translate", "dedup",
-    "resolver-termino",
+    "resolver-termino", "traducir-palabra",
 ]
 
 CAVEAT_FREQ = "frequency_normalization"
@@ -623,6 +623,67 @@ async def resolver_termino(
         "campos": campos,
         "traduccion": traduccion if traduccion and traduccion.lower() != q.lower() else None,
     }
+
+
+@app.get("/traducir-palabra")
+async def traducir_palabra(
+    settings: SettingsDep,
+    q: str,
+    desde: str = Query("en", description="Idioma del corpus"),
+    hasta: str = Query("es", description="Idioma de la interfaz"),
+) -> dict[str, Any]:
+    """Glosa de una sola palabra del análisis, para mostrarla bajo el término.
+
+    El vocabulario distintivo y las colocaciones se muestran lematizados
+    (p. ej. «discipl», «tabernacl»), formas que el traductor no reconoce.
+    Antes de traducir se reconstruye la forma real más frecuente del lema
+    («disciples», «tabernacle») con el índice de formas, de modo que la glosa
+    sea de una palabra de verdad. El resultado —incluido el intento fallido—
+    se guarda en caché para no repetir la petición.
+    """
+    q = q.strip().lower()
+    if not q or desde == hasta:
+        return {"original": q, "surface": q, "traduccion": None}
+
+    # 1. Reconstruir la forma de superficie más frecuente del lema.
+    surface = q
+    try:
+        formas = A.surface_forms(state.conn, [q])
+        if formas:
+            surface = formas[0]["surface"]
+    except Exception:                              # noqa: BLE001
+        pass
+
+    from .core.translate import (MyMemoryTranslator, TranslationError,
+                                 cached_word, store_word)
+
+    # 2. ¿Ya la tradujimos alguna vez? ('' = intentada y sin traducción)
+    guardada = cached_word(state.conn, surface, hasta)
+    if guardada is not None:
+        return {"original": q, "surface": surface,
+                "traduccion": guardada or None, "cached": True}
+
+    if not settings.enable_web_search:
+        return {"original": q, "surface": surface, "traduccion": None,
+                "disabled": True}
+
+    # 3. Traducir y guardar.
+    traductor = MyMemoryTranslator(settings.web_search_timeout,
+                                   settings.translate_email)
+    try:
+        texto = (await traductor.translate(surface, desde, hasta)).strip()
+        texto = texto.strip(".,;:!¡?¿ ")
+        # Si el traductor devuelve la misma palabra, no aporta nada.
+        if texto.lower() == surface.lower():
+            texto = ""
+    except (TranslationError, Exception):          # noqa: BLE001
+        texto = ""
+
+    if state.write_conn:
+        store_word(state.write_conn, surface, hasta, texto, traductor.name)
+
+    return {"original": q, "surface": surface,
+            "traduccion": texto or None, "provider": traductor.name}
 
 
 @app.post("/translate")

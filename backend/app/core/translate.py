@@ -104,6 +104,15 @@ CREATE TABLE IF NOT EXISTS translations (
     created   TEXT NOT NULL DEFAULT (datetime('now')),
     PRIMARY KEY (verse_id, lang)
 ) WITHOUT ROWID;
+
+CREATE TABLE IF NOT EXISTS word_translations (
+    word      TEXT NOT NULL,
+    lang      TEXT NOT NULL,
+    text      TEXT NOT NULL,
+    provider  TEXT NOT NULL,
+    created   TEXT NOT NULL DEFAULT (datetime('now')),
+    PRIMARY KEY (word, lang)
+) WITHOUT ROWID;
 """
 
 
@@ -133,5 +142,36 @@ def store(conn: sqlite3.Connection, verse_id: int, lang: str,
         "INSERT OR REPLACE INTO translations (verse_id, lang, text, provider) "
         "VALUES (?,?,?,?)",
         (verse_id, lang, text, provider),
+    )
+    conn.commit()
+
+
+# --------------------------------------------------------------------------
+# Caché de palabras sueltas
+# --------------------------------------------------------------------------
+# Las palabras del análisis (vocabulario distintivo, colocaciones) se muestran
+# en inglés. Para el lector hispanohablante, una glosa debajo ayuda mucho. Se
+# traduce cada palabra una sola vez y se guarda; incluso los intentos fallidos
+# se guardan como cadena vacía, para no volver a molestar al traductor con una
+# palabra que ya sabemos que no resuelve.
+
+def cached_word(conn: sqlite3.Connection, word: str, lang: str) -> str | None:
+    """Traducción guardada de una palabra. None = nunca intentada; '' = intentada sin éxito."""
+    try:
+        fila = conn.execute(
+            "SELECT text FROM word_translations WHERE word = ? AND lang = ?",
+            (word, lang),
+        ).fetchone()
+    except sqlite3.OperationalError:
+        return None                    # la tabla aún no existe
+    return fila["text"] if fila else None
+
+
+def store_word(conn: sqlite3.Connection, word: str, lang: str,
+               text: str, provider: str) -> None:
+    conn.execute(
+        "INSERT OR REPLACE INTO word_translations (word, lang, text, provider) "
+        "VALUES (?,?,?,?)",
+        (word, lang, text, provider),
     )
     conn.commit()

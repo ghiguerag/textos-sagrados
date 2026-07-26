@@ -63,10 +63,22 @@ button.ghost.on{background:var(--accent);color:#fff;border-color:var(--accent)}
 .dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:7px;
      vertical-align:middle;flex:none}
 .verse{background:var(--panel2);border-radius:11px;padding:14px 16px;margin-bottom:10px;
-       border-left:3px solid var(--accent)}
+       border-left:6px solid var(--accent)}
 .verse .ref{font-weight:600;font-size:13px;margin-bottom:6px;display:flex;
             align-items:center;gap:2px;font-family:var(--mono)}
 .verse .txt{font-family:var(--serif);font-size:16px;line-height:1.66}
+.tnom{font-weight:700;font-size:13px;font-family:var(--mono)}
+/* Cabecera de sección: icono en cuadrito, título en serif y una línea que
+   explica de qué va cada parte de la página. */
+.seccion{display:flex;align-items:center;gap:11px;margin:30px 0 11px}
+.seccion .ico{width:34px;height:34px;border-radius:9px;background:var(--panel2);
+  border:1px solid var(--line);display:flex;align-items:center;
+  justify-content:center;flex:none}
+.seccion h3{margin:0;padding:0;border:0;font-family:var(--serif);font-size:17px;
+  font-weight:600;color:var(--txt);line-height:1.25}
+.seccion .desc{margin:2px 0 0;color:var(--dim);font-size:12.5px;line-height:1.35}
+.subobra{font-family:var(--serif);font-size:15px;font-weight:600;
+  margin:24px 0 9px;display:flex;align-items:center;gap:8px;border:0;padding:0}
 mark{background:var(--soft);color:inherit;padding:0 3px;border-radius:3px;font-weight:600;
      box-shadow:inset 0 -1px 0 var(--accent)}
 .heat{display:flex;flex-wrap:wrap;gap:3px;margin:9px 0 4px}
@@ -112,12 +124,27 @@ mark{background:var(--soft);color:inherit;padding:0 3px;border-radius:3px;font-w
 .secc{display:grid;grid-template-columns:150px 1fr 130px;gap:10px;
   align-items:center;margin-bottom:8px;font-size:13.5px}
 .secc .n{font-weight:600}
-.nube{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
-.pal{border:1px solid var(--line);border-radius:7px;padding:5px 10px;
-  cursor:pointer;background:var(--panel2);transition:border-color .15s}
+.nube{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:8px;margin-top:10px}
+.pal{border:1px solid var(--line);border-radius:7px;padding:6px 10px;
+  cursor:pointer;background:var(--panel2);transition:border-color .15s;
+  position:relative;display:flex;align-items:baseline;
+  justify-content:space-between;gap:8px;font-size:13px}
 .pal:hover{border-color:var(--accent)}
-.pal b{font-weight:650}
-.pal span{color:var(--dim);font-size:11.5px;margin-left:5px}
+.pal b{font-weight:650;min-width:0;overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap}
+.pal span{color:var(--dim);font-size:11.5px;flex:none}
+/* Glosa: globito flotante ENCIMA de la palabra. Va arriba a propósito, porque
+   el cursor de mano tapa la zona de abajo y ocultaría la traducción. */
+.pal .tp{position:absolute;left:50%;bottom:calc(100% + 7px);
+  transform:translateX(-50%);white-space:nowrap;
+  background:var(--panel);color:var(--txt);border:1px solid var(--line);
+  border-radius:7px;padding:3px 9px;font-size:11.5px;font-style:italic;
+  box-shadow:0 5px 16px rgba(0,0,0,.20);z-index:30;pointer-events:none}
+.pal .tp::after{content:'';position:absolute;top:100%;left:50%;
+  transform:translateX(-50%);border:5px solid transparent;
+  border-top-color:var(--line)}
+.pal .tp.cargando{opacity:.6}
 .selobra{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
 /* Los botones de obra llevan el nombre del texto arriba y la edición debajo:
    «M. Pickthall 1930» por sí solo no dice de qué libro se trata. */
@@ -293,7 +320,7 @@ const API = location.protocol === 'file:' ? 'http://localhost:8000' : '';
 // Prestaciones que esta interfaz necesita del servidor. Si el servidor
 // arrancó con código antiguo no las tendrá, y conviene decirlo claramente en
 // vez de dejar que una ruta devuelva 404 sin contexto.
-const VERSION_ESPERADA = '1.10.0';
+const VERSION_ESPERADA = '1.11.0';
 const REQUIERE = ['frequency','divisions','concordance','parallel','forms',
                   'sections','distinctive','collocations','semantic-status',
                   'translate','dedup','resolver-termino'];
@@ -347,6 +374,31 @@ function EMBLEMA(t, s){
     hinduismo: `<circle cx="12" cy="12" r="6.6" fill="none" stroke="${c}" stroke-width="2.6"/><circle cx="12" cy="12" r="2.3" fill="${c}"/>`
   };
   return `<span style="display:inline-flex;align-items:center;justify-content:center;width:${s}px;height:${s}px;flex:none"><svg width="${s}" height="${s}" viewBox="0 0 24 24" aria-hidden="true">${shapes[t] || shapes.cristianismo}</svg></span>`;
+}
+
+// Iconos de trazo para las cabeceras de sección. En línea y sin fuentes
+// externas: la aplicación debe abrir y funcionar sin conexión.
+const ICONOS = {
+  barras:'<path d="M5 21V11M12 21V4M19 21v-6"/>',
+  red:'<circle cx="6" cy="6" r="2.3"/><circle cx="18" cy="7" r="2.3"/><circle cx="13" cy="18" r="2.3"/><path d="M8.1 6.7l7.6 .6M8 8.2l4.2 8"/>',
+  capas:'<path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/>',
+  rejilla:'<rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/>',
+  diana:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.6"/><circle cx="12" cy="12" r="1"/>',
+  estrella:'<path d="M12 3.6l2.6 5.6 6 .6-4.5 4 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.5-4 6-.6z"/>',
+  lupa:'<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',
+  columnas:'<rect x="4" y="4" width="6.5" height="16" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="16" rx="1.2"/>',
+  mapa:'<path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/>',
+  punto:'<circle cx="12" cy="12" r="3.2"/>'
+};
+function icono(nombre, c){
+  return `<svg width="19" height="19" viewBox="0 0 24 24" fill="none"
+    stroke="${c || 'var(--accent)'}" stroke-width="1.9" stroke-linecap="round"
+    stroke-linejoin="round" aria-hidden="true">${ICONOS[nombre] || ICONOS.punto}</svg>`;
+}
+// Cabecera de sección reutilizable: icono + título + descripción de una línea.
+function cabecera(nombre, titulo, desc, c){
+  return `<div class="seccion"><span class="ico">${icono(nombre, c)}</span>
+    <div><h3>${esc(titulo)}</h3>${desc ? `<div class="desc">${esc(desc)}</div>` : ''}</div></div>`;
 }
 
 async function api(path, opts){
@@ -614,11 +666,11 @@ async function viewPanorama(){
     $('#out').innerHTML = `<div class="err">${esc(e.message)}</div>`; return;
   }
 
-  let h = `<div class="note">Cada fila es un concepto; cada columna, una
-    tradición. Cada número es una <b>densidad</b>: cuántas de cada 10.000
-    palabras del texto pertenecen a ese concepto (no es un conteo ni un
-    porcentaje directo). Cuanto más intenso el color, más presente está.
-    Toca una casilla para verlo en detalle.</div>`;
+  let h = cabecera('rejilla', 'Panorama de conceptos',
+        'Densidad de cada concepto por tradición: cuanto más intenso el color, más presente');
+  h += `<div class="note">Cada número es una <b>densidad</b>: cuántas de cada
+    10.000 palabras pertenecen a ese concepto (no es un conteo ni un porcentaje
+    directo). Toca una casilla para verla en detalle.</div>`;
   h += `<div class="pano" style="grid-template-columns:150px repeat(${cols.length},1fr)">`;
   h += `<div></div>`;
   cols.forEach(w => {
@@ -776,6 +828,8 @@ async function viewFreq(){
     <a href="#" id="irGuia" style="color:var(--accent)">Cómo leer estas
     cifras →</a></div>`;
 
+  h += cabecera('barras', 'Frecuencia por tradición',
+        'Apariciones por cada 10.000 palabras, de mayor a menor');
   h += '<div class="card">';
   rows.forEach(r => {
     const k = keyBy[r.work_id] || {};
@@ -785,7 +839,7 @@ async function viewFreq(){
       : '';
     h += `<div class="bar-row">
         <div><span class="dot" style="background:${color(r.tradition)}"></span>
-             <b>${esc(TRAD[r.tradition]||r.tradition)}</b>
+             <b style="color:${color(r.tradition)}">${esc(TRAD[r.tradition]||r.tradition)}</b>
              <div class="meta" style="margin-left:16px">${esc(r.work_title)}</div></div>
         <div class="bar-track"><div class="bar-fill"
              style="width:${(r.per_10k/max*100).toFixed(1)}%;background:${color(r.tradition)}"></div></div>
@@ -808,19 +862,16 @@ async function viewFreq(){
   h += `<div class="meta" style="margin-top:8px">Raíces buscadas:
         ${esc(d.resolved_stems.join(', '))}</div></div>`;
 
-  h += '<h3>Comparación entre las partes de cada obra</h3>';
-  h += `<div class="meta" style="margin:0 0 10px">Dentro de una misma obra el
-        traductor es el mismo, así que las diferencias son del texto original y
-        no de la traducción. Es la comparación más sólida que ofrece la app.</div>`;
+  h += cabecera('capas', 'Comparación entre las partes de cada obra',
+        'Mismo traductor dentro de cada obra: las diferencias son del texto original');
   h += '<div class="card" id="seccs"><div class="meta">Calculando…</div></div>';
 
-  h += '<h3>Palabras que lo acompañan</h3>';
-  h += `<div class="meta" style="margin:0 0 10px">Vecinos frecuentes dentro del
-        mismo versículo. Revelan con qué se asocia el concepto en cada
-        tradición.</div>`;
+  h += cabecera('red', 'Palabras que lo acompañan',
+        'Vecinos frecuentes en el mismo versículo: con qué se asocia el concepto');
   h += '<div class="card" id="colocs"><div class="meta">Calculando…</div></div>';
 
-  h += '<h3>Dónde se concentra dentro de cada obra</h3>';
+  h += cabecera('rejilla', 'Dónde se concentra dentro de cada obra',
+        'Intensidad del término por libro o sección');
   h += '<div class="card" id="heats"><div class="meta">Cargando distribución…</div></div>';
   $('#out').innerHTML = h;
   activarDetalles(rows);
@@ -1000,6 +1051,60 @@ function activarBusquedaDePalabra(){
     window.scrollTo({top:0, behavior:'smooth'});
     run();
   });
+  activarGlosaDePalabras();
+}
+
+// ---------- glosa: traducción bajo cada palabra ----------
+// El análisis se muestra en el idioma del corpus (inglés). Si la interfaz está
+// en otro idioma, pasar el cursor sobre una palabra muestra su traducción
+// debajo, en gris. Se pide una sola vez por palabra: la respuesta se guarda en
+// memoria aquí y en la base de datos del servidor. Es a demanda para no gastar
+// la cuota del traductor gratuito traduciendo decenas de palabras de golpe.
+const CACHE_GLOSA = new Map();
+
+function activarGlosaDePalabras(){
+  if(IDIOMA_UI === STATE.lang) return;      // interfaz y corpus en el mismo idioma
+  document.querySelectorAll('.pal[data-buscar]').forEach(el => {
+    if(el.dataset.glosaLista) return;
+    el.dataset.glosaLista = '1';
+    el.addEventListener('mouseenter', () => mostrarGlosa(el));
+    el.addEventListener('mouseleave', () => ocultarGlosa(el));
+  });
+}
+
+function ocultarGlosa(el){
+  const g = el.querySelector('.tp');
+  if(g) g.remove();                         // al salir, el globito se va
+}
+
+async function mostrarGlosa(el){
+  const palabra = (el.dataset.buscar || '').trim();
+  if(!palabra || el.querySelector('.tp')) return;
+
+  const globo = document.createElement('span');
+  globo.className = 'tp cargando';
+  globo.textContent = '…';
+  el.appendChild(globo);
+
+  let trad = CACHE_GLOSA.get(palabra);
+  if(trad === undefined){
+    try{
+      const d = await api(`/traducir-palabra?q=${encodeURIComponent(palabra)}`
+                        + `&desde=${STATE.lang}&hasta=${IDIOMA_UI}`);
+      trad = d.traduccion || '';
+    }catch(e){ trad = ''; }
+    CACHE_GLOSA.set(palabra, trad);
+  }
+
+  // El cursor pudo salir mientras se pedía la traducción: si el globo ya no
+  // está en la página, no hay nada que actualizar.
+  if(!globo.isConnected) return;
+  if(trad){
+    globo.textContent = trad;
+    globo.classList.remove('cargando');
+  }else{
+    globo.remove();                         // sin traducción útil: no estorbar
+  }
 }
 
 // ---------- guía de interpretación ----------
@@ -1015,6 +1120,16 @@ function viewGuia(){
     creen las religiones ni qué importancia dan a cada tema.
   </div>
 
+  <h2>El color de cada tradición</h2>
+  <p>Para leer de un vistazo, cada tradición conserva el mismo color en toda la
+  aplicación: en la franja de las tarjetas, en el nombre y en las barras.</p>
+  <p style="display:flex;flex-wrap:wrap;gap:18px;margin-top:4px">
+    <span><span style="display:inline-block;width:12px;height:12px;border-radius:4px;background:var(--cristianismo);vertical-align:-1px;margin-right:6px"></span>Cristianismo</span>
+    <span><span style="display:inline-block;width:12px;height:12px;border-radius:4px;background:var(--judaismo);vertical-align:-1px;margin-right:6px"></span>Judaísmo</span>
+    <span><span style="display:inline-block;width:12px;height:12px;border-radius:4px;background:var(--islam);vertical-align:-1px;margin-right:6px"></span>Islam</span>
+    <span><span style="display:inline-block;width:12px;height:12px;border-radius:4px;background:var(--hinduismo);vertical-align:-1px;margin-right:6px"></span>Hinduismo</span>
+  </p>
+
   <h2>Frecuencia por 10.000 palabras</h2>
   <p>Los textos tienen tamaños muy distintos. La Biblia King James tiene
   791.689 palabras; el Bhagavad Gita, 19.369. Es cuarenta veces más larga, así
@@ -1022,6 +1137,16 @@ function viewGuia(){
   <p>Decir «la Biblia nombra el amor 300 veces y el Gita 40» no informa de
   nada. Por eso todo se expresa como densidad: cuántas veces aparece por cada
   10.000 palabras. Así son comparables.</p>
+
+  <h2>Palabras agrupadas por su raíz</h2>
+  <p>El motor agrupa las formas de una misma palabra bajo su raíz: <i>disciple</i>
+  y <i>disciples</i> cuentan juntas como <i>discipl</i>. Por eso en «Perfil de
+  cada obra» y en las palabras que acompañan verás raíces, a veces con aspecto
+  recortado (<i>tabernacl</i>, <i>immediat</i>). Es intencional: evita que un
+  mismo concepto se disperse en varios recuentos.</p>
+  <p>Si usas la aplicación en un idioma distinto al del texto, pasa el cursor
+  sobre cualquier palabra y aparecerá una traducción aproximada encima. Es solo
+  una ayuda de lectura: el análisis siempre se hace sobre el texto original.</p>
 
   <h2>G², la significación estadística</h2>
   <p>Una diferencia entre dos textos puede ser real o puede ser casualidad.
@@ -1115,12 +1240,11 @@ async function viewPerfil(){
 
   if(!STATE.obraPerfil) STATE.obraPerfil = obras[0].id;
 
-  let h = `<div class="note"><b>Qué hace único a cada texto.</b>
-    Estas son las palabras que aparecen en esta obra con una frecuencia
-    anormalmente alta comparada con el resto del corpus. No son las más
-    frecuentes: son las más <i>características</i>. Se calculan con
-    log-likelihood y solo se muestran las estadísticamente significativas.
-    Pulsa cualquiera para analizarla.</div>`;
+  let h = cabecera('estrella', 'Qué hace único a cada texto',
+        'Palabras con frecuencia anormalmente alta frente al resto del corpus, no las más frecuentes');
+  h += `<div class="note">Se calculan con log-likelihood y solo se muestran las
+    estadísticamente significativas. Elige una obra y pulsa cualquier palabra
+    para analizarla.</div>`;
 
   h += '<div class="selobra">' + obras.map(w =>
     `<button class="ghost obra${w.id === STATE.obraPerfil ? ' on' : ''}"
@@ -1156,8 +1280,7 @@ async function viewPerfil(){
       res.map(x => {
         const rel = x.log_likelihood / max;
         return `<div class="pal" data-buscar="${esc(x.lemma)}"
-          style="border-color:${rel > 0.5 ? color(w.tradition) : 'var(--line)'};
-                 font-size:${(12 + rel * 5).toFixed(1)}px"
+          style="border-color:${rel > 0.5 ? color(w.tradition) : 'var(--line)'}"
           title="${x.count} apariciones · ${x.per_10k.toFixed(1)} por 10k · G²=${x.log_likelihood.toFixed(0)}">
           <b>${esc(x.lemma)}</b><span>${x.count}</span></div>`;
       }).join('') + '</div>';
@@ -1315,18 +1438,18 @@ async function viewSem(){
     significar cosas distintas dentro de sus tradiciones. Es una herramienta
     para descubrir, no para demostrar.</div>`;
 
-  h += `<div class="meta" style="margin:0 0 10px">${d.results.length} pasajes,
-        ordenados por proximidad a «${esc(d.query)}»</div>`;
+  h += cabecera('diana', 'Pasajes más cercanos',
+        `${d.results.length} pasajes ordenados por proximidad a «${d.query}»`);
 
   d.results.forEach(v => {
     h += `<div class="verse" style="border-left-color:${color(v.tradition)}">
       <div class="ref">
         <span class="dot" style="background:${color(v.tradition)}"></span>
         ${esc(v.ref)}
-        <span class="meta" style="font-weight:400;margin-left:6px">
+        <span class="tnom" style="color:${color(v.tradition)};margin-left:6px">
           ${esc(TRAD[v.tradition] || v.tradition)}</span>
         <span style="flex:1"></span>
-        <span class="simil">${(v.similarity * 100).toFixed(0)}%</span>
+        <span class="simil" style="border-color:${color(v.tradition)};color:${color(v.tradition)};background:${hexA(color(v.tradition), .12)}">${(v.similarity * 100).toFixed(0)}%</span>
       </div>
       <div class="txt">${esc(v.text)}</div>
       ${(v.tambien_en || []).length ? `<div class="dup">
@@ -1488,12 +1611,13 @@ async function viewConc(){
   if(!d.items.length){ $('#out').innerHTML =
     '<div class="empty">Sin apariciones.</div>'; return; }
 
-  let h = `<div class="note">${d.total.toLocaleString('es')} versículos contienen el término.
-           Se muestran los primeros ${d.items.length}.</div>`;
+  let h = cabecera('lupa', 'Versículos donde aparece',
+        `${d.total.toLocaleString('es')} en total · se muestran los primeros ${d.items.length}`);
   let last = null;
   d.items.forEach(v => {
     if(v.work_id !== last){
-      h += `<h3><span class="dot" style="background:${color(v.tradition)}"></span>${esc(v.work_title)}</h3>`;
+      h += `<h3 class="subobra" style="color:${color(v.tradition)}">
+        <span class="dot" style="background:${color(v.tradition)}"></span>${esc(v.work_title)}</h3>`;
       last = v.work_id;
     }
     h += `<div class="verse" style="border-left-color:${color(v.tradition)}">
@@ -1516,13 +1640,14 @@ async function viewPar(){
   if(!cols.length){ $('#out').innerHTML =
     '<div class="empty">Sin pasajes que comparar.</div>'; return; }
 
-  let h = `<div class="note">Cómo aborda cada tradición el mismo concepto.
-           Recuerda que la proximidad de palabras no implica equivalencia doctrinal.</div>
-           <div class="cols">`;
+  let h = cabecera('columnas', 'Cómo lo aborda cada tradición',
+        'El mismo concepto, columna por columna; la proximidad no implica equivalencia doctrinal');
+  h += '<div class="cols">';
   cols.forEach(c => {
-    h += `<div class="card"><div style="margin-bottom:10px">
+    h += `<div class="card" style="border-top:3px solid ${color(c.tradition)}">
+      <div style="margin-bottom:10px">
       <span class="dot" style="background:${color(c.tradition)}"></span>
-      <b>${esc(TRAD[c.tradition]||c.tradition)}</b>
+      <b style="color:${color(c.tradition)}">${esc(TRAD[c.tradition]||c.tradition)}</b>
       <div class="meta" style="margin-left:16px">${esc(c.title)}</div></div>`;
     c.verses.forEach(v => {
       h += `<div class="verse" style="border-left-color:${color(c.tradition)}">
