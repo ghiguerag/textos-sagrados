@@ -1,0 +1,47 @@
+name: textos_sagrados
+description: Análisis léxico comparado de textos sagrados en dominio público.
+publish_to: none
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.7.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Estado
+  flutter_riverpod: ^2.6.1
+  riverpod_annotation: ^2.6.1
+
+  # Red y persistencia
+  dio: ^5.7.0
+  shared_preferences: ^2.3.3
+
+  # Interfaz
+  fl_chart: ^0.69.2          # gráficos de barras y distribución
+  google_fonts: ^6.2.1
+  url_launcher: ^6.3.1       # abrir fuentes externas en el navegador
+  share_plus: ^10.1.2        # exportar resultados
+  intl: ^0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.13
+  riverpod_generator: ^2.6.3
+
+flutter:
+  uses-material-design: true
+  generate: true
+  fonts:
+    - family: NotoSerif
+      fonts:
+        - asset: assets/fonts/NotoSerif-Regular.ttf
+        - asset: assets/fonts/NotoSerif-Italic.ttf
+          style: italic
+        - asset: assets/fonts/NotoSerif-Bold.ttf
+          weight: 700

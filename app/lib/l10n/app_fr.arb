@@ -1,0 +1,123 @@
+{
+  "@@locale": "fr",
+  "appTitle": "Textes Sacrés",
+  "navFrequency": "Fréquences",
+  "navConcordance": "Concordance",
+  "navParallel": "Parallèle",
+  "navSemantic": "Sémantique",
+  "navSettings": "Réglages",
+  "searchHint": "Rechercher un mot",
+  "corpusLanguage": "Langue du texte",
+  "corpusLanguageHint": "Langue des textes analysés, pas celle de l'application",
+  "freqEmptyTitle": "Cherchez un mot ou choisissez un champ sémantique",
+  "freqEmptyHint": "Les résultats sont normalisés pour 10 000 mots afin que des corpus de tailles différentes soient comparables.",
+  "freqChartTitle": "Fréquence pour 10 000 mots",
+  "noResultsTitle": "Aucun résultat",
+  "noResultsHint": "Aucun corpus ne contient ce terme. Essayez une autre orthographe ou changez la langue du texte.",
+  "rootsCount": "{count} racines",
+  "@rootsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "occurrences": "{count} occurrences",
+  "@occurrences": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "versesCount": "{count} versets",
+  "@versesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "presentInDivisions": "présent dans {present} sur {total} divisions",
+  "@presentInDivisions": {
+    "placeholders": {
+      "present": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "total": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "distinctivelyFrequent": "Distinctement fréquent",
+  "distinctivelyRare": "Distinctement rare",
+  "perTenK": "/10 k",
+  "distributionTitle": "Répartition interne",
+  "distributionHint": "Où le terme se concentre dans chaque ouvrage. Un terme dispersé caractérise le texte ; un terme concentré dans un seul livre, non.",
+  "heatmapLegend": "Chaque case est un livre ou un chapitre, dans l'ordre canonique. Plus foncé = plus dense.",
+  "concEmptyTitle": "Concordance",
+  "concEmptyHint": "Cherchez un terme pour voir chaque passage où il apparaît, avec sa référence exacte.",
+  "concShowing": "affichage de {count}",
+  "@concShowing": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "concNoneTitle": "Aucune occurrence dans la sélection actuelle",
+  "parEmptyTitle": "Lecture en parallèle",
+  "parEmptyHint": "Choisissez un concept pour voir, côte à côte, comment chaque tradition l'aborde.",
+  "semHint": "Décrivez une idée avec vos mots",
+  "semTryTitle": "Essayez",
+  "semExplanation": "La recherche sémantique compare le sens de votre phrase à celui de chaque verset via un modèle vectoriel multilingue. Elle trouve des passages proches même sans mot commun.",
+  "semNoneTitle": "Aucun passage ne dépasse le seuil de similarité",
+  "semNoneHint": "Essayez de reformuler l'idée plus concrètement.",
+  "semExample1": "pardonner à celui qui vous a fait du tort",
+  "semExample2": "le sort de l'âme après la mort",
+  "semExample3": "comment traiter l'étranger",
+  "semExample4": "la richesse comme obstacle spirituel",
+  "semExample5": "ne jugez pas les autres",
+  "setServer": "Serveur",
+  "setServerUpdated": "Serveur mis à jour",
+  "setLanguage": "Langue de l'application",
+  "setLanguageSystem": "Comme le système",
+  "setTexts": "Textes et licences",
+  "setLicenseNote": "Toutes les éditions incluses sont dans le domaine public. Les traductions modernes sont protégées par le droit d'auteur et ne peuvent être distribuées sans licence.",
+  "setWordsCount": "{count} mots",
+  "@setWordsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "setMethod": "À propos de la méthode",
+  "methodNormTitle": "Normalisation",
+  "methodNormBody": "Toutes les fréquences sont exprimées pour 10 000 mots. Les corpus sont de tailles très différentes et les comptes bruts ne sont pas comparables.",
+  "methodSigTitle": "Signification statistique",
+  "methodSigBody": "Les écarts sont testés par log-vraisemblance (Dunning 1993), la norme en linguistique de corpus. Seuls ceux dépassant p < 0,0001 sont signalés comme distinctifs.",
+  "methodTransTitle": "Effet de la traduction",
+  "methodTransBody": "Chaque texte est une traduction précise. Le vocabulaire du traducteur influence les résultats. Comparez toujours des éditions dans la même langue et lisez les chiffres comme des indices sur la traduction, non sur l'original.",
+  "methodScopeTitle": "Portée",
+  "methodScopeBody": "Cet outil décrit des motifs lexicaux. Il n'interprète pas la doctrine et n'établit pas d'équivalences théologiques entre traditions.",
+  "caveatFrequencyNormalization": "Les fréquences sont normalisées pour 10 000 mots car les corpus sont de tailles très différentes. De plus, chaque texte est une traduction : les choix lexicaux du traducteur influent sur les résultats.",
+  "caveatSemanticSimilarity": "La similarité vectorielle mesure une ressemblance linguistique, non une équivalence doctrinale. Deux passages très proches peuvent signifier des choses différentes dans leurs traditions.",
+  "errConnection": "Impossible de joindre le serveur. Vérifiez l'adresse dans Réglages.",
+  "errNotFound": "Introuvable.",
+  "errInvalidQuery": "Requête invalide.",
+  "errSemanticUnavailable": "La recherche sémantique n'est pas disponible sur ce serveur.",
+  "errGeneric": "Une erreur s'est produite.",
+  "retry": "Réessayer",
+  "tradChristianity": "Christianisme",
+  "tradJudaism": "Judaïsme",
+  "tradIslam": "Islam",
+  "tradHinduism": "Hindouisme"
+}

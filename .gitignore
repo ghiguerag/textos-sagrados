@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.env
+
+# Empaquetado (se reconstruye con CONSTRUIR-APP-Windows.bat)
+build/
+dist/
+*.spec.bak
+registro-arranque.txt
+informe-*.txt
+
+# Datos generados: se reconstruyen con los scripts de ingesta.
+backend/data/*.db
+backend/data/cache/
+
+# Flutter
+app/.dart_tool/
+app/build/
+app/.flutter-plugins*
+app/pubspec.lock

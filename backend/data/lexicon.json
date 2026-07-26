@@ -1,0 +1,878 @@
+{
+  "version": "2.0",
+  "note": "Campos semánticos para comparación conceptual entre corpus. 'label' está traducido a los 6 idiomas de la app; 'description' solo a es/en, con reserva a en. 'terms' contiene los lemas a buscar por idioma del CORPUS (no de la interfaz).",
+  "fields": {
+    "misericordia": {
+      "label": {
+        "es": "Misericordia y compasión",
+        "en": "Mercy and compassion",
+        "pt": "Misericórdia e compaixão",
+        "fr": "Miséricorde et compassion",
+        "ar": "الرحمة والشفقة",
+        "hi": "करुणा और दया"
+      },
+      "description": {
+        "es": "Clemencia divina y humana. Concepto central en el Corán (ar-Rahman/ar-Rahim), el hesed hebreo y la caritas cristiana.",
+        "en": "Divine and human clemency. Central to the Quran (ar-Rahman/ar-Rahim), Hebrew hesed and Christian caritas."
+      },
+      "terms": {
+        "es": [
+          "misericordia",
+          "misericordioso",
+          "compasion",
+          "compasivo",
+          "clemencia",
+          "clemente",
+          "piedad",
+          "apiadar",
+          "conmover",
+          "benignidad",
+          "benigno",
+          "gracia",
+          "perdon",
+          "perdonar"
+        ],
+        "en": [
+          "mercy",
+          "merciful",
+          "compassion",
+          "compassionate",
+          "clemency",
+          "pity",
+          "kindness",
+          "loving-kindness",
+          "grace",
+          "forgive",
+          "forgiveness",
+          "gracious"
+        ]
+      }
+    },
+    "justicia": {
+      "label": {
+        "es": "Justicia y rectitud",
+        "en": "Justice and righteousness",
+        "pt": "Justiça e retidão",
+        "fr": "Justice et droiture",
+        "ar": "العدل والاستقامة",
+        "hi": "न्याय और धार्मिकता"
+      },
+      "description": {
+        "es": "Tsedaqah hebrea, 'adl coránico, dharma en el Gita.",
+        "en": "Hebrew tsedaqah, Quranic 'adl, dharma in the Gita."
+      },
+      "terms": {
+        "es": [
+          "justicia",
+          "justo",
+          "rectitud",
+          "recto",
+          "equidad",
+          "integridad",
+          "juicio",
+          "juzgar",
+          "derecho",
+          "injusticia",
+          "injusto",
+          "inicuo",
+          "iniquidad"
+        ],
+        "en": [
+          "justice",
+          "just",
+          "righteousness",
+          "righteous",
+          "equity",
+          "uprightness",
+          "upright",
+          "judgment",
+          "judge",
+          "injustice",
+          "unjust",
+          "iniquity",
+          "wicked"
+        ]
+      }
+    },
+    "amor": {
+      "label": {
+        "es": "Amor y afecto",
+        "en": "Love and affection",
+        "pt": "Amor e afeto",
+        "fr": "Amour et affection",
+        "ar": "المحبة والمودة",
+        "hi": "प्रेम और स्नेह"
+      },
+      "description": {
+        "es": "Agape, ahavah, bhakti. Incluye amor devocional y amor al prójimo.",
+        "en": "Agape, ahavah, bhakti. Includes devotional love and love of neighbour."
+      },
+      "terms": {
+        "es": [
+          "amor",
+          "amar",
+          "amado",
+          "amante",
+          "caridad",
+          "afecto",
+          "querer",
+          "devocion",
+          "devoto",
+          "carino"
+        ],
+        "en": [
+          "love",
+          "beloved",
+          "charity",
+          "affection",
+          "devotion",
+          "devoted",
+          "dear"
+        ]
+      }
+    },
+    "guerra": {
+      "label": {
+        "es": "Guerra y conflicto",
+        "en": "War and conflict",
+        "pt": "Guerra e conflito",
+        "fr": "Guerre et conflit",
+        "ar": "الحرب والصراع",
+        "hi": "युद्ध और संघर्ष"
+      },
+      "description": {
+        "es": "Combate, batalla y lucha, incluyendo la lucha interior (jihad, el campo de Kurukshetra).",
+        "en": "Combat, battle and struggle, including inner struggle (jihad, the field of Kurukshetra)."
+      },
+      "terms": {
+        "es": [
+          "guerra",
+          "guerrero",
+          "batalla",
+          "combate",
+          "combatir",
+          "pelear",
+          "pelea",
+          "lucha",
+          "luchar",
+          "ejercito",
+          "espada",
+          "arma",
+          "enemigo",
+          "conquista",
+          "matar",
+          "muerte"
+        ],
+        "en": [
+          "war",
+          "warrior",
+          "battle",
+          "combat",
+          "fight",
+          "fighting",
+          "strife",
+          "army",
+          "sword",
+          "weapon",
+          "enemy",
+          "conquer",
+          "slay",
+          "kill"
+        ]
+      }
+    },
+    "paz": {
+      "label": {
+        "es": "Paz y reconciliación",
+        "en": "Peace and reconciliation",
+        "pt": "Paz e reconciliação",
+        "fr": "Paix et réconciliation",
+        "ar": "السلام والمصالحة",
+        "hi": "शांति और सुलह"
+      },
+      "description": {
+        "es": "Shalom, salam, shanti. Uno de los pocos conceptos con cognado directo en las cuatro tradiciones.",
+        "en": "Shalom, salam, shanti. One of the few concepts with a direct cognate in all four traditions."
+      },
+      "terms": {
+        "es": [
+          "paz",
+          "pacifico",
+          "reconciliacion",
+          "reconciliar",
+          "tranquilidad",
+          "sosiego",
+          "serenidad",
+          "concordia",
+          "reposo",
+          "descanso"
+        ],
+        "en": [
+          "peace",
+          "peaceful",
+          "reconciliation",
+          "reconcile",
+          "tranquility",
+          "calm",
+          "serenity",
+          "quiet",
+          "rest",
+          "repose"
+        ]
+      }
+    },
+    "muerte": {
+      "label": {
+        "es": "Muerte y mortalidad",
+        "en": "Death and mortality",
+        "pt": "Morte e mortalidade",
+        "fr": "Mort et mortalité",
+        "ar": "الموت والفناء",
+        "hi": "मृत्यु और नश्वरता"
+      },
+      "terms": {
+        "es": [
+          "muerte",
+          "morir",
+          "muerto",
+          "mortal",
+          "fallecer",
+          "sepulcro",
+          "tumba",
+          "cadaver",
+          "perecer",
+          "difunto"
+        ],
+        "en": [
+          "death",
+          "die",
+          "dead",
+          "dying",
+          "mortal",
+          "grave",
+          "tomb",
+          "sepulchre",
+          "perish",
+          "corpse"
+        ]
+      },
+      "description": {}
+    },
+    "vida_ultratumba": {
+      "label": {
+        "es": "Más allá y resurrección",
+        "en": "Afterlife and resurrection",
+        "pt": "Além e ressurreição",
+        "fr": "Au-delà et résurrection",
+        "ar": "الآخرة والبعث",
+        "hi": "परलोक और पुनरुत्थान"
+      },
+      "description": {
+        "es": "Cielo, infierno, resurrección, reencarnación. El punto donde las cuatro tradiciones divergen más.",
+        "en": "Heaven, hell, resurrection, reincarnation. Where the four traditions diverge most."
+      },
+      "terms": {
+        "es": [
+          "resurreccion",
+          "resucitar",
+          "paraiso",
+          "infierno",
+          "gehena",
+          "seol",
+          "eternidad",
+          "eterno",
+          "inmortal",
+          "inmortalidad",
+          "reencarnacion",
+          "renacer",
+          "transmigracion",
+          "cielo"
+        ],
+        "en": [
+          "resurrection",
+          "raise",
+          "paradise",
+          "hell",
+          "hades",
+          "sheol",
+          "gehenna",
+          "eternity",
+          "eternal",
+          "immortal",
+          "immortality",
+          "reincarnation",
+          "rebirth",
+          "transmigration",
+          "heaven"
+        ]
+      }
+    },
+    "sabiduria": {
+      "label": {
+        "es": "Sabiduría y conocimiento",
+        "en": "Wisdom and knowledge",
+        "pt": "Sabedoria e conhecimento",
+        "fr": "Sagesse et connaissance",
+        "ar": "الحكمة والعلم",
+        "hi": "ज्ञान और विद्या"
+      },
+      "description": {
+        "es": "Hokhmah, 'ilm, jnana.",
+        "en": "Hokhmah, 'ilm, jnana."
+      },
+      "terms": {
+        "es": [
+          "sabiduria",
+          "sabio",
+          "saber",
+          "conocimiento",
+          "conocer",
+          "entendimiento",
+          "entender",
+          "inteligencia",
+          "prudencia",
+          "prudente",
+          "discernimiento",
+          "ignorancia",
+          "necio",
+          "insensato"
+        ],
+        "en": [
+          "wisdom",
+          "wise",
+          "knowledge",
+          "know",
+          "understanding",
+          "understand",
+          "insight",
+          "prudence",
+          "prudent",
+          "discernment",
+          "ignorance",
+          "fool",
+          "foolish"
+        ]
+      }
+    },
+    "pobreza": {
+      "label": {
+        "es": "Pobreza y limosna",
+        "en": "Poverty and almsgiving",
+        "pt": "Pobreza e esmola",
+        "fr": "Pauvreté et aumône",
+        "ar": "الفقر والصدقة",
+        "hi": "निर्धनता और दान"
+      },
+      "description": {
+        "es": "Zakat, tzedaká, caridad.",
+        "en": "Zakat, tzedakah, charity."
+      },
+      "terms": {
+        "es": [
+          "pobre",
+          "pobreza",
+          "necesitado",
+          "menesteroso",
+          "indigente",
+          "limosna",
+          "dar",
+          "huerfano",
+          "viuda",
+          "hambre",
+          "hambriento",
+          "mendigo"
+        ],
+        "en": [
+          "poor",
+          "poverty",
+          "needy",
+          "destitute",
+          "alms",
+          "almsgiving",
+          "orphan",
+          "widow",
+          "hunger",
+          "hungry",
+          "beggar"
+        ]
+      }
+    },
+    "mujer": {
+      "label": {
+        "es": "Mujer y feminidad",
+        "en": "Woman and femininity",
+        "pt": "Mulher e feminilidade",
+        "fr": "Femme et féminité",
+        "ar": "المرأة والأنوثة",
+        "hi": "स्त्री और नारीत्व"
+      },
+      "terms": {
+        "es": [
+          "mujer",
+          "mujeres",
+          "esposa",
+          "madre",
+          "hija",
+          "hermana",
+          "virgen",
+          "viuda",
+          "doncella",
+          "femenino"
+        ],
+        "en": [
+          "woman",
+          "women",
+          "wife",
+          "mother",
+          "daughter",
+          "sister",
+          "virgin",
+          "widow",
+          "maiden",
+          "female"
+        ]
+      },
+      "description": {}
+    },
+    "oracion": {
+      "label": {
+        "es": "Oración y culto",
+        "en": "Prayer and worship",
+        "pt": "Oração e culto",
+        "fr": "Prière et culte",
+        "ar": "الصلاة والعبادة",
+        "hi": "प्रार्थना और उपासना"
+      },
+      "description": {
+        "es": "Salat, tefilá, plegaria, puja.",
+        "en": "Salat, tefillah, prayer, puja."
+      },
+      "terms": {
+        "es": [
+          "oracion",
+          "orar",
+          "rezar",
+          "rezo",
+          "plegaria",
+          "suplica",
+          "suplicar",
+          "adorar",
+          "adoracion",
+          "alabar",
+          "alabanza",
+          "invocar",
+          "postrar",
+          "ayuno",
+          "ayunar",
+          "sacrificio",
+          "ofrenda"
+        ],
+        "en": [
+          "prayer",
+          "pray",
+          "supplication",
+          "worship",
+          "adore",
+          "praise",
+          "invoke",
+          "prostrate",
+          "fasting",
+          "fast",
+          "sacrifice",
+          "offering"
+        ]
+      }
+    },
+    "profecia": {
+      "label": {
+        "es": "Profecía y revelación",
+        "en": "Prophecy and revelation",
+        "pt": "Profecia e revelação",
+        "fr": "Prophétie et révélation",
+        "ar": "النبوة والوحي",
+        "hi": "भविष्यवाणी और प्रकाशन"
+      },
+      "terms": {
+        "es": [
+          "profeta",
+          "profecia",
+          "profetizar",
+          "revelacion",
+          "revelar",
+          "mensajero",
+          "enviado",
+          "vision",
+          "apostol",
+          "inspiracion"
+        ],
+        "en": [
+          "prophet",
+          "prophecy",
+          "prophesy",
+          "revelation",
+          "reveal",
+          "messenger",
+          "apostle",
+          "vision",
+          "inspiration"
+        ]
+      },
+      "description": {}
+    },
+    "pecado": {
+      "label": {
+        "es": "Pecado y transgresión",
+        "en": "Sin and transgression",
+        "pt": "Pecado e transgressão",
+        "fr": "Péché et transgression",
+        "ar": "الذنب والمعصية",
+        "hi": "पाप और अपराध"
+      },
+      "terms": {
+        "es": [
+          "pecado",
+          "pecar",
+          "pecador",
+          "transgresion",
+          "transgredir",
+          "culpa",
+          "maldad",
+          "malvado",
+          "impio",
+          "abominacion",
+          "delito",
+          "ofensa",
+          "arrepentir",
+          "arrepentimiento"
+        ],
+        "en": [
+          "sin",
+          "sinner",
+          "sinful",
+          "transgression",
+          "transgress",
+          "guilt",
+          "evil",
+          "wicked",
+          "ungodly",
+          "abomination",
+          "offence",
+          "repent",
+          "repentance"
+        ]
+      },
+      "description": {}
+    },
+    "creacion": {
+      "label": {
+        "es": "Creación y cosmos",
+        "en": "Creation and cosmos",
+        "pt": "Criação e cosmos",
+        "fr": "Création et cosmos",
+        "ar": "الخلق والكون",
+        "hi": "सृष्टि और ब्रह्मांड"
+      },
+      "terms": {
+        "es": [
+          "crear",
+          "creacion",
+          "criatura",
+          "principio",
+          "universo",
+          "mundo",
+          "tierra",
+          "cielos",
+          "firmamento",
+          "estrella",
+          "sol",
+          "luna",
+          "luz",
+          "tinieblas",
+          "polvo",
+          "barro"
+        ],
+        "en": [
+          "create",
+          "creation",
+          "creator",
+          "creature",
+          "beginning",
+          "universe",
+          "world",
+          "earth",
+          "heavens",
+          "firmament",
+          "star",
+          "sun",
+          "moon",
+          "light",
+          "darkness",
+          "dust",
+          "clay"
+        ]
+      },
+      "description": {}
+    },
+    "divinidad": {
+      "label": {
+        "es": "Nombres de lo divino",
+        "en": "Names of the divine",
+        "pt": "Nomes do divino",
+        "fr": "Noms du divin",
+        "ar": "أسماء الإله",
+        "hi": "ईश्वर के नाम"
+      },
+      "description": {
+        "es": "Cuidado al comparar: cada traducción usa convenciones distintas (SEÑOR vs Yahvé vs Allah vs Krishna). Interpretar con contexto.",
+        "en": "Compare with care: each translation follows different conventions (LORD vs Yahweh vs Allah vs Krishna). Interpret in context."
+      },
+      "terms": {
+        "es": [
+          "dios",
+          "senor",
+          "altisimo",
+          "todopoderoso",
+          "creador",
+          "eterno",
+          "santo",
+          "divino",
+          "divinidad",
+          "jehova",
+          "yahve",
+          "ala",
+          "alah",
+          "krishna",
+          "brahman"
+        ],
+        "en": [
+          "god",
+          "lord",
+          "almighty",
+          "most",
+          "highest",
+          "creator",
+          "holy",
+          "divine",
+          "divinity",
+          "jehovah",
+          "yahweh",
+          "allah",
+          "krishna",
+          "brahman"
+        ]
+      }
+    },
+    "alma": {
+      "label": {
+        "es": "Alma y espíritu",
+        "en": "Soul and spirit",
+        "pt": "Alma e espírito",
+        "fr": "Âme et esprit",
+        "ar": "الروح والنفس",
+        "hi": "आत्मा और चेतना"
+      },
+      "description": {
+        "es": "Nefesh, ruh, atman. Concepto con contornos muy distintos en cada tradición.",
+        "en": "Nefesh, ruh, atman. A concept with very different contours in each tradition."
+      },
+      "terms": {
+        "es": [
+          "alma",
+          "almas",
+          "espiritu",
+          "aliento",
+          "corazon",
+          "interior",
+          "conciencia",
+          "yo",
+          "ser",
+          "atman"
+        ],
+        "en": [
+          "soul",
+          "spirit",
+          "breath",
+          "heart",
+          "inner",
+          "consciousness",
+          "self",
+          "atman"
+        ]
+      }
+    },
+    "ley": {
+      "label": {
+        "es": "Ley y mandamiento",
+        "en": "Law and commandment",
+        "pt": "Lei e mandamento",
+        "fr": "Loi et commandement",
+        "ar": "الشريعة والأمر",
+        "hi": "धर्म और आदेश"
+      },
+      "description": {
+        "es": "Torá, sharía, dharma.",
+        "en": "Torah, sharia, dharma."
+      },
+      "terms": {
+        "es": [
+          "ley",
+          "leyes",
+          "mandamiento",
+          "mandar",
+          "precepto",
+          "estatuto",
+          "ordenanza",
+          "decreto",
+          "norma",
+          "obedecer",
+          "obediencia",
+          "deber",
+          "prohibir",
+          "licito",
+          "ilicito"
+        ],
+        "en": [
+          "law",
+          "laws",
+          "commandment",
+          "command",
+          "precept",
+          "statute",
+          "ordinance",
+          "decree",
+          "obey",
+          "obedience",
+          "duty",
+          "forbid",
+          "lawful",
+          "unlawful"
+        ]
+      }
+    },
+    "fe": {
+      "label": {
+        "es": "Fe y creencia",
+        "en": "Faith and belief",
+        "pt": "Fé e crença",
+        "fr": "Foi et croyance",
+        "ar": "الإيمان والعقيدة",
+        "hi": "आस्था और विश्वास"
+      },
+      "terms": {
+        "es": [
+          "fe",
+          "fiel",
+          "creer",
+          "creyente",
+          "confiar",
+          "confianza",
+          "esperanza",
+          "esperar",
+          "duda",
+          "dudar",
+          "incredulo",
+          "incredulidad"
+        ],
+        "en": [
+          "faith",
+          "faithful",
+          "believe",
+          "believer",
+          "trust",
+          "hope",
+          "doubt",
+          "unbelief",
+          "unbeliever"
+        ]
+      },
+      "description": {}
+    },
+    "temor": {
+      "label": {
+        "es": "Temor reverencial",
+        "en": "Reverential fear",
+        "pt": "Temor reverente",
+        "fr": "Crainte révérencielle",
+        "ar": "الخشية والتقوى",
+        "hi": "श्रद्धामय भय"
+      },
+      "description": {
+        "es": "Yirah, taqwa. Distinto del miedo ordinario.",
+        "en": "Yirah, taqwa. Distinct from ordinary fear."
+      },
+      "terms": {
+        "es": [
+          "temor",
+          "temer",
+          "miedo",
+          "reverencia",
+          "reverenciar",
+          "espanto",
+          "terror",
+          "asombro",
+          "respeto"
+        ],
+        "en": [
+          "fear",
+          "fearful",
+          "awe",
+          "reverence",
+          "dread",
+          "terror",
+          "tremble"
+        ]
+      }
+    },
+    "libertad": {
+      "label": {
+        "es": "Libertad y esclavitud",
+        "en": "Freedom and slavery",
+        "pt": "Liberdade e escravidão",
+        "fr": "Liberté et esclavage",
+        "ar": "الحرية والعبودية",
+        "hi": "स्वतंत्रता और दासता"
+      },
+      "terms": {
+        "es": [
+          "libertad",
+          "libre",
+          "liberar",
+          "librar",
+          "esclavo",
+          "esclavitud",
+          "siervo",
+          "servidumbre",
+          "cautivo",
+          "cautiverio",
+          "yugo",
+          "redimir",
+          "redencion"
+        ],
+        "en": [
+          "freedom",
+          "free",
+          "liberty",
+          "deliver",
+          "slave",
+          "slavery",
+          "servant",
+          "bondage",
+          "captive",
+          "captivity",
+          "yoke",
+          "redeem",
+          "redemption"
+        ]
+      },
+      "description": {}
+    }
+  },
+  "ui_languages": [
+    "es",
+    "en",
+    "pt",
+    "fr",
+    "ar",
+    "hi"
+  ]
+}

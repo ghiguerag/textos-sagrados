@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Fragmento de referencia para el Info.plist que genera `flutter create`.
+
+  Claves de este proyecto:
+    - CFBundleLocalizations declara los 6 idiomas: sin esto, la App Store
+      no muestra la app como localizada aunque lo esté.
+    - CFBundleDevelopmentRegion en español, idioma de partida del proyecto.
+    - NSAppTransportSecurity NO se relaja: el backend debe ir por HTTPS.
+      Si necesitas localhost en desarrollo, añade la excepción solo en el
+      esquema de Debug, nunca en Release.
+-->
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>es</string>
+
+    <key>CFBundleLocalizations</key>
+    <array>
+        <string>es</string>
+        <string>en</string>
+        <string>pt</string>
+        <string>fr</string>
+        <string>ar</string>
+        <string>hi</string>
+    </array>
+
+    <key>CFBundleDisplayName</key>
+    <string>Textos Sagrados</string>
+
+    <key>ITSAppUsesNonExemptEncryption</key>
+    <false/>
+
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+</dict>
+</plist>

@@ -1,0 +1,124 @@
+{
+  "@@locale": "ar",
+  "@@x-rtl": true,
+  "appTitle": "النصوص المقدسة",
+  "navFrequency": "التكرارات",
+  "navConcordance": "الفهرس",
+  "navParallel": "مقارنة",
+  "navSemantic": "دلالي",
+  "navSettings": "الإعدادات",
+  "searchHint": "ابحث عن كلمة",
+  "corpusLanguage": "لغة النص",
+  "corpusLanguageHint": "لغة النصوص التي يجري تحليلها، وليست لغة التطبيق",
+  "freqEmptyTitle": "ابحث عن كلمة أو اختر حقلاً دلالياً",
+  "freqEmptyHint": "تُوحَّد النتائج لكل 10٬000 كلمة كي تصبح النصوص المختلفة الأحجام قابلة للمقارنة.",
+  "freqChartTitle": "التكرار لكل 10٬000 كلمة",
+  "noResultsTitle": "لا توجد نتائج",
+  "noResultsHint": "لا يحتوي أي نص على هذه الكلمة. جرّب صيغة أخرى أو غيّر لغة النص.",
+  "rootsCount": "{count} جذور",
+  "@rootsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "occurrences": "{count} ورود",
+  "@occurrences": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "versesCount": "{count} آية",
+  "@versesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "presentInDivisions": "موجود في {present} من {total} قسماً",
+  "@presentInDivisions": {
+    "placeholders": {
+      "present": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "total": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "distinctivelyFrequent": "متكرر بشكل مميز",
+  "distinctivelyRare": "نادر بشكل مميز",
+  "perTenK": "/١٠ آلاف",
+  "distributionTitle": "التوزيع الداخلي",
+  "distributionHint": "أين تتركّز الكلمة داخل كل نص. الكلمة المنتشرة تميّز النص، أما المحصورة في سفر واحد فلا.",
+  "heatmapLegend": "كل مربع سفر أو سورة بالترتيب المعتمد. الأغمق يعني كثافة أعلى.",
+  "concEmptyTitle": "الفهرس",
+  "concEmptyHint": "ابحث عن كلمة لترى كل موضع ترد فيه مع مرجعه الدقيق.",
+  "concShowing": "عرض {count}",
+  "@concShowing": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "concNoneTitle": "لا ورود ضمن التحديد الحالي",
+  "parEmptyTitle": "القراءة المتوازية",
+  "parEmptyHint": "اختر مفهوماً لترى جنباً إلى جنب كيف يتناوله كل تقليد.",
+  "semHint": "صف فكرة بكلماتك",
+  "semTryTitle": "جرّب",
+  "semExplanation": "يقارن البحث الدلالي معنى عبارتك بمعنى كل آية عبر نموذج متجهي متعدد اللغات، فيجد مقاطع قريبة ولو لم تشترك معك في كلمة واحدة.",
+  "semNoneTitle": "لا يتجاوز أي مقطع حدّ التشابه",
+  "semNoneHint": "حاول صياغة الفكرة بشكل أكثر تحديداً.",
+  "semExample1": "الصفح عمن أساء إليك",
+  "semExample2": "مصير الروح بعد الموت",
+  "semExample3": "كيف يُعامَل الغريب",
+  "semExample4": "الثروة عائق روحي",
+  "semExample5": "لا تحكم على الآخرين",
+  "setServer": "الخادم",
+  "setServerUpdated": "تم تحديث الخادم",
+  "setLanguage": "لغة التطبيق",
+  "setLanguageSystem": "حسب النظام",
+  "setTexts": "النصوص والتراخيص",
+  "setLicenseNote": "جميع الطبعات المدرجة في الملك العام. أما الترجمات الحديثة فمحمية بحقوق النشر ولا يجوز توزيعها دون ترخيص.",
+  "setWordsCount": "{count} كلمة",
+  "@setWordsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "setMethod": "عن المنهج",
+  "methodNormTitle": "التوحيد القياسي",
+  "methodNormBody": "تُعرَض كل التكرارات لكل 10٬000 كلمة. تتفاوت أحجام النصوص كثيراً، والأعداد الخام غير قابلة للمقارنة.",
+  "methodSigTitle": "الدلالة الإحصائية",
+  "methodSigBody": "تُختبر الفروق بمقياس log-likelihood (دَنِنغ 1993)، وهو المعيار في لسانيات المدونات. ولا يُوسَم بالتميّز إلا ما تجاوز p < 0.0001.",
+  "methodTransTitle": "أثر الترجمة",
+  "methodTransBody": "كل نص هنا ترجمة بعينها، ومفردات المترجم تؤثر في النتائج. قارن دائماً طبعات باللغة نفسها، واعتبر الأرقام دليلاً على الترجمة لا على الأصل.",
+  "methodScopeTitle": "النطاق",
+  "methodScopeBody": "تصف هذه الأداة أنماطاً معجمية، ولا تفسّر العقيدة ولا تقيم تكافؤاً لاهوتياً بين التقاليد.",
+  "caveatFrequencyNormalization": "تُوحَّد التكرارات لكل 10٬000 كلمة لاختلاف أحجام النصوص اختلافاً كبيراً. كما أن كل نص ترجمة، واختيارات المترجم المعجمية تؤثر في النتائج.",
+  "caveatSemanticSimilarity": "يقيس التشابه المتجهي القرب اللغوي لا التكافؤ العقدي. قد يعني مقطعان متشابهان جداً أمرين مختلفين داخل تقليديهما.",
+  "errConnection": "تعذّر الاتصال بالخادم. تحقق من العنوان في الإعدادات.",
+  "errNotFound": "غير موجود.",
+  "errInvalidQuery": "استعلام غير صالح.",
+  "errSemanticUnavailable": "البحث الدلالي غير متاح على هذا الخادم.",
+  "errGeneric": "حدث خطأ.",
+  "retry": "إعادة المحاولة",
+  "tradChristianity": "المسيحية",
+  "tradJudaism": "اليهودية",
+  "tradIslam": "الإسلام",
+  "tradHinduism": "الهندوسية"
+}

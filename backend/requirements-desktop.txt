@@ -1,0 +1,8 @@
+# Para convertir la aplicación en un programa de escritorio de Windows.
+#   pip install -r requirements-desktop.txt
+#
+# La ventana se abre con Edge o Chrome en «modo app» (una ventana limpia, sin
+# barra de navegador), que Windows ya trae. Así no hace falta pywebview, que
+# aún no tiene soporte para las versiones más nuevas de Python.
+-r requirements-base.txt
+pyinstaller

@@ -1,0 +1,58 @@
+===========================================================
+  IMPORTANTE: COMO SE USA ESTO
+===========================================================
+
+Hay DOS piezas y las dos hacen falta:
+
+  1. EL SERVIDOR  -> la ventana negra
+     Guarda los textos y hace los calculos.
+
+  2. LA PANTALLA  -> el navegador
+     Te ensena los resultados. Sin el servidor, esta vacia.
+
+
+-----------------------------------------------------------
+  PARA USARLO CADA DIA
+-----------------------------------------------------------
+
+  PASO 1   Doble clic en:  INICIAR-Windows.bat
+           Espera a que ponga "SERVIDOR EN MARCHA".
+
+  PASO 2   El navegador se abre solo.
+           Si no, escribe en la barra de direcciones:
+
+                localhost:8000
+
+  PASO 3   Deja la ventana negra abierta mientras lo usas.
+           Al terminar, cierrala.
+
+
+-----------------------------------------------------------
+  ERROR TIPICO
+-----------------------------------------------------------
+
+  NO abras index.html haciendo doble clic sobre el archivo.
+
+  Si en la barra del navegador ves algo que empieza por
+
+       Archivo   C:/Users/...
+
+  lo has abierto mal. Tiene que poner:
+
+       localhost:8000
+
+  Es la diferencia entre mirar el plano de un restaurante
+  y entrar en el restaurante: la carta solo te la sirven
+  dentro.
+
+
+-----------------------------------------------------------
+  SI CLAUDE TE PASA ARCHIVOS NUEVOS
+-----------------------------------------------------------
+
+  Doble clic en:  ACTUALIZAR-Windows.bat
+
+  Te pedira la ruta de tu carpeta instalada y copiara solo
+  lo nuevo. NO borra el entorno ni los textos descargados,
+  asi que no tendras que volver a bajar los 76 MB.
+

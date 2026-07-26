@@ -1,0 +1,123 @@
+{
+  "@@locale": "hi",
+  "appTitle": "पवित्र ग्रंथ",
+  "navFrequency": "आवृत्तियाँ",
+  "navConcordance": "अनुक्रमणिका",
+  "navParallel": "समानांतर",
+  "navSemantic": "अर्थपूर्ण",
+  "navSettings": "सेटिंग्स",
+  "searchHint": "शब्द खोजें",
+  "corpusLanguage": "पाठ की भाषा",
+  "corpusLanguageHint": "विश्लेषण किए जा रहे ग्रंथों की भाषा, ऐप की नहीं",
+  "freqEmptyTitle": "कोई शब्द खोजें या अर्थ-क्षेत्र चुनें",
+  "freqEmptyHint": "परिणाम प्रति 10,000 शब्दों पर सामान्यीकृत हैं ताकि भिन्न आकार के ग्रंथों की तुलना हो सके।",
+  "freqChartTitle": "प्रति 10,000 शब्द आवृत्ति",
+  "noResultsTitle": "कोई परिणाम नहीं",
+  "noResultsHint": "किसी भी ग्रंथ में यह शब्द नहीं है। दूसरी वर्तनी आज़माएँ या पाठ की भाषा बदलें।",
+  "rootsCount": "{count} मूल",
+  "@rootsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "occurrences": "{count} बार",
+  "@occurrences": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "versesCount": "{count} पद",
+  "@versesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "presentInDivisions": "{total} में से {present} भागों में",
+  "@presentInDivisions": {
+    "placeholders": {
+      "present": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "total": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "distinctivelyFrequent": "विशिष्ट रूप से बारंबार",
+  "distinctivelyRare": "विशिष्ट रूप से दुर्लभ",
+  "perTenK": "/10 हज़ार",
+  "distributionTitle": "आंतरिक वितरण",
+  "distributionHint": "प्रत्येक ग्रंथ में शब्द कहाँ केंद्रित है। बिखरा शब्द ग्रंथ की विशेषता बताता है; एक ही पुस्तक में सिमटा नहीं।",
+  "heatmapLegend": "प्रत्येक खाना एक पुस्तक या अध्याय है, पारंपरिक क्रम में। गहरा = अधिक घनत्व।",
+  "concEmptyTitle": "अनुक्रमणिका",
+  "concEmptyHint": "प्रत्येक स्थान देखने के लिए शब्द खोजें, सटीक संदर्भ सहित।",
+  "concShowing": "{count} दिखाए जा रहे",
+  "@concShowing": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "concNoneTitle": "वर्तमान चयन में कोई उपस्थिति नहीं",
+  "parEmptyTitle": "समानांतर पठन",
+  "parEmptyHint": "कोई अवधारणा चुनें और देखें कि हर परंपरा उसे कैसे प्रस्तुत करती है।",
+  "semHint": "अपने शब्दों में कोई विचार लिखें",
+  "semTryTitle": "आज़माएँ",
+  "semExplanation": "अर्थपूर्ण खोज आपके वाक्य के अर्थ की तुलना बहुभाषी सदिश मॉडल से प्रत्येक पद से करती है। यह मिलते-जुलते अंश खोजती है, भले ही कोई शब्द समान न हो।",
+  "semNoneTitle": "कोई अंश समानता की सीमा पार नहीं करता",
+  "semNoneHint": "विचार को अधिक ठोस रूप में लिखकर देखें।",
+  "semExample1": "जिसने आपका बुरा किया उसे क्षमा करना",
+  "semExample2": "मृत्यु के बाद आत्मा की गति",
+  "semExample3": "परदेशी के साथ कैसा व्यवहार हो",
+  "semExample4": "धन आध्यात्मिक बाधा है",
+  "semExample5": "दूसरों का न्याय मत करो",
+  "setServer": "सर्वर",
+  "setServerUpdated": "सर्वर अपडेट हुआ",
+  "setLanguage": "ऐप की भाषा",
+  "setLanguageSystem": "सिस्टम के अनुसार",
+  "setTexts": "ग्रंथ और लाइसेंस",
+  "setLicenseNote": "सम्मिलित सभी संस्करण सार्वजनिक डोमेन में हैं। आधुनिक अनुवाद कॉपीराइट से सुरक्षित हैं और बिना लाइसेंस वितरित नहीं किए जा सकते।",
+  "setWordsCount": "{count} शब्द",
+  "@setWordsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "setMethod": "पद्धति के बारे में",
+  "methodNormTitle": "सामान्यीकरण",
+  "methodNormBody": "सभी आवृत्तियाँ प्रति 10,000 शब्दों पर दी गई हैं। ग्रंथों के आकार बहुत भिन्न हैं और कच्ची गणना तुलनीय नहीं है।",
+  "methodSigTitle": "सांख्यिकीय सार्थकता",
+  "methodSigBody": "अंतरों की जाँच log-likelihood (डनिंग 1993) से होती है, जो कॉर्पस भाषाविज्ञान का मानक है। केवल p < 0.0001 से आगे वालों को विशिष्ट माना जाता है।",
+  "methodTransTitle": "अनुवाद का प्रभाव",
+  "methodTransBody": "प्रत्येक पाठ एक विशिष्ट अनुवाद है। अनुवादक की शब्दावली परिणामों को प्रभावित करती है। सदैव एक ही भाषा के संस्करणों की तुलना करें और आँकड़ों को अनुवाद का प्रमाण मानें, मूल का नहीं।",
+  "methodScopeTitle": "कार्यक्षेत्र",
+  "methodScopeBody": "यह उपकरण शाब्दिक प्रवृत्तियों का वर्णन करता है। यह सिद्धांत की व्याख्या नहीं करता, न ही परंपराओं के बीच धार्मिक समकक्षता स्थापित करता है।",
+  "caveatFrequencyNormalization": "आवृत्तियाँ प्रति 10,000 शब्दों पर सामान्यीकृत हैं क्योंकि ग्रंथों के आकार बहुत भिन्न हैं। साथ ही प्रत्येक पाठ एक अनुवाद है और अनुवादक के शब्द-चयन का परिणामों पर असर पड़ता है।",
+  "caveatSemanticSimilarity": "सदिश समानता भाषाई सादृश्य मापती है, सैद्धांतिक समकक्षता नहीं। दो अत्यंत समान अंश अपनी-अपनी परंपराओं में भिन्न अर्थ रख सकते हैं।",
+  "errConnection": "सर्वर से संपर्क नहीं हो सका। सेटिंग्स में पता जाँचें।",
+  "errNotFound": "नहीं मिला।",
+  "errInvalidQuery": "अमान्य प्रश्न।",
+  "errSemanticUnavailable": "इस सर्वर पर अर्थपूर्ण खोज उपलब्ध नहीं है।",
+  "errGeneric": "कोई त्रुटि हुई।",
+  "retry": "पुनः प्रयास",
+  "tradChristianity": "ईसाई धर्म",
+  "tradJudaism": "यहूदी धर्म",
+  "tradIslam": "इस्लाम",
+  "tradHinduism": "हिन्दू धर्म"
+}

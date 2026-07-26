@@ -1,0 +1,10 @@
+# Búsqueda por significado, versión LIGERA.
+#
+# Sin PyTorch: model2vec convierte el modelo en una tabla de vectores por
+# palabra, así que codificar es tokenizar y promediar. Cientos de veces más
+# rápido y unas seis veces más pequeño que la versión completa.
+#
+#   pip install --only-binary=:all: -r requirements-light.txt
+#   python scripts/build_embeddings.py --engine minimo
+-r requirements-base.txt
+model2vec>=0.3

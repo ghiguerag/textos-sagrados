@@ -1,0 +1,837 @@
+{
+ "_note": "FIXTURE DE DESARROLLO. Selección de pasajes en dominio público para probar el motor sin conexión. NO es un corpus completo: las frecuencias calculadas sobre este fichero no tienen valor analítico. Usa scripts/fetch_corpus.py para el corpus real.",
+ "works": {
+  "kjv": [
+   {
+    "division_ordinal": 1,
+    "division_name": "Genesis",
+    "section": "Antiguo Testamento",
+    "chapter": 1,
+    "number": 1,
+    "text": "In the beginning God created the heaven and the earth."
+   },
+   {
+    "division_ordinal": 1,
+    "division_name": "Genesis",
+    "section": "Antiguo Testamento",
+    "chapter": 1,
+    "number": 3,
+    "text": "And God said, Let there be light: and there was light."
+   },
+   {
+    "division_ordinal": 1,
+    "division_name": "Genesis",
+    "section": "Antiguo Testamento",
+    "chapter": 1,
+    "number": 27,
+    "text": "So God created man in his own image, in the image of God created he him; male and female created he them."
+   },
+   {
+    "division_ordinal": 1,
+    "division_name": "Genesis",
+    "section": "Antiguo Testamento",
+    "chapter": 2,
+    "number": 7,
+    "text": "And the LORD God formed man of the dust of the ground, and breathed into his nostrils the breath of life; and man became a living soul."
+   },
+   {
+    "division_ordinal": 2,
+    "division_name": "Exodus",
+    "section": "Antiguo Testamento",
+    "chapter": 20,
+    "number": 13,
+    "text": "Thou shalt not kill."
+   },
+   {
+    "division_ordinal": 2,
+    "division_name": "Exodus",
+    "section": "Antiguo Testamento",
+    "chapter": 20,
+    "number": 15,
+    "text": "Thou shalt not steal."
+   },
+   {
+    "division_ordinal": 3,
+    "division_name": "Leviticus",
+    "section": "Antiguo Testamento",
+    "chapter": 19,
+    "number": 18,
+    "text": "Thou shalt not avenge, nor bear any grudge against the children of thy people, but thou shalt love thy neighbour as thyself: I am the LORD."
+   },
+   {
+    "division_ordinal": 5,
+    "division_name": "Deuteronomy",
+    "section": "Antiguo Testamento",
+    "chapter": 6,
+    "number": 5,
+    "text": "And thou shalt love the LORD thy God with all thine heart, and with all thy soul, and with all thy might."
+   },
+   {
+    "division_ordinal": 19,
+    "division_name": "Psalms",
+    "section": "Antiguo Testamento",
+    "chapter": 23,
+    "number": 1,
+    "text": "The LORD is my shepherd; I shall not want."
+   },
+   {
+    "division_ordinal": 19,
+    "division_name": "Psalms",
+    "section": "Antiguo Testamento",
+    "chapter": 23,
+    "number": 4,
+    "text": "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me."
+   },
+   {
+    "division_ordinal": 19,
+    "division_name": "Psalms",
+    "section": "Antiguo Testamento",
+    "chapter": 103,
+    "number": 8,
+    "text": "The LORD is merciful and gracious, slow to anger, and plenteous in mercy."
+   },
+   {
+    "division_ordinal": 19,
+    "division_name": "Psalms",
+    "section": "Antiguo Testamento",
+    "chapter": 119,
+    "number": 105,
+    "text": "Thy word is a lamp unto my feet, and a light unto my path."
+   },
+   {
+    "division_ordinal": 20,
+    "division_name": "Proverbs",
+    "section": "Antiguo Testamento",
+    "chapter": 1,
+    "number": 7,
+    "text": "The fear of the LORD is the beginning of knowledge: but fools despise wisdom and instruction."
+   },
+   {
+    "division_ordinal": 20,
+    "division_name": "Proverbs",
+    "section": "Antiguo Testamento",
+    "chapter": 3,
+    "number": 5,
+    "text": "Trust in the LORD with all thine heart; and lean not unto thine own understanding."
+   },
+   {
+    "division_ordinal": 23,
+    "division_name": "Isaiah",
+    "section": "Antiguo Testamento",
+    "chapter": 2,
+    "number": 4,
+    "text": "And he shall judge among the nations, and shall rebuke many people: and they shall beat their swords into plowshares, and their spears into pruninghooks: nation shall not lift up sword against nation, neither shall they learn war any more."
+   },
+   {
+    "division_ordinal": 23,
+    "division_name": "Isaiah",
+    "section": "Antiguo Testamento",
+    "chapter": 40,
+    "number": 31,
+    "text": "But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint."
+   },
+   {
+    "division_ordinal": 30,
+    "division_name": "Amos",
+    "section": "Antiguo Testamento",
+    "chapter": 5,
+    "number": 24,
+    "text": "But let judgment run down as waters, and righteousness as a mighty stream."
+   },
+   {
+    "division_ordinal": 33,
+    "division_name": "Micah",
+    "section": "Antiguo Testamento",
+    "chapter": 6,
+    "number": 8,
+    "text": "He hath shewed thee, O man, what is good; and what doth the LORD require of thee, but to do justly, and to love mercy, and to walk humbly with thy God?"
+   },
+   {
+    "division_ordinal": 40,
+    "division_name": "Matthew",
+    "section": "Nuevo Testamento",
+    "chapter": 5,
+    "number": 7,
+    "text": "Blessed are the merciful: for they shall obtain mercy."
+   },
+   {
+    "division_ordinal": 40,
+    "division_name": "Matthew",
+    "section": "Nuevo Testamento",
+    "chapter": 5,
+    "number": 9,
+    "text": "Blessed are the peacemakers: for they shall be called the children of God."
+   },
+   {
+    "division_ordinal": 40,
+    "division_name": "Matthew",
+    "section": "Nuevo Testamento",
+    "chapter": 5,
+    "number": 44,
+    "text": "But I say unto you, Love your enemies, bless them that curse you, do good to them that hate you, and pray for them which despitefully use you, and persecute you."
+   },
+   {
+    "division_ordinal": 40,
+    "division_name": "Matthew",
+    "section": "Nuevo Testamento",
+    "chapter": 6,
+    "number": 9,
+    "text": "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+   },
+   {
+    "division_ordinal": 40,
+    "division_name": "Matthew",
+    "section": "Nuevo Testamento",
+    "chapter": 7,
+    "number": 12,
+    "text": "Therefore all things whatsoever ye would that men should do to you, do ye even so to them: for this is the law and the prophets."
+   },
+   {
+    "division_ordinal": 40,
+    "division_name": "Matthew",
+    "section": "Nuevo Testamento",
+    "chapter": 22,
+    "number": 39,
+    "text": "And the second is like unto it, Thou shalt love thy neighbour as thyself."
+   },
+   {
+    "division_ordinal": 43,
+    "division_name": "John",
+    "section": "Nuevo Testamento",
+    "chapter": 1,
+    "number": 1,
+    "text": "In the beginning was the Word, and the Word was with God, and the Word was God."
+   },
+   {
+    "division_ordinal": 43,
+    "division_name": "John",
+    "section": "Nuevo Testamento",
+    "chapter": 3,
+    "number": 16,
+    "text": "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life."
+   },
+   {
+    "division_ordinal": 43,
+    "division_name": "John",
+    "section": "Nuevo Testamento",
+    "chapter": 8,
+    "number": 32,
+    "text": "And ye shall know the truth, and the truth shall make you free."
+   },
+   {
+    "division_ordinal": 43,
+    "division_name": "John",
+    "section": "Nuevo Testamento",
+    "chapter": 14,
+    "number": 27,
+    "text": "Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid."
+   },
+   {
+    "division_ordinal": 45,
+    "division_name": "Romans",
+    "section": "Nuevo Testamento",
+    "chapter": 12,
+    "number": 21,
+    "text": "Be not overcome of evil, but overcome evil with good."
+   },
+   {
+    "division_ordinal": 46,
+    "division_name": "I Corinthians",
+    "section": "Nuevo Testamento",
+    "chapter": 13,
+    "number": 4,
+    "text": "Charity suffereth long, and is kind; charity envieth not; charity vaunteth not itself, is not puffed up."
+   },
+   {
+    "division_ordinal": 46,
+    "division_name": "I Corinthians",
+    "section": "Nuevo Testamento",
+    "chapter": 13,
+    "number": 13,
+    "text": "And now abideth faith, hope, charity, these three; but the greatest of these is charity."
+   },
+   {
+    "division_ordinal": 48,
+    "division_name": "Galatians",
+    "section": "Nuevo Testamento",
+    "chapter": 5,
+    "number": 22,
+    "text": "But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith."
+   },
+   {
+    "division_ordinal": 59,
+    "division_name": "James",
+    "section": "Nuevo Testamento",
+    "chapter": 2,
+    "number": 17,
+    "text": "Even so faith, if it hath not works, is dead, being alone."
+   },
+   {
+    "division_ordinal": 62,
+    "division_name": "I John",
+    "section": "Nuevo Testamento",
+    "chapter": 4,
+    "number": 8,
+    "text": "He that loveth not knoweth not God; for God is love."
+   }
+  ],
+  "tanaj-jps": [
+   {
+    "division_ordinal": 1,
+    "division_name": "Génesis",
+    "section": "Torá",
+    "chapter": 1,
+    "number": 1,
+    "text": "In the beginning God created the heaven and the earth."
+   },
+   {
+    "division_ordinal": 1,
+    "division_name": "Génesis",
+    "section": "Torá",
+    "chapter": 1,
+    "number": 27,
+    "text": "And God created man in His own image, in the image of God created He him; male and female created He them."
+   },
+   {
+    "division_ordinal": 2,
+    "division_name": "Éxodo",
+    "section": "Torá",
+    "chapter": 20,
+    "number": 13,
+    "text": "Thou shalt not murder."
+   },
+   {
+    "division_ordinal": 3,
+    "division_name": "Levítico",
+    "section": "Torá",
+    "chapter": 19,
+    "number": 18,
+    "text": "Thou shalt not take vengeance, nor bear any grudge against the children of thy people, but thou shalt love thy neighbour as thyself: I am the LORD."
+   },
+   {
+    "division_ordinal": 3,
+    "division_name": "Levítico",
+    "section": "Torá",
+    "chapter": 19,
+    "number": 34,
+    "text": "The stranger that sojourneth with you shall be unto you as the home-born among you, and thou shalt love him as thyself; for ye were strangers in the land of Egypt."
+   },
+   {
+    "division_ordinal": 5,
+    "division_name": "Deuteronomio",
+    "section": "Torá",
+    "chapter": 6,
+    "number": 4,
+    "text": "Hear, O Israel: the LORD our God, the LORD is one."
+   },
+   {
+    "division_ordinal": 5,
+    "division_name": "Deuteronomio",
+    "section": "Torá",
+    "chapter": 16,
+    "number": 20,
+    "text": "Justice, justice shalt thou follow, that thou mayest live, and inherit the land which the LORD thy God giveth thee."
+   },
+   {
+    "division_ordinal": 12,
+    "division_name": "Isaías",
+    "section": "Neviim",
+    "chapter": 1,
+    "number": 17,
+    "text": "Learn to do well; seek justice, relieve the oppressed, judge the fatherless, plead for the widow."
+   },
+   {
+    "division_ordinal": 12,
+    "division_name": "Isaías",
+    "section": "Neviim",
+    "chapter": 2,
+    "number": 4,
+    "text": "And He shall judge between the nations, and shall decide for many peoples; and they shall beat their swords into plowshares, and their spears into pruning-hooks; nation shall not lift up sword against nation, neither shall they learn war any more."
+   },
+   {
+    "division_ordinal": 20,
+    "division_name": "Miqueas",
+    "section": "Neviim",
+    "chapter": 6,
+    "number": 8,
+    "text": "It hath been told thee, O man, what is good, and what the LORD doth require of thee: only to do justly, and to love mercy, and to walk humbly with thy God."
+   },
+   {
+    "division_ordinal": 17,
+    "division_name": "Amós",
+    "section": "Neviim",
+    "chapter": 5,
+    "number": 24,
+    "text": "But let justice well up as waters, and righteousness as a mighty stream."
+   },
+   {
+    "division_ordinal": 27,
+    "division_name": "Salmos",
+    "section": "Ketuvim",
+    "chapter": 23,
+    "number": 1,
+    "text": "The LORD is my shepherd; I shall not want."
+   },
+   {
+    "division_ordinal": 27,
+    "division_name": "Salmos",
+    "section": "Ketuvim",
+    "chapter": 34,
+    "number": 15,
+    "text": "Depart from evil, and do good; seek peace, and pursue it."
+   },
+   {
+    "division_ordinal": 27,
+    "division_name": "Salmos",
+    "section": "Ketuvim",
+    "chapter": 103,
+    "number": 8,
+    "text": "The LORD is full of compassion and gracious, slow to anger, and plenteous in mercy."
+   },
+   {
+    "division_ordinal": 27,
+    "division_name": "Salmos",
+    "section": "Ketuvim",
+    "chapter": 145,
+    "number": 9,
+    "text": "The LORD is good to all; and His tender mercies are over all His works."
+   },
+   {
+    "division_ordinal": 28,
+    "division_name": "Proverbios",
+    "section": "Ketuvim",
+    "chapter": 1,
+    "number": 7,
+    "text": "The fear of the LORD is the beginning of knowledge; but the foolish despise wisdom and discipline."
+   },
+   {
+    "division_ordinal": 28,
+    "division_name": "Proverbios",
+    "section": "Ketuvim",
+    "chapter": 3,
+    "number": 17,
+    "text": "Her ways are ways of pleasantness, and all her paths are peace."
+   },
+   {
+    "division_ordinal": 29,
+    "division_name": "Job",
+    "section": "Ketuvim",
+    "chapter": 28,
+    "number": 28,
+    "text": "Behold, the fear of the Lord, that is wisdom; and to depart from evil is understanding."
+   },
+   {
+    "division_ordinal": 33,
+    "division_name": "Eclesiastés",
+    "section": "Ketuvim",
+    "chapter": 3,
+    "number": 1,
+    "text": "To every thing there is a season, and a time to every purpose under the heaven."
+   },
+   {
+    "division_ordinal": 33,
+    "division_name": "Eclesiastés",
+    "section": "Ketuvim",
+    "chapter": 3,
+    "number": 8,
+    "text": "A time to love, and a time to hate; a time for war, and a time for peace."
+   }
+  ],
+  "quran-palmer": [
+   {
+    "division_ordinal": 1,
+    "division_name": "Al-Fatiha",
+    "section": "Mecano",
+    "chapter": 1,
+    "number": 1,
+    "text": "In the name of the merciful and compassionate God."
+   },
+   {
+    "division_ordinal": 1,
+    "division_name": "Al-Fatiha",
+    "section": "Mecano",
+    "chapter": 1,
+    "number": 2,
+    "text": "Praise belongs to God, the Lord of the worlds."
+   },
+   {
+    "division_ordinal": 1,
+    "division_name": "Al-Fatiha",
+    "section": "Mecano",
+    "chapter": 1,
+    "number": 3,
+    "text": "The merciful, the compassionate."
+   },
+   {
+    "division_ordinal": 1,
+    "division_name": "Al-Fatiha",
+    "section": "Mecano",
+    "chapter": 1,
+    "number": 6,
+    "text": "Guide us in the right path."
+   },
+   {
+    "division_ordinal": 2,
+    "division_name": "Al-Baqarah",
+    "section": "Medinés",
+    "chapter": 2,
+    "number": 2,
+    "text": "That is the book! there is no doubt therein; a guide to the pious."
+   },
+   {
+    "division_ordinal": 2,
+    "division_name": "Al-Baqarah",
+    "section": "Medinés",
+    "chapter": 2,
+    "number": 177,
+    "text": "Righteousness is not that ye turn your faces towards the east or the west, but righteousness is he who believes in God, and the last day, and the angels, and the Book, and the prophets, and who gives wealth for His love to kindred, and orphans, and the poor, and the son of the road, and beggars, and those in captivity; and who is steadfast in prayer, and gives alms."
+   },
+   {
+    "division_ordinal": 2,
+    "division_name": "Al-Baqarah",
+    "section": "Medinés",
+    "chapter": 2,
+    "number": 190,
+    "text": "Fight in God's way with those who fight with you, but transgress not; verily, God loves not those who do transgress."
+   },
+   {
+    "division_ordinal": 2,
+    "division_name": "Al-Baqarah",
+    "section": "Medinés",
+    "chapter": 2,
+    "number": 256,
+    "text": "There is no compulsion in religion; the right way has been distinguished from error."
+   },
+   {
+    "division_ordinal": 2,
+    "division_name": "Al-Baqarah",
+    "section": "Medinés",
+    "chapter": 2,
+    "number": 286,
+    "text": "God will not oblige the soul beyond its capacity."
+   },
+   {
+    "division_ordinal": 4,
+    "division_name": "An-Nisa",
+    "section": "Medinés",
+    "chapter": 4,
+    "number": 36,
+    "text": "And serve God, and do not associate anything with Him; and to your parents show kindness, and to kindred, and orphans, and the poor, and the neighbour who is akin, and the neighbour who is a stranger, and the companion, and the wayfarer."
+   },
+   {
+    "division_ordinal": 5,
+    "division_name": "Al-Maidah",
+    "section": "Medinés",
+    "chapter": 5,
+    "number": 8,
+    "text": "O ye who believe! be ye steadfast in justice, witnesses for God, though it be against yourselves, or your parents, or your kindred."
+   },
+   {
+    "division_ordinal": 5,
+    "division_name": "Al-Maidah",
+    "section": "Medinés",
+    "chapter": 5,
+    "number": 32,
+    "text": "Whoso kills a soul, not for another soul, or for corruption in the earth, it is as though he had killed all mankind; and he who saves a life, it is as though he had saved all mankind."
+   },
+   {
+    "division_ordinal": 7,
+    "division_name": "Al-Araf",
+    "section": "Mecano",
+    "chapter": 7,
+    "number": 199,
+    "text": "Take to pardon, and order what is kind, and shun the ignorant."
+   },
+   {
+    "division_ordinal": 13,
+    "division_name": "Ar-Rad",
+    "section": "Medinés",
+    "chapter": 13,
+    "number": 28,
+    "text": "Those who believe, and whose hearts are comforted by the remembrance of God; ay! by the remembrance of God shall their hearts be comforted."
+   },
+   {
+    "division_ordinal": 17,
+    "division_name": "Al-Isra",
+    "section": "Mecano",
+    "chapter": 17,
+    "number": 23,
+    "text": "Thy Lord has decreed that ye shall not serve any but Him; and kindness to one's parents."
+   },
+   {
+    "division_ordinal": 24,
+    "division_name": "An-Nur",
+    "section": "Medinés",
+    "chapter": 24,
+    "number": 35,
+    "text": "God is the light of the heavens and the earth; His light is as a niche in which is a lamp, and the lamp is in a glass."
+   },
+   {
+    "division_ordinal": 29,
+    "division_name": "Al-Ankabut",
+    "section": "Mecano",
+    "chapter": 29,
+    "number": 45,
+    "text": "Recite what has been revealed to thee of the Book, and be steadfast in prayer; verily, prayer forbids sin and wrong."
+   },
+   {
+    "division_ordinal": 39,
+    "division_name": "Az-Zumar",
+    "section": "Mecano",
+    "chapter": 39,
+    "number": 53,
+    "text": "O my servants! who have been extravagant against your own souls, despair not of God's mercy; verily, God forgives sins, all of them; verily, He is the forgiving, the compassionate."
+   },
+   {
+    "division_ordinal": 49,
+    "division_name": "Al-Hujurat",
+    "section": "Medinés",
+    "chapter": 49,
+    "number": 13,
+    "text": "O ye folk! verily, we have created you of male and female, and made you races and tribes that ye may know each other. Verily, the most honourable of you in the sight of God is the most pious of you."
+   },
+   {
+    "division_ordinal": 55,
+    "division_name": "Ar-Rahman",
+    "section": "Medinés",
+    "chapter": 55,
+    "number": 1,
+    "text": "The merciful taught the Quran."
+   },
+   {
+    "division_ordinal": 76,
+    "division_name": "Al-Insan",
+    "section": "Medinés",
+    "chapter": 76,
+    "number": 8,
+    "text": "And who give food for His love to the poor and the orphan and the captive."
+   },
+   {
+    "division_ordinal": 93,
+    "division_name": "Ad-Duha",
+    "section": "Mecano",
+    "chapter": 93,
+    "number": 10,
+    "text": "And as for the beggar, drive him not away."
+   },
+   {
+    "division_ordinal": 107,
+    "division_name": "Al-Maun",
+    "section": "Mecano",
+    "chapter": 107,
+    "number": 3,
+    "text": "And who urges not the feeding of the poor."
+   },
+   {
+    "division_ordinal": 112,
+    "division_name": "Al-Ikhlas",
+    "section": "Mecano",
+    "chapter": 112,
+    "number": 1,
+    "text": "Say, He is God alone, God the eternal."
+   }
+  ],
+  "gita-arnold": [
+   {
+    "division_ordinal": 2,
+    "division_name": "Capítulo 2",
+    "section": null,
+    "chapter": 2,
+    "number": 11,
+    "text": "Thou grievest where no grief should be! thou speak'st words lacking wisdom! for the wise in heart mourn not for those that live, nor those that die."
+   },
+   {
+    "division_ordinal": 2,
+    "division_name": "Capítulo 2",
+    "section": null,
+    "chapter": 2,
+    "number": 12,
+    "text": "Nor I, nor thou, nor any one of these, ever was not, nor ever will not be, for ever and for ever afterwards."
+   },
+   {
+    "division_ordinal": 2,
+    "division_name": "Capítulo 2",
+    "section": null,
+    "chapter": 2,
+    "number": 20,
+    "text": "Never the spirit was born; the spirit shall cease to be never; never was time it was not; end and beginning are dreams! Birthless and deathless and changeless remaineth the spirit for ever; death hath not touched it at all, dead though the house of it seems!"
+   },
+   {
+    "division_ordinal": 2,
+    "division_name": "Capítulo 2",
+    "section": null,
+    "chapter": 2,
+    "number": 22,
+    "text": "As the man casts off his worn-out robes and takes new ones, so the soul quits its worn-out bodies and enters into others that are new."
+   },
+   {
+    "division_ordinal": 2,
+    "division_name": "Capítulo 2",
+    "section": null,
+    "chapter": 2,
+    "number": 47,
+    "text": "Let right deeds be thy motive, not the fruit which comes from them. And live in action! Labour! Make thine acts thy piety, casting all self aside."
+   },
+   {
+    "division_ordinal": 2,
+    "division_name": "Capítulo 2",
+    "section": null,
+    "chapter": 2,
+    "number": 62,
+    "text": "When one meditates on objects of sense, attachment to them is born; from attachment springs desire, and from desire comes wrath."
+   },
+   {
+    "division_ordinal": 2,
+    "division_name": "Capítulo 2",
+    "section": null,
+    "chapter": 2,
+    "number": 71,
+    "text": "He who forsaketh all desires and goeth onwards free from yearnings, selfless and without pride, he cometh unto peace."
+   },
+   {
+    "division_ordinal": 3,
+    "division_name": "Capítulo 3",
+    "section": null,
+    "chapter": 3,
+    "number": 19,
+    "text": "Therefore, thy task prescribed with spirit unattached gladly perform, since in performance of plain duty man mounts to his highest bliss."
+   },
+   {
+    "division_ordinal": 3,
+    "division_name": "Capítulo 3",
+    "section": null,
+    "chapter": 3,
+    "number": 35,
+    "text": "Better thine own work is, though done with fault, than doing others' work, even excellently."
+   },
+   {
+    "division_ordinal": 4,
+    "division_name": "Capítulo 4",
+    "section": null,
+    "chapter": 4,
+    "number": 7,
+    "text": "Whenever there is a withering of the law, and an uprising of lawlessness on all sides, then I manifest myself."
+   },
+   {
+    "division_ordinal": 4,
+    "division_name": "Capítulo 4",
+    "section": null,
+    "chapter": 4,
+    "number": 8,
+    "text": "For the salvation of the righteous, and the destruction of such as do evil; for the firm establishing of the law, I come to birth age after age."
+   },
+   {
+    "division_ordinal": 5,
+    "division_name": "Capítulo 5",
+    "section": null,
+    "chapter": 5,
+    "number": 18,
+    "text": "The wise behold him alike in the reverend Brahman perfected in knowledge, in the ox and in the elephant, in the unclean and in him that eateth of the unclean."
+   },
+   {
+    "division_ordinal": 6,
+    "division_name": "Capítulo 6",
+    "section": null,
+    "chapter": 6,
+    "number": 5,
+    "text": "Let a man lift himself by himself; let him not degrade himself; for he alone is the friend of himself, and he alone is the enemy of himself."
+   },
+   {
+    "division_ordinal": 6,
+    "division_name": "Capítulo 6",
+    "section": null,
+    "chapter": 6,
+    "number": 19,
+    "text": "As a lamp sheltered from the wind flickereth not, to such is likened the devotee of subdued thought practising union with the soul."
+   },
+   {
+    "division_ordinal": 6,
+    "division_name": "Capítulo 6",
+    "section": null,
+    "chapter": 6,
+    "number": 30,
+    "text": "He who seeth me everywhere and seeth everything in me, of him will I never lose hold, and he shall never lose hold of me."
+   },
+   {
+    "division_ordinal": 9,
+    "division_name": "Capítulo 9",
+    "section": null,
+    "chapter": 9,
+    "number": 22,
+    "text": "To those men who worship me, meditating on me alone and on nothing else, ever attached to me, I bring full security."
+   },
+   {
+    "division_ordinal": 9,
+    "division_name": "Capítulo 9",
+    "section": null,
+    "chapter": 9,
+    "number": 26,
+    "text": "Whoever offers to me with devotion a leaf, a flower, a fruit, water, that offering of love, of the pure of heart, I accept."
+   },
+   {
+    "division_ordinal": 10,
+    "division_name": "Capítulo 10",
+    "section": null,
+    "chapter": 10,
+    "number": 20,
+    "text": "I am the soul which dwells in the heart of all beings; I am the beginning and the middle and also the end of all beings."
+   },
+   {
+    "division_ordinal": 12,
+    "division_name": "Capítulo 12",
+    "section": null,
+    "chapter": 12,
+    "number": 13,
+    "text": "He that hateth nought of all which lives, living himself benign, compassionate, from arrogance exempt, exempt from love of self, unchangeable by good or ill."
+   },
+   {
+    "division_ordinal": 12,
+    "division_name": "Capítulo 12",
+    "section": null,
+    "chapter": 12,
+    "number": 15,
+    "text": "He from whom the world doth not shrink and who does not shrink from the world, freed from the joy of anger, fear and trouble, he is dear to me."
+   },
+   {
+    "division_ordinal": 13,
+    "division_name": "Capítulo 13",
+    "section": null,
+    "chapter": 13,
+    "number": 27,
+    "text": "He seeth indeed who seeth the supreme Lord dwelling alike in all beings, undying in the dying."
+   },
+   {
+    "division_ordinal": 14,
+    "division_name": "Capítulo 14",
+    "section": null,
+    "chapter": 14,
+    "number": 5,
+    "text": "Goodness, passion, and darkness, these are the qualities which spring from nature and bind the imperishable dweller in the body."
+   },
+   {
+    "division_ordinal": 16,
+    "division_name": "Capítulo 16",
+    "section": null,
+    "chapter": 16,
+    "number": 1,
+    "text": "Fearlessness, purity of heart, steadfastness in knowledge and devotion, almsgiving, self-restraint and sacrifice, study of scripture, austerity, and uprightness."
+   },
+   {
+    "division_ordinal": 16,
+    "division_name": "Capítulo 16",
+    "section": null,
+    "chapter": 16,
+    "number": 21,
+    "text": "Threefold is the gate of hell, destructive of the soul: lust, wrath, and greed; therefore let a man renounce these three."
+   },
+   {
+    "division_ordinal": 18,
+    "division_name": "Capítulo 18",
+    "section": null,
+    "chapter": 18,
+    "number": 66,
+    "text": "Abandon all duties and come unto me alone for shelter; I will deliver thee from all sins; do not grieve."
+   }
+  ]
+ }
+}

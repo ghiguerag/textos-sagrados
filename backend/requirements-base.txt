@@ -1,0 +1,26 @@
+# Dependencias mínimas para que la API funcione.
+#
+# IMPORTANTE: versiones mínimas, no fijas.
+#
+# Con versiones clavadas (==), si tu versión de Python es más reciente que el
+# paquete, pip no encuentra un binario precompilado y compila desde código
+# fuente. Compilar numpy invoca a Meson, que genera ejecutables temporales de
+# prueba, y los antivirus los bloquean por heurística. El resultado es una
+# instalación rota y un aviso de virus que no es tal.
+#
+# Con rangos, pip elige siempre una versión que tenga binario listo para tu
+# Python, y no compila nada.
+#
+# La búsqueda semántica va aparte (requirements-semantic.txt): descarga un
+# modelo de ~470 MB y no todo el mundo la necesita.
+
+fastapi>=0.115,<1.0
+pydantic>=2.10,<3.0
+pydantic-settings>=2.7,<3.0
+httpx>=0.28,<1.0
+numpy>=2.0
+
+# uvicorn a secas, sin [standard]: los extras traen httptools y watchfiles,
+# que en Windows a veces se compilan desde fuente y provocan el mismo
+# problema. Sin ellos el servidor va igual de bien para este uso.
+uvicorn>=0.34,<1.0

@@ -1,0 +1,123 @@
+{
+  "@@locale": "pt",
+  "appTitle": "Textos Sagrados",
+  "navFrequency": "Frequências",
+  "navConcordance": "Concordância",
+  "navParallel": "Paralelo",
+  "navSemantic": "Semântica",
+  "navSettings": "Ajustes",
+  "searchHint": "Procurar uma palavra",
+  "corpusLanguage": "Idioma do texto",
+  "corpusLanguageHint": "Idioma dos textos analisados, não o do aplicativo",
+  "freqEmptyTitle": "Procure uma palavra ou escolha um campo semântico",
+  "freqEmptyHint": "Os resultados são normalizados por 10.000 palavras para que corpora de tamanhos diferentes sejam comparáveis.",
+  "freqChartTitle": "Frequência por 10.000 palavras",
+  "noResultsTitle": "Sem resultados",
+  "noResultsHint": "Nenhum corpus contém esse termo. Tente outra grafia ou mude o idioma do texto.",
+  "rootsCount": "{count} raízes",
+  "@rootsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "occurrences": "{count} ocorrências",
+  "@occurrences": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "versesCount": "{count} versículos",
+  "@versesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "presentInDivisions": "presente em {present} de {total} divisões",
+  "@presentInDivisions": {
+    "placeholders": {
+      "present": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "total": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "distinctivelyFrequent": "Distintivamente frequente",
+  "distinctivelyRare": "Distintivamente escasso",
+  "perTenK": "/10 mil",
+  "distributionTitle": "Distribuição interna",
+  "distributionHint": "Onde o termo se concentra dentro de cada obra. Um termo disperso caracteriza o texto; um concentrado num só livro, não.",
+  "heatmapLegend": "Cada célula é um livro ou capítulo, em ordem canônica. Mais escuro = maior densidade.",
+  "concEmptyTitle": "Concordância",
+  "concEmptyHint": "Procure um termo para ver cada passagem onde aparece, com a referência exata.",
+  "concShowing": "mostrando {count}",
+  "@concShowing": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "concNoneTitle": "Sem ocorrências na seleção atual",
+  "parEmptyTitle": "Leitura em paralelo",
+  "parEmptyHint": "Escolha um conceito para ver, lado a lado, como cada tradição o aborda.",
+  "semHint": "Descreva uma ideia com suas palavras",
+  "semTryTitle": "Experimente",
+  "semExplanation": "A busca semântica compara o significado da sua frase com o de cada versículo através de um modelo vetorial multilíngue. Encontra passagens afins mesmo sem palavras em comum.",
+  "semNoneTitle": "Nenhuma passagem supera o limiar de similaridade",
+  "semNoneHint": "Tente reformular a ideia de forma mais concreta.",
+  "semExample1": "perdoar quem lhe fez mal",
+  "semExample2": "o destino da alma após a morte",
+  "semExample3": "como se deve tratar o estrangeiro",
+  "semExample4": "a riqueza como obstáculo espiritual",
+  "semExample5": "não julgue os outros",
+  "setServer": "Servidor",
+  "setServerUpdated": "Servidor atualizado",
+  "setLanguage": "Idioma do aplicativo",
+  "setLanguageSystem": "Igual ao sistema",
+  "setTexts": "Textos e licenças",
+  "setLicenseNote": "Todas as edições incluídas estão em domínio público. As traduções modernas têm direitos autorais e não podem ser distribuídas sem licença.",
+  "setWordsCount": "{count} palavras",
+  "@setWordsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "setMethod": "Sobre o método",
+  "methodNormTitle": "Normalização",
+  "methodNormBody": "Todas as frequências são expressas por 10.000 palavras. Os corpora têm tamanhos muito díspares e as contagens brutas não são comparáveis.",
+  "methodSigTitle": "Significância estatística",
+  "methodSigBody": "As diferenças são testadas com log-likelihood (Dunning 1993), o padrão em linguística de corpus. Só se marcam como distintivas as que superam p < 0,0001.",
+  "methodTransTitle": "Efeito da tradução",
+  "methodTransBody": "Cada texto é uma tradução concreta. O vocabulário do tradutor influencia os resultados. Compare sempre edições do mesmo idioma e trate os números como indícios sobre a tradução, não sobre o original.",
+  "methodScopeTitle": "Alcance",
+  "methodScopeBody": "Esta ferramenta descreve padrões lexicais. Não interpreta doutrina nem estabelece equivalências teológicas entre tradições.",
+  "caveatFrequencyNormalization": "As frequências são normalizadas por 10.000 palavras porque os corpora têm tamanhos muito diferentes. Além disso, cada texto é uma tradução: as escolhas lexicais do tradutor afetam os resultados.",
+  "caveatSemanticSimilarity": "A similaridade vetorial mede semelhança linguística, não equivalência doutrinária. Duas passagens muito parecidas podem significar coisas distintas em suas tradições.",
+  "errConnection": "Não foi possível conectar ao servidor. Verifique o endereço em Ajustes.",
+  "errNotFound": "Não encontrado.",
+  "errInvalidQuery": "Consulta inválida.",
+  "errSemanticUnavailable": "A busca por significado não está disponível neste servidor.",
+  "errGeneric": "Ocorreu um erro.",
+  "retry": "Tentar de novo",
+  "tradChristianity": "Cristianismo",
+  "tradJudaism": "Judaísmo",
+  "tradIslam": "Islã",
+  "tradHinduism": "Hinduísmo"
+}

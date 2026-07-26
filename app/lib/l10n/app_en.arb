@@ -1,0 +1,123 @@
+{
+  "@@locale": "en",
+  "appTitle": "Sacred Texts",
+  "navFrequency": "Frequencies",
+  "navConcordance": "Concordance",
+  "navParallel": "Parallel",
+  "navSemantic": "Semantic",
+  "navSettings": "Settings",
+  "searchHint": "Search for a word",
+  "corpusLanguage": "Text language",
+  "corpusLanguageHint": "Language of the texts being analysed, not of the app",
+  "freqEmptyTitle": "Search for a word or pick a semantic field",
+  "freqEmptyHint": "Results are normalised per 10,000 words so that corpora of different sizes can be compared.",
+  "freqChartTitle": "Frequency per 10,000 words",
+  "noResultsTitle": "No results",
+  "noResultsHint": "No corpus contains that term. Try a different spelling or change the text language.",
+  "rootsCount": "{count} roots",
+  "@rootsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "occurrences": "{count} occurrences",
+  "@occurrences": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "versesCount": "{count} verses",
+  "@versesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "presentInDivisions": "present in {present} of {total} divisions",
+  "@presentInDivisions": {
+    "placeholders": {
+      "present": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "total": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "distinctivelyFrequent": "Distinctively frequent",
+  "distinctivelyRare": "Distinctively rare",
+  "perTenK": "/10k",
+  "distributionTitle": "Internal distribution",
+  "distributionHint": "Where the term clusters within each work. A dispersed term characterises the text; one concentrated in a single book does not.",
+  "heatmapLegend": "Each cell is a book or chapter, in canonical order. Darker = higher density.",
+  "concEmptyTitle": "Concordance",
+  "concEmptyHint": "Search for a term to see every passage where it appears, with its exact reference.",
+  "concShowing": "showing {count}",
+  "@concShowing": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "concNoneTitle": "No occurrences in the current selection",
+  "parEmptyTitle": "Parallel reading",
+  "parEmptyHint": "Pick a concept to see, side by side, how each tradition approaches it.",
+  "semHint": "Describe an idea in your own words",
+  "semTryTitle": "Try",
+  "semExplanation": "Semantic search compares the meaning of your phrase with each verse using a multilingual vector model. It finds related passages even when they share no words with your query.",
+  "semNoneTitle": "No passage passes the similarity threshold",
+  "semNoneHint": "Try rephrasing the idea more concretely.",
+  "semExample1": "forgiving someone who has wronged you",
+  "semExample2": "the fate of the soul after death",
+  "semExample3": "how the stranger should be treated",
+  "semExample4": "wealth as a spiritual obstacle",
+  "semExample5": "do not judge others",
+  "setServer": "Server",
+  "setServerUpdated": "Server updated",
+  "setLanguage": "App language",
+  "setLanguageSystem": "Same as system",
+  "setTexts": "Texts and licences",
+  "setLicenseNote": "All included editions are in the public domain. Modern translations are under copyright and cannot be distributed without a licence.",
+  "setWordsCount": "{count} words",
+  "@setWordsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "setMethod": "About the method",
+  "methodNormTitle": "Normalisation",
+  "methodNormBody": "All frequencies are expressed per 10,000 words. The corpora differ greatly in size and raw counts are not comparable.",
+  "methodSigTitle": "Statistical significance",
+  "methodSigBody": "Differences are tested with log-likelihood (Dunning 1993), the standard in corpus linguistics. Only those beyond p < 0.0001 are marked as distinctive.",
+  "methodTransTitle": "Effect of translation",
+  "methodTransBody": "Each text is a specific translation. The translator's vocabulary shapes the results. Always compare editions in the same language, and read the figures as evidence about the translation, not the original.",
+  "methodScopeTitle": "Scope",
+  "methodScopeBody": "This tool describes lexical patterns. It does not interpret doctrine or establish theological equivalences between traditions.",
+  "caveatFrequencyNormalization": "Frequencies are normalised per 10,000 words because the corpora differ greatly in size. Also, each text is a translation: the translator's lexical choices affect the results.",
+  "caveatSemanticSimilarity": "Vector similarity measures linguistic resemblance, not doctrinal equivalence. Two very similar passages may mean different things within their traditions.",
+  "errConnection": "Could not reach the server. Check the address in Settings.",
+  "errNotFound": "Not found.",
+  "errInvalidQuery": "Invalid query.",
+  "errSemanticUnavailable": "Semantic search is not available on this server.",
+  "errGeneric": "Something went wrong.",
+  "retry": "Retry",
+  "tradChristianity": "Christianity",
+  "tradJudaism": "Judaism",
+  "tradIslam": "Islam",
+  "tradHinduism": "Hinduism"
+}

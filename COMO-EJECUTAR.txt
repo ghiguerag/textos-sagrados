@@ -1,0 +1,64 @@
+===========================================================
+  SI HACES DOBLE CLIC Y NO PASA NADA
+===========================================================
+
+Lo mas probable es que la ventana se haya abierto y cerrado
+tan rapido que no te ha dado tiempo a verla.
+
+Haz esto para verla:
+
+  PASO 1
+  Haz doble clic en:  COMPROBAR-Windows.bat
+
+  Ese archivo NO instala nada. Solo mira en que estado esta
+  todo y te lo explica. Y su ventana no se cierra sola.
+
+  Ademas deja un informe escrito en esta misma carpeta,
+  llamado: informe-comprobacion.txt
+
+  Si algo va mal, abre ese archivo y pasamelo.
+
+
+===========================================================
+  OTRA FORMA DE VERLO TODO (si lo anterior no funciona)
+===========================================================
+
+  PASO 1
+  Abre esta carpeta en el Explorador de Windows.
+
+  PASO 2
+  Haz clic en la barra de direcciones de arriba
+  (donde pone la ruta de la carpeta).
+
+  PASO 3
+  Borra lo que hay escrito, escribe:   cmd
+  y pulsa Intro.
+
+  Se abrira una ventana negra, ya situada en esta carpeta.
+
+  PASO 4
+  Escribe esto y pulsa Intro:
+
+      COMPROBAR-Windows.bat
+
+  Ahora la ventana no se cerrara pase lo que pase, y veras
+  todos los mensajes, incluidos los errores.
+
+  Para instalar, en esa misma ventana negra escribe:
+
+      INSTALAR-Windows.bat
+
+
+===========================================================
+  QUE ARCHIVO ES CADA COSA
+===========================================================
+
+  COMPROBAR-Windows.bat   Mira como esta todo. No cambia nada.
+                          Empieza siempre por aqui.
+
+  INSTALAR-Windows.bat    Instala y descarga los textos.
+                          Se puede ejecutar varias veces.
+
+  INICIAR-Windows.bat     Enciende el servidor para usar la app.
+                          Se usa cada dia.
+

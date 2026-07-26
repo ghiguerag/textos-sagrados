@@ -1,0 +1,9 @@
+# Este fichero se ha dividido para que la instalación básica sea ligera:
+#
+#   requirements-base.txt      API y motor de análisis (lo imprescindible)
+#   requirements-semantic.txt  búsqueda por significado (~470 MB de modelo)
+#   requirements-dev.txt       tests
+#
+# Instalación normal:
+#   pip install -r requirements-base.txt
+-r requirements-base.txt

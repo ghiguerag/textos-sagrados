@@ -1,0 +1,309 @@
+{
+  "@@locale": "es",
+  "appTitle": "Textos Sagrados",
+  "@appTitle": {
+    "description": "appTitle"
+  },
+  "navFrequency": "Frecuencias",
+  "@navFrequency": {
+    "description": "navFrequency"
+  },
+  "navConcordance": "Concordancia",
+  "@navConcordance": {
+    "description": "navConcordance"
+  },
+  "navParallel": "Paralelo",
+  "@navParallel": {
+    "description": "navParallel"
+  },
+  "navSemantic": "Semántica",
+  "@navSemantic": {
+    "description": "navSemantic"
+  },
+  "navSettings": "Ajustes",
+  "@navSettings": {
+    "description": "navSettings"
+  },
+  "searchHint": "Buscar una palabra",
+  "@searchHint": {
+    "description": "searchHint"
+  },
+  "corpusLanguage": "Idioma del texto",
+  "@corpusLanguage": {
+    "description": "corpusLanguage"
+  },
+  "corpusLanguageHint": "Idioma de los textos que se analizan, no el de la aplicación",
+  "@corpusLanguageHint": {
+    "description": "corpusLanguageHint"
+  },
+  "freqEmptyTitle": "Busca una palabra o elige un campo semántico",
+  "@freqEmptyTitle": {
+    "description": "freqEmptyTitle"
+  },
+  "freqEmptyHint": "Los resultados se normalizan por cada 10.000 palabras para que corpus de tamaños distintos sean comparables.",
+  "@freqEmptyHint": {
+    "description": "freqEmptyHint"
+  },
+  "freqChartTitle": "Frecuencia por 10.000 palabras",
+  "@freqChartTitle": {
+    "description": "freqChartTitle"
+  },
+  "noResultsTitle": "Sin resultados",
+  "@noResultsTitle": {
+    "description": "noResultsTitle"
+  },
+  "noResultsHint": "Ningún corpus contiene ese término. Prueba con otra grafía o cambia el idioma del texto.",
+  "@noResultsHint": {
+    "description": "noResultsHint"
+  },
+  "rootsCount": "{count} raíces",
+  "@rootsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "occurrences": "{count} apariciones",
+  "@occurrences": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "versesCount": "{count} versículos",
+  "@versesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "presentInDivisions": "presente en {present} de {total} divisiones",
+  "@presentInDivisions": {
+    "placeholders": {
+      "present": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "total": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "distinctivelyFrequent": "Distintivamente frecuente",
+  "@distinctivelyFrequent": {
+    "description": "distinctivelyFrequent"
+  },
+  "distinctivelyRare": "Distintivamente escaso",
+  "@distinctivelyRare": {
+    "description": "distinctivelyRare"
+  },
+  "perTenK": "/10 mil",
+  "@perTenK": {
+    "description": "perTenK"
+  },
+  "distributionTitle": "Distribución interna",
+  "@distributionTitle": {
+    "description": "distributionTitle"
+  },
+  "distributionHint": "Dónde se concentra el término dentro de cada obra. Un término disperso caracteriza al texto; uno concentrado en un solo libro, no.",
+  "@distributionHint": {
+    "description": "distributionHint"
+  },
+  "heatmapLegend": "Cada celda es un libro o capítulo, en orden canónico. Más oscuro = mayor densidad.",
+  "@heatmapLegend": {
+    "description": "heatmapLegend"
+  },
+  "concEmptyTitle": "Concordancia",
+  "@concEmptyTitle": {
+    "description": "concEmptyTitle"
+  },
+  "concEmptyHint": "Busca un término para ver cada pasaje donde aparece, con su referencia exacta.",
+  "@concEmptyHint": {
+    "description": "concEmptyHint"
+  },
+  "concShowing": "mostrando {count}",
+  "@concShowing": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "concNoneTitle": "Sin apariciones en la selección actual",
+  "@concNoneTitle": {
+    "description": "concNoneTitle"
+  },
+  "parEmptyTitle": "Lectura en paralelo",
+  "@parEmptyTitle": {
+    "description": "parEmptyTitle"
+  },
+  "parEmptyHint": "Elige un concepto para ver, lado a lado, cómo lo aborda cada tradición.",
+  "@parEmptyHint": {
+    "description": "parEmptyHint"
+  },
+  "semHint": "Describe una idea con tus palabras",
+  "@semHint": {
+    "description": "semHint"
+  },
+  "semTryTitle": "Prueba con",
+  "@semTryTitle": {
+    "description": "semTryTitle"
+  },
+  "semExplanation": "La búsqueda semántica compara el significado de tu frase con el de cada versículo mediante un modelo vectorial multilingüe. Encuentra pasajes afines aunque no compartan ni una palabra contigo.",
+  "@semExplanation": {
+    "description": "semExplanation"
+  },
+  "semNoneTitle": "Ningún pasaje supera el umbral de similitud",
+  "@semNoneTitle": {
+    "description": "semNoneTitle"
+  },
+  "semNoneHint": "Prueba a reformular la idea de forma más concreta.",
+  "@semNoneHint": {
+    "description": "semNoneHint"
+  },
+  "semExample1": "perdonar a quien te ha hecho daño",
+  "@semExample1": {
+    "description": "semExample1"
+  },
+  "semExample2": "el destino del alma tras la muerte",
+  "@semExample2": {
+    "description": "semExample2"
+  },
+  "semExample3": "cómo debe tratarse al extranjero",
+  "@semExample3": {
+    "description": "semExample3"
+  },
+  "semExample4": "la riqueza es un obstáculo espiritual",
+  "@semExample4": {
+    "description": "semExample4"
+  },
+  "semExample5": "no juzgues a los demás",
+  "@semExample5": {
+    "description": "semExample5"
+  },
+  "setServer": "Servidor",
+  "@setServer": {
+    "description": "setServer"
+  },
+  "setServerUpdated": "Servidor actualizado",
+  "@setServerUpdated": {
+    "description": "setServerUpdated"
+  },
+  "setLanguage": "Idioma de la aplicación",
+  "@setLanguage": {
+    "description": "setLanguage"
+  },
+  "setLanguageSystem": "Igual que el sistema",
+  "@setLanguageSystem": {
+    "description": "setLanguageSystem"
+  },
+  "setTexts": "Textos y licencias",
+  "@setTexts": {
+    "description": "setTexts"
+  },
+  "setLicenseNote": "Todas las ediciones incluidas están en dominio público. Las traducciones modernas están protegidas por derechos de autor y no pueden distribuirse sin licencia.",
+  "@setLicenseNote": {
+    "description": "setLicenseNote"
+  },
+  "setWordsCount": "{count} palabras",
+  "@setWordsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "setMethod": "Sobre el método",
+  "@setMethod": {
+    "description": "setMethod"
+  },
+  "methodNormTitle": "Normalización",
+  "@methodNormTitle": {
+    "description": "methodNormTitle"
+  },
+  "methodNormBody": "Todas las frecuencias se expresan por cada 10.000 palabras. Los corpus tienen tamaños muy dispares y los conteos brutos no son comparables entre sí.",
+  "@methodNormBody": {
+    "description": "methodNormBody"
+  },
+  "methodSigTitle": "Significación estadística",
+  "@methodSigTitle": {
+    "description": "methodSigTitle"
+  },
+  "methodSigBody": "Las diferencias se contrastan con log-likelihood (Dunning 1993), el estándar en lingüística de corpus. Se marcan como distintivas solo las que superan p < 0,0001.",
+  "@methodSigBody": {
+    "description": "methodSigBody"
+  },
+  "methodTransTitle": "Efecto de la traducción",
+  "@methodTransTitle": {
+    "description": "methodTransTitle"
+  },
+  "methodTransBody": "Cada texto es una traducción concreta. El vocabulario del traductor influye en los resultados. Compare siempre ediciones del mismo idioma, y trate las cifras como indicios sobre la traducción, no sobre el original.",
+  "@methodTransBody": {
+    "description": "methodTransBody"
+  },
+  "methodScopeTitle": "Alcance",
+  "@methodScopeTitle": {
+    "description": "methodScopeTitle"
+  },
+  "methodScopeBody": "Esta herramienta describe patrones léxicos. No interpreta doctrina ni establece equivalencias teológicas entre tradiciones.",
+  "@methodScopeBody": {
+    "description": "methodScopeBody"
+  },
+  "caveatFrequencyNormalization": "Las frecuencias se normalizan por cada 10.000 palabras porque los corpus tienen tamaños muy distintos. Además, cada texto es una traducción: la elección léxica del traductor afecta a los resultados.",
+  "@caveatFrequencyNormalization": {
+    "description": "caveatFrequencyNormalization"
+  },
+  "caveatSemanticSimilarity": "La similitud vectorial mide parecido lingüístico, no equivalencia doctrinal. Dos pasajes muy similares pueden significar cosas distintas en sus tradiciones.",
+  "@caveatSemanticSimilarity": {
+    "description": "caveatSemanticSimilarity"
+  },
+  "errConnection": "No se pudo conectar con el servidor. Comprueba la dirección en Ajustes.",
+  "@errConnection": {
+    "description": "errConnection"
+  },
+  "errNotFound": "No encontrado.",
+  "@errNotFound": {
+    "description": "errNotFound"
+  },
+  "errInvalidQuery": "Consulta inválida.",
+  "@errInvalidQuery": {
+    "description": "errInvalidQuery"
+  },
+  "errSemanticUnavailable": "La búsqueda por significado no está disponible en este servidor.",
+  "@errSemanticUnavailable": {
+    "description": "errSemanticUnavailable"
+  },
+  "errGeneric": "Se ha producido un error.",
+  "@errGeneric": {
+    "description": "errGeneric"
+  },
+  "retry": "Reintentar",
+  "@retry": {
+    "description": "retry"
+  },
+  "tradChristianity": "Cristianismo",
+  "@tradChristianity": {
+    "description": "tradChristianity"
+  },
+  "tradJudaism": "Judaísmo",
+  "@tradJudaism": {
+    "description": "tradJudaism"
+  },
+  "tradIslam": "Islam",
+  "@tradIslam": {
+    "description": "tradIslam"
+  },
+  "tradHinduism": "Hinduismo",
+  "@tradHinduism": {
+    "description": "tradHinduism"
+  }
+}

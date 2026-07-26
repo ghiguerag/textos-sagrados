@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Textos Sagrados — Análisis comparado</title>
+<style>
+/* Sin dependencias externas: la interfaz funciona sin conexión y no envía
+   datos a terceros. Todo (estilos, gráficos, lógica) está en este archivo. */
+/* Estilo híbrido: estructura moderna y limpia, calidez editorial. Tipografía
+   con serifa para títulos y texto sagrado, monoespaciada para las cifras.
+   Sin fuentes externas: todo con tipografías del sistema, funciona sin red. */
+:root{
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:"SFMono-Regular","Cascadia Code","Segoe UI Mono",Consolas,monospace;
+  --bg:#17130d; --panel:#201b13; --panel2:#2a2318; --line:#3a3123;
+  --txt:#ece4d4; --dim:#a0937c; --accent:#7ea3cf; --soft:rgba(126,163,207,.15);
+  --cristianismo:#6d9bd9; --judaismo:#46b892; --islam:#d99f52; --hinduismo:#d66e95;
+}
+@media (prefers-color-scheme: light){
+  :root{ --bg:#f4efe5; --panel:#fffdf8; --panel2:#efe7d8; --line:#e2d9c6;
+         --txt:#2c2721; --dim:#726a58; --accent:#3f6491; --soft:rgba(63,100,145,.10);
+         --cristianismo:#3f6491; --judaismo:#1d9e75; --islam:#b0761d; --hinduismo:#bf4f77; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);
+     font:15px/1.6 var(--sans)}
+header{padding:16px 24px;border-bottom:1px solid var(--line);
+       display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:13px}
+.mark{color:var(--accent);flex:none}
+h1{font-family:var(--serif);font-size:23px;margin:0;font-weight:600;
+   letter-spacing:.2px;line-height:1.05}
+.sub{color:var(--dim);font-size:12.5px}
+main{max-width:1180px;margin:0 auto;padding:22px 24px 60px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+      padding:18px 20px;margin-bottom:16px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+input[type=text]{flex:1;min-width:220px;padding:12px 15px;border-radius:11px;
+  border:1px solid var(--line);background:var(--panel2);color:var(--txt);font-size:15px}
+input:focus{outline:2px solid var(--accent);outline-offset:-1px}
+button{padding:12px 20px;border-radius:11px;border:0;background:var(--accent);
+  color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:filter .15s}
+button:hover{filter:brightness(1.08)}
+button.ghost{background:var(--panel2);color:var(--txt);border:1px solid var(--line);
+  font-weight:500;padding:7px 14px;font-size:13.5px;border-radius:20px}
+button.ghost:hover{border-color:var(--accent)}
+button.ghost.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--line);margin:24px 0 20px;
+      flex-wrap:wrap}
+.tab{padding:10px 16px;cursor:pointer;color:var(--dim);border-bottom:2px solid transparent;
+     font-weight:500;font-size:14.5px;transition:color .15s}
+.tab:hover{color:var(--txt)}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.bar-row{display:grid;grid-template-columns:210px 1fr 82px;gap:12px;
+         align-items:center;margin-bottom:11px}
+.bar-track{background:var(--panel2);border-radius:6px;height:12px;overflow:hidden}
+.bar-fill{height:100%;border-radius:6px;transition:width .5s cubic-bezier(.2,.8,.3,1)}
+.bar-val{text-align:right;font-family:var(--mono);font-size:16px;font-weight:500}
+.meta{color:var(--dim);font-size:12.5px}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:7px;
+     vertical-align:middle;flex:none}
+.verse{background:var(--panel2);border-radius:11px;padding:14px 16px;margin-bottom:10px;
+       border-left:3px solid var(--accent)}
+.verse .ref{font-weight:600;font-size:13px;margin-bottom:6px;display:flex;
+            align-items:center;gap:2px;font-family:var(--mono)}
+.verse .txt{font-family:var(--serif);font-size:16px;line-height:1.66}
+mark{background:var(--soft);color:inherit;padding:0 3px;border-radius:3px;font-weight:600;
+     box-shadow:inset 0 -1px 0 var(--accent)}
+.heat{display:flex;flex-wrap:wrap;gap:3px;margin:9px 0 4px}
+.cell{width:21px;height:21px;border-radius:3px;cursor:default}
+.cols{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(275px,1fr))}
+.note{background:var(--soft);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;
+      padding:12px 15px;font-size:13px;color:var(--dim);margin-bottom:16px;line-height:1.55}
+.badge{display:inline-block;background:var(--panel2);border:1px solid var(--line);
+  border-radius:6px;padding:2px 8px;font-size:11.5px;margin:3px 4px 0 0;color:var(--dim)}
+.badge.hi{background:var(--soft);border-color:var(--accent);color:var(--txt)}
+/* Contadores desplegables: cada número es una puerta a su detalle. */
+.badge.clic{cursor:pointer;user-select:none;transition:background .15s,border-color .15s}
+.badge.clic:hover{background:var(--soft);border-color:var(--accent);color:var(--txt)}
+.badge.clic::after{content:' ▾';opacity:.55;font-size:10px}
+.badge.clic.open{background:var(--accent);border-color:var(--accent);color:#fff}
+.badge.clic.open::after{content:' ▴';opacity:.9}
+.detail{background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:9px;padding:14px 16px;margin:8px 0 16px}
+.detail h4{margin:0 0 4px;font-size:13.5px}
+.detail .why{color:var(--dim);font-size:12.5px;margin:0 0 11px;line-height:1.5}
+.dlist{display:grid;grid-template-columns:1fr auto;gap:3px 14px;
+  max-height:340px;overflow-y:auto;font-size:13.5px}
+.dlist .k{padding:4px 0;border-bottom:1px solid var(--line)}
+.dlist .v{padding:4px 0;border-bottom:1px solid var(--line);text-align:right;
+  font-variant-numeric:tabular-nums;color:var(--dim);white-space:nowrap}
+.dlist .k b{font-weight:650}
+.minibar{display:inline-block;height:7px;border-radius:3px;vertical-align:middle;
+  margin-left:9px;min-width:2px;opacity:.65}
+.dverse{border-bottom:1px solid var(--line);padding:9px 0}
+.dverse:last-child{border-bottom:0}
+.dverse .r{font-weight:650;font-size:12.5px;margin-bottom:3px}
+.dverse .t{font-family:var(--serif);font-size:14px;line-height:1.55}
+.scroll{max-height:400px;overflow-y:auto}
+.sem-box{display:none}
+.sem-box.on{display:block}
+.simil{font-variant-numeric:tabular-nums;font-weight:700;font-size:12px;
+  padding:2px 8px;border-radius:6px;background:var(--soft);
+  border:1px solid var(--accent);white-space:nowrap}
+.ejemplo{cursor:pointer}
+.par-btn{background:none;border:1px solid var(--line);color:var(--dim);
+  border-radius:6px;padding:3px 9px;font-size:11.5px;cursor:pointer;font-weight:500}
+.par-btn:hover{border-color:var(--accent);color:var(--txt)}
+.secc{display:grid;grid-template-columns:150px 1fr 130px;gap:10px;
+  align-items:center;margin-bottom:8px;font-size:13.5px}
+.secc .n{font-weight:600}
+.nube{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.pal{border:1px solid var(--line);border-radius:7px;padding:5px 10px;
+  cursor:pointer;background:var(--panel2);transition:border-color .15s}
+.pal:hover{border-color:var(--accent)}
+.pal b{font-weight:650}
+.pal span{color:var(--dim);font-size:11.5px;margin-left:5px}
+.selobra{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+/* Los botones de obra llevan el nombre del texto arriba y la edición debajo:
+   «M. Pickthall 1930» por sí solo no dice de qué libro se trata. */
+button.obra{display:flex;align-items:center;gap:8px;text-align:left;
+  padding:7px 13px;line-height:1.3}
+button.obra .ob{font-weight:650;font-size:13.5px}
+button.obra .ed{font-size:11.5px;opacity:.72;font-weight:400}
+button.obra .ed::before{content:'· '}
+.guia{max-width:760px}
+.guia h2{font-size:17px;margin:30px 0 10px;padding-top:16px;
+  border-top:1px solid var(--line)}
+.guia h2:first-of-type{border-top:0;padding-top:0;margin-top:6px}
+.guia p{line-height:1.68;margin:0 0 12px}
+.guia .clave{background:var(--panel2);border-left:3px solid var(--accent);
+  border-radius:8px;padding:13px 16px;margin:14px 0}
+.guia .aviso{background:rgba(201,138,46,.12);border-left:3px solid #c98a2e;
+  border-radius:8px;padding:13px 16px;margin:14px 0}
+.guia table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px}
+.guia th,.guia td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line)}
+.guia th{color:var(--dim);font-weight:600;font-size:12.5px}
+.guia .mal,.guia .bien{border-radius:8px;padding:12px 15px;margin:9px 0;
+  font-size:14px;line-height:1.6}
+.guia .mal{background:rgba(180,60,60,.12);border-left:3px solid #b43c3c}
+.guia .bien{background:rgba(70,150,90,.12);border-left:3px solid #4a9a5c}
+.guia .et{font-size:11px;text-transform:uppercase;letter-spacing:.05em;
+  color:var(--dim);margin-bottom:5px}
+.ayuda{cursor:help;border-bottom:1px dotted var(--dim)}
+.rescate{background:var(--soft);border-left:3px solid var(--accent);
+  border-radius:9px;padding:15px 17px;margin-bottom:16px;line-height:1.6}
+.rescate h4{margin:0 0 8px;font-size:15px}
+.rescate .ops{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px}
+/* Las palabras inglesas se marcan visualmente. Sin esto, traducciones como
+   «pecado» → «sin» se leen como si fueran español y confunden. */
+.ing{font-family:var(--serif);font-style:italic;
+  background:var(--soft);padding:1px 7px;border-radius:5px;
+  border:1px solid var(--line)}
+.trad{margin-top:10px;padding:10px 12px;border-radius:8px;
+  background:var(--soft);border-left:2px solid var(--accent)}
+.trad .et{font-size:11px;color:var(--dim);text-transform:uppercase;
+  letter-spacing:.04em;margin-bottom:4px}
+.trad .tx{font-family:var(--serif);font-size:15px;line-height:1.6;font-style:italic}
+.dup{margin-top:9px;padding-top:9px;border-top:1px dashed var(--line)}
+.dup .cab{font-size:11.5px;color:var(--dim);margin-bottom:5px}
+.dup .otro{font-size:13.5px;padding:5px 0}
+.switch{display:flex;align-items:center;gap:7px;cursor:pointer;font-size:13px;
+  color:var(--dim);user-select:none;padding:5px 11px;border-radius:8px;
+  border:1px solid var(--line);background:var(--panel2)}
+.switch:hover{border-color:var(--accent);color:var(--txt)}
+.switch input{accent-color:var(--accent);cursor:pointer;margin:0}
+.cuota{background:#5a4420;color:#ffeccc;padding:10px 13px;border-radius:8px;
+  font-size:13px;margin:10px 0;line-height:1.5}
+.empty{text-align:center;padding:52px 20px;color:var(--dim)}
+.spin{width:26px;height:26px;border:3px solid var(--line);border-top-color:var(--accent);
+  border-radius:50%;animation:sp .8s linear infinite;margin:34px auto}
+@keyframes sp{to{transform:rotate(360deg)}}
+.err{background:#5a2020;color:#ffd9d9;padding:13px 16px;border-radius:9px;margin-bottom:14px}
+h3{font-family:var(--serif);font-size:17px;font-weight:600;margin:22px 0 10px}
+select{padding:10px 13px;border-radius:11px;background:var(--panel2);color:var(--txt);
+  border:1px solid var(--line);font-size:14px}
+.guia h2{font-family:var(--serif)!important;font-weight:600!important;font-size:19px!important}
+.dverse .t,.simil{font-family:var(--mono)}
+.simil{font-weight:500}
+/* Bienvenida */
+.welcome{text-align:center;max-width:640px;margin:12px auto;padding:24px 12px}
+.welcome h2{font-family:var(--serif);font-size:25px;font-weight:600;margin:24px 0 12px;line-height:1.2}
+.welcome p{color:var(--dim);font-size:14.5px;line-height:1.7;margin:0 auto 24px;max-width:520px}
+.w-embs{display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
+.w-emb{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:12.5px;color:var(--dim)}
+.w-quick{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:22px}
+.w-pan{background:var(--accent);color:#fff;border:0;padding:12px 24px;border-radius:11px;
+  font-size:14.5px;font-weight:600;cursor:pointer}
+/* Panorama */
+.pano{display:grid;gap:5px;align-items:center}
+.pano-h{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11.5px;
+  color:var(--dim);text-align:center;line-height:1.2}
+.pano-l{font-size:13.5px;padding-right:8px}
+.pano-c{height:46px;border-radius:8px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;line-height:1.1;
+  font-family:var(--mono);font-size:15px;cursor:pointer;transition:transform .1s}
+.pano-c:hover{transform:scale(1.06)}
+.pano-c .pu{font-size:9px;opacity:.65;margin-top:1px;letter-spacing:.3px}
+/* Acerca de */
+.acerca{max-width:680px}
+.acerca h3{font-family:var(--serif);font-size:18px;margin:26px 0 8px;
+  padding-top:16px;border-top:1px solid var(--line)}
+.acerca p{line-height:1.7;margin:0 0 10px}
+.ac-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.ac-head h2{font-family:var(--serif);font-size:24px;font-weight:600;margin:0}
+.form{background:var(--panel2);border:1px solid var(--line);border-radius:12px;
+  padding:16px;display:flex;flex-direction:column;gap:10px;margin:10px 0}
+textarea{width:100%;padding:11px 13px;border-radius:11px;border:1px solid var(--line);
+  background:var(--panel);color:var(--txt);font:14px/1.5 var(--sans);resize:vertical}
+textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.form .ops{display:flex;gap:8px;flex-wrap:wrap}
+.fb-ok{color:var(--accent);font-size:13px;margin-top:2px}
+.cred-obra{padding:7px 0;border-bottom:1px solid var(--line);font-size:14px}
+.cred-obra:last-child{border-bottom:0}
+.cred-obra a{color:var(--accent)}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <svg class="mark" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true" fill="none">
+      <path d="M17 8.5C13.5 6.5 8 6.3 4.5 7.4V26c3.5-1.1 9-0.9 12.5 1.1 3.5-2 9-2.2 12.5-1.1V7.4C25.5 6.3 20 6.5 17 8.5Z"
+            stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+      <path d="M17 8.7V27" stroke="currentColor" stroke-width="1.7"/>
+      <path d="M7.5 12h5M7.5 15.5h5M21.5 12h5M21.5 15.5h5"
+            stroke="currentColor" stroke-width="1.3" stroke-linecap="round" opacity=".55"/>
+    </svg>
+    <div>
+      <h1>Textos Sagrados</h1>
+      <span class="sub">Análisis léxico comparado · dominio público</span>
+    </div>
+  </div>
+  <span style="flex:1"></span>
+  <label class="switch" title="Muestra una traducción automática debajo de cada versículo">
+    <input type="checkbox" id="autotrad">
+    <span>Traducir al español</span>
+  </label>
+  <span class="sub" id="ver" title="Versión del servidor"></span>
+</header>
+
+<main>
+  <div class="card" id="cajaSem" style="display:none">
+    <div class="row">
+      <input type="text" id="qs" autocomplete="off"
+             placeholder="Describe una idea con tus palabras: perdonar a quien te ha hecho daño…">
+      <button id="gos">Buscar</button>
+    </div>
+    <div class="chips" id="ejemplos"></div>
+  </div>
+
+  <div class="card" id="cajaLex">
+    <div class="row">
+      <input type="text" id="q"
+             placeholder="Escribe una palabra en español o en inglés"
+             autocomplete="off">
+      <select id="lang" title="Idioma de los textos que se analizan"></select>
+      <button id="go">Analizar</button>
+    </div>
+    <div class="chips" id="fields"></div>
+  </div>
+
+  <div id="avisoIdioma"></div>
+  <div id="err"></div>
+
+  <div class="tabs">
+    <div class="tab on" data-t="freq">Frecuencias</div>
+    <div class="tab" data-t="panorama">Panorama</div>
+    <div class="tab" data-t="conc">Concordancia</div>
+    <div class="tab" data-t="par">Lado a lado</div>
+    <div class="tab" data-t="sem">Por significado</div>
+    <div class="tab" data-t="perfil">Perfil de cada obra</div>
+    <div class="tab" data-t="guia">Cómo leer esto</div>
+    <div class="tab" data-t="acerca">Acerca de</div>
+  </div>
+
+  <div id="out">
+    <div class="empty">
+      <p style="font-size:17px;margin-bottom:6px">Elige un concepto o escribe una palabra</p>
+      <p style="font-size:13.5px">Los resultados se normalizan por cada 10.000 palabras,
+      porque los corpus tienen tamaños muy distintos.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+// Si la página se abre con doble clic (protocolo file://), las rutas
+// relativas no apuntan a ningún servidor y todo falla. En ese caso apuntamos
+// al servidor local de forma absoluta: CORS ya está abierto para permitirlo.
+const API = location.protocol === 'file:' ? 'http://localhost:8000' : '';
+// Prestaciones que esta interfaz necesita del servidor. Si el servidor
+// arrancó con código antiguo no las tendrá, y conviene decirlo claramente en
+// vez de dejar que una ruta devuelva 404 sin contexto.
+const VERSION_ESPERADA = '1.10.0';
+const REQUIERE = ['frequency','divisions','concordance','parallel','forms',
+                  'sections','distinctive','collocations','semantic-status',
+                  'translate','dedup','resolver-termino'];
+
+// Sugerencias de consulta. Deben ser ideas, no palabras sueltas: es lo que
+// distingue esta búsqueda de la léxica y no siempre resulta evidente.
+const EJEMPLOS_SEM = [
+  'perdonar a quien te ha hecho daño',
+  'el destino del alma tras la muerte',
+  'cómo debe tratarse al extranjero',
+  'la riqueza es un obstáculo espiritual',
+  'no juzgues a los demás',
+  'el sufrimiento tiene un sentido',
+];
+
+// El idioma no es solo una etiqueta: determina cómo se reduce cada palabra a
+// su raíz. Buscar «misericordia» contra un corpus inglés no da cero por un
+// fallo, sino porque son sistemas morfológicos distintos.
+const IDIOMAS = {
+  en: {nombre:'Textos en inglés',  ejemplos:'pecado, mercy, guerra…',
+       hint:'Escribe una palabra en español o en inglés: '},
+  es: {nombre:'Textos en español', ejemplos:'misericordia, justicia, guerra…',
+       hint:'Escribe una palabra: '},
+};
+let WORKS = {}, FIELDS = [], SERVIDOR = {},
+    STATE = {term:'', field:null, lang:'en', tab:'freq'};
+const $ = s => document.querySelector(s);
+
+const TRAD = {cristianismo:'Cristianismo', judaismo:'Judaísmo',
+              islam:'Islam', hinduismo:'Hinduismo'};
+const color = t => getComputedStyle(document.documentElement)
+                     .getPropertyValue('--'+t).trim() || '#5b8fd6';
+
+// Color de la tradición con transparencia, para los mapas de calor.
+function hexA(hex, a){
+  const h = hex.replace('#','');
+  const n = h.length === 3 ? h.split('').map(c => c + c).join('') : h;
+  const r = parseInt(n.slice(0,2),16), g = parseInt(n.slice(2,4),16), b = parseInt(n.slice(4,6),16);
+  return `rgba(${r},${g},${b},${a})`;
+}
+
+// Emblema geométrico por tradición. Deliberadamente abstracto: nunca un
+// símbolo religioso real, para no romper la neutralidad de la aplicación.
+function EMBLEMA(t, s){
+  s = s || 20;
+  const c = color(t);
+  const shapes = {
+    cristianismo: `<circle cx="12" cy="12" r="7" fill="${c}"/>`,
+    judaismo: `<rect x="6" y="6" width="12" height="12" rx="2" transform="rotate(45 12 12)" fill="${c}"/>`,
+    islam: `<path d="M12 5.4 L18.6 18 H5.4 Z" fill="${c}"/>`,
+    hinduismo: `<circle cx="12" cy="12" r="6.6" fill="none" stroke="${c}" stroke-width="2.6"/><circle cx="12" cy="12" r="2.3" fill="${c}"/>`
+  };
+  return `<span style="display:inline-flex;align-items:center;justify-content:center;width:${s}px;height:${s}px;flex:none"><svg width="${s}" height="${s}" viewBox="0 0 24 24" aria-hidden="true">${shapes[t] || shapes.cristianismo}</svg></span>`;
+}
+
+async function api(path, opts){
+  const r = await fetch(API+path, opts);
+  if(!r.ok){
+    let d = '';
+    try{
+      const cuerpo = await r.json();
+      const det = cuerpo.detail;
+      // Un error de validación (422) llega como lista de objetos. Sin esto
+      // el usuario veía «[object Object]», que no dice absolutamente nada.
+      if(Array.isArray(det)){
+        d = det.map(x => {
+          const campo = (x.loc || []).filter(p => p !== 'body').join('.');
+          return campo ? `${campo}: ${x.msg}` : x.msg;
+        }).join(' · ');
+      } else if(typeof det === 'string'){
+        d = det;
+      } else if(det){
+        d = JSON.stringify(det);
+      }
+    }catch(e){}
+    throw new Error(d || ('Error ' + r.status));
+  }
+  return r.json();
+}
+const post = (p,b) => api(p,{method:'POST',
+  headers:{'Content-Type':'application/json'}, body:JSON.stringify(b)});
+
+// Tolerante con null y undefined a propósito: un solo campo ausente en una
+// respuesta del servidor no debe tumbar la pantalla entera.
+function esc(s){
+  if(s === null || s === undefined) return '';
+  return String(s).replace(/[&<>"]/g, c =>
+    ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+}
+
+function highlight(text, forms){
+  const t = esc(text);
+  const good = (forms||[]).filter(f => f && f.length > 2);
+  if(!good.length) return t;
+  const re = new RegExp('\\b('+good.map(f =>
+    f.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')\\w*','gi');
+  return t.replace(re, m => '<mark>'+m+'</mark>');
+}
+
+// ---------- carga inicial ----------
+function avisoVersionDesfasada(vServidor){
+  $('#err').innerHTML = `<div class="err" style="background:#5a4420;color:#ffeccc">
+    <b>El servidor y esta pantalla no son de la misma versión.</b>
+    <p style="margin:9px 0 0">Pantalla: <b>v${VERSION_ESPERADA}</b> ·
+       Servidor: <b>v${esc(vServidor)}</b></p>
+    <p style="margin:9px 0 0">Los archivos nuevos no han llegado al servidor, o
+    el servidor no se ha reiniciado desde que llegaron. Verás errores raros
+    hasta que coincidan.</p>
+    <p style="margin:9px 0 0"><b>Qué hacer, en este orden:</b></p>
+    <ol style="margin:6px 0 0 18px;padding:0;line-height:1.75">
+      <li>Cierra la <b>ventana negra</b> del servidor</li>
+      <li>En la carpeta que te pasó Claude, doble clic en
+          <b>ACTUALIZAR-Windows.bat</b></li>
+      <li>En tu carpeta, doble clic en <b>INICIAR-Windows.bat</b></li>
+      <li>Recarga esta página con <b>Ctrl + F5</b></li>
+    </ol>
+    <p class="meta" style="margin:9px 0 0;color:#e8d4ae">
+      El paso 4 con Ctrl (no solo F5) fuerza al navegador a olvidar la copia
+      guardada de esta pantalla.</p></div>`;
+}
+
+function avisoServidorAntiguo(faltan){
+  $('#err').innerHTML = `<div class="err" style="background:#5a4420;color:#ffeccc">
+    <b>El servidor está ejecutando una versión antigua.</b>
+    <p style="margin:9px 0 0">Has copiado archivos nuevos, pero el servidor
+    sigue funcionando con el código que cargó al arrancar. Los botones nuevos
+    darán error hasta que lo reinicies.</p>
+    <p style="margin:9px 0 0"><b>Solución, 10 segundos:</b></p>
+    <ol style="margin:6px 0 0 18px;padding:0;line-height:1.7">
+      <li>Cierra la <b>ventana negra</b> del servidor</li>
+      <li>Doble clic otra vez en <b>INICIAR-Windows.bat</b></li>
+      <li>Recarga esta página (F5)</li>
+    </ol>
+    <p class="meta" style="margin:9px 0 0;color:#e8d4ae">
+      Le faltan: ${faltan.join(', ')}</p></div>`;
+}
+
+async function init(){
+  try{
+    // Comprobar primero el estado del servidor: si es antiguo, avisar antes
+    // de que el usuario se tope con un 404 incomprensible.
+    try{
+      SERVIDOR = await api('/health');
+      const v = SERVIDOR.version || '?';
+      const desfasado = v !== VERSION_ESPERADA;
+      $('#ver').innerHTML = desfasado
+        ? `<b style="color:#e8a33d">servidor v${esc(v)} ≠ interfaz v${VERSION_ESPERADA}</b>`
+        : `v${esc(v)}`;
+
+      const faltan = REQUIERE.filter(f => !(SERVIDOR.features||[]).includes(f));
+      if(desfasado)      avisoVersionDesfasada(v);
+      else if(faltan.length) avisoServidorAntiguo(faltan);
+    }catch(e){ /* si /health falla, el error real lo dará la carga siguiente */ }
+
+    const [w, f] = await Promise.all([api('/works'), api('/semantic-fields?lang=es')]);
+    w.forEach(x => WORKS[x.id] = x);
+    FIELDS = f;
+    montarIdiomas(w);
+    $('#ejemplos').innerHTML = EJEMPLOS_SEM.map(e =>
+      `<button class="ghost ejemplo">${esc(e)}</button>`).join('');
+    document.querySelectorAll('.ejemplo').forEach(b => b.onclick = () => {
+      $('#qs').value = b.textContent; run();
+    });
+    $('#fields').innerHTML = f.map(x =>
+      `<button class="ghost" data-f="${x.key}" title="${esc(x.description||'')}">${esc(x.label)}</button>`
+    ).join('');
+    document.querySelectorAll('[data-f]').forEach(b => b.onclick = () => {
+      const on = STATE.field === b.dataset.f;
+      STATE.field = on ? null : b.dataset.f;
+      STATE.term = ''; $('#q').value = '';
+      document.querySelectorAll('[data-f]').forEach(x => x.classList.remove('on'));
+      if(!on) b.classList.add('on');
+      run();
+    });
+    // Primera pantalla: la bienvenida, no un vacío.
+    bienvenida();
+  }catch(e){
+    const abierta = location.protocol === 'file:';
+    $('#err').innerHTML = `<div class="err">
+      <b>No puedo hablar con el servidor.</b>
+      <p style="margin:9px 0 0">El servidor es el que guarda los textos y hace
+      los cálculos. Sin él, esta página está vacía.</p>
+      <p style="margin:9px 0 0"><b>Qué hacer:</b></p>
+      <ol style="margin:6px 0 0 18px;padding:0;line-height:1.7">
+        <li>Haz doble clic en <b>INICIAR-Windows.bat</b></li>
+        <li>Espera a que la ventana negra diga <b>SERVIDOR EN MARCHA</b></li>
+        <li>Deja esa ventana abierta y
+            <a href="http://localhost:8000" style="color:#9fc3f5">pulsa aquí</a></li>
+      </ol>
+      ${abierta ? `<p style="margin:11px 0 0;padding-top:9px;
+         border-top:1px solid rgba(255,255,255,.2)">
+         <b>Aviso:</b> has abierto esta página con doble clic sobre el archivo.
+         Lo correcto es escribir <b>localhost:8000</b> en el navegador con el
+         servidor encendido.</p>` : ''}
+      <p class="meta" style="margin:9px 0 0;color:#e5b5b5">Detalle técnico: ${esc(e.message)}</p>
+    </div>`;
+  }
+}
+
+// ---------- selector de idioma del corpus ----------
+function idiomasInstalados(works){
+  const cuenta = {};
+  works.forEach(w => cuenta[w.language] = (cuenta[w.language] || 0) + 1);
+  return cuenta;
+}
+
+function montarIdiomas(works){
+  const cuenta = idiomasInstalados(works);
+  const sel = $('#lang');
+
+  // Ordenar poniendo primero los idiomas que sí tienen textos.
+  const claves = Object.keys(IDIOMAS)
+    .sort((a,b) => (cuenta[b]||0) - (cuenta[a]||0));
+
+  sel.innerHTML = claves.map(k => {
+    const n = cuenta[k] || 0;
+    return `<option value="${k}"${n ? '' : ' data-vacio="1"'}>` +
+           `${IDIOMAS[k].nombre}${n ? ` — ${n} obra${n > 1 ? 's' : ''}`
+                                   : ' — no instalado'}</option>`;
+  }).join('');
+
+  // Arrancar en un idioma que tenga textos, no en el primero de la lista.
+  const conTextos = claves.find(k => cuenta[k]);
+  if(conTextos){ STATE.lang = conTextos; sel.value = conTextos; }
+  aplicarIdioma();
+}
+
+function aplicarIdioma(){
+  const cfg = IDIOMAS[STATE.lang] || IDIOMAS.en;
+  $('#q').placeholder = cfg.hint + cfg.ejemplos;
+
+  const cuenta = idiomasInstalados(Object.values(WORKS));
+  const aviso = $('#avisoIdioma');
+  if(!cuenta[STATE.lang]){
+    aviso.innerHTML = `<div class="note" style="border-left-color:#c98a2e">
+      <b>No tienes textos en este idioma.</b>
+      Las obras instaladas están en
+      ${Object.keys(cuenta).map(k => (IDIOMAS[k]||{}).nombre || k).join(' y ')},
+      así que cualquier búsqueda dará cero resultados.
+      ${STATE.lang === 'es' ? `<br><br>Para añadir la Reina-Valera 1909,
+        abre una ventana negra en la carpeta <b>backend</b> y ejecuta:<br>
+        <code style="background:var(--panel);padding:2px 7px;border-radius:5px;
+        display:inline-block;margin-top:5px">python scripts\\fetch_corpus.py --source rv1909</code>
+        <br>Después reinicia el servidor.` : ''}
+    </div>`;
+  } else {
+    aviso.innerHTML = '';
+  }
+}
+
+function query(){
+  return {term: STATE.term, semantic_field: STATE.field,
+          extra_terms: [], language: STATE.lang, work_ids: null};
+}
+
+// ---------- bienvenida ----------
+// Primera pantalla: una invitación, no un vacío. Muestra las cuatro
+// tradiciones con su emblema y unos conceptos para empezar de un clic.
+function bienvenida(){
+  const trads = [...new Set(Object.values(WORKS).map(w => w.tradition))];
+  const quick = ['misericordia','justicia','guerra','vida_ultratumba']
+    .filter(k => FIELDS.some(f => f.key === k));
+  const labelDe = k => (FIELDS.find(f => f.key === k) || {}).label || k;
+
+  $('#out').innerHTML = `
+    <div class="welcome">
+      <div class="w-embs">${trads.map(t => `
+        <div class="w-emb">${EMBLEMA(t,28)}<span>${esc(TRAD[t] || t)}</span></div>`).join('')}</div>
+      <h2>Cómo hablan de lo mismo cuatro tradiciones</h2>
+      <p>Elige un concepto y compara su presencia en la Biblia, el Tanaj, el
+      Corán y el Bhagavad Gita. Todo se mide por cada 10.000 palabras, para que
+      textos de tamaños muy distintos sean comparables.</p>
+      <div class="w-quick">${quick.map(k =>
+        `<button class="ghost" data-wf="${k}">${esc(labelDe(k))}</button>`).join('')}</div>
+      <button class="w-pan" data-goto="panorama">Ver el panorama completo</button>
+    </div>`;
+
+  document.querySelectorAll('[data-wf]').forEach(b => b.onclick = () => {
+    STATE.field = b.dataset.wf; STATE.term = ''; $('#q').value = '';
+    document.querySelectorAll('[data-f]').forEach(x =>
+      x.classList.toggle('on', x.dataset.f === STATE.field));
+    irAPestana('freq');
+  });
+  const pan = document.querySelector('[data-goto="panorama"]');
+  if(pan) pan.onclick = () => irAPestana('panorama');
+}
+
+// Cambia de pestaña por código, igual que un clic del usuario.
+function irAPestana(t){
+  const tab = document.querySelector(`.tab[data-t="${t}"]`);
+  if(tab) tab.click();
+}
+
+// ---------- panorama: mapa de calor de todos los conceptos ----------
+// La vista de conjunto. Cada fila un concepto, cada columna una tradición;
+// la intensidad del color cuenta la historia de un vistazo. Reutiliza el
+// endpoint de frecuencias ya probado: no calcula nada nuevo.
+async function viewPanorama(){
+  const works = Object.values(WORKS);
+  if(!works.length || !FIELDS.length){
+    $('#out').innerHTML = '<div class="empty">No hay datos que mostrar.</div>'; return;
+  }
+  $('#out').innerHTML = '<div class="spin"></div>';
+
+  const orden = ['cristianismo','judaismo','islam','hinduismo'];
+  const cols = works.slice().sort((a,b) =>
+    orden.indexOf(a.tradition) - orden.indexOf(b.tradition));
+
+  let datos;
+  try{
+    datos = await Promise.all(FIELDS.map(f =>
+      post('/frequency', {term:'', semantic_field:f.key, extra_terms:[],
+                          language:STATE.lang, work_ids:null})
+        .then(d => ({f, byWork: Object.fromEntries(
+          (d.results || []).map(r => [r.work_id, r.per_10k]))}))
+        .catch(() => ({f, byWork:{}}))));
+  }catch(e){
+    $('#out').innerHTML = `<div class="err">${esc(e.message)}</div>`; return;
+  }
+
+  let h = `<div class="note">Cada fila es un concepto; cada columna, una
+    tradición. Cada número es una <b>densidad</b>: cuántas de cada 10.000
+    palabras del texto pertenecen a ese concepto (no es un conteo ni un
+    porcentaje directo). Cuanto más intenso el color, más presente está.
+    Toca una casilla para verlo en detalle.</div>`;
+  h += `<div class="pano" style="grid-template-columns:150px repeat(${cols.length},1fr)">`;
+  h += `<div></div>`;
+  cols.forEach(w => {
+    h += `<div class="pano-h">${EMBLEMA(w.tradition,18)}<span>${esc(w.title || w.id)}</span></div>`;
+  });
+  datos.forEach(({f, byWork}) => {
+    const vals = cols.map(w => byWork[w.id] || 0);
+    const mx = Math.max(...vals, 0.0001);
+    h += `<div class="pano-l">${esc(f.label)}</div>`;
+    cols.forEach((w,i) => {
+      const v = vals[i];
+      const a = 0.10 + 0.80 * (v / mx);
+      const pct = (v / 100).toFixed(2).replace('.', ',');
+      h += `<div class="pano-c" data-pf="${f.key}"
+        title="${esc(f.label)} · ${esc(TRAD[w.tradition] || w.tradition)}: ${v.toFixed(1)} de cada 10.000 palabras (${pct} %)"
+        style="background:${hexA(color(w.tradition), a)};color:${a > 0.55 ? '#fff' : 'var(--txt)'}">${v.toFixed(1)}<span class="pu">/10 000</span></div>`;
+    });
+  });
+  h += `</div>`;
+  $('#out').innerHTML = h;
+
+  document.querySelectorAll('[data-pf]').forEach(c => c.onclick = () => {
+    STATE.field = c.dataset.pf; STATE.term = ''; $('#q').value = '';
+    document.querySelectorAll('[data-f]').forEach(x =>
+      x.classList.toggle('on', x.dataset.f === STATE.field));
+    irAPestana('freq');
+  });
+}
+
+// ---------- acerca de: créditos, contacto, privacidad, licencias ----------
+const CONTACTO = 'ghiguerag@gmail.com';
+
+function viewAcerca(){
+  const works = Object.values(WORKS);
+  const v = (SERVIDOR && SERVIDOR.version) || VERSION_ESPERADA;
+
+  const atribucion = works.map(w => `
+    <div class="cred-obra">
+      <span class="dot" style="background:${color(w.tradition)}"></span>
+      <b>${esc(w.title || w.id)}</b> — ${esc(w.edition || '')}${w.year ? ` (${w.year})` : ''}
+      <span class="meta"> · ${esc(w.license || 'dominio público')}</span>
+      ${w.source_url ? ` · <a href="${esc(w.source_url)}" target="_blank" rel="noopener">fuente</a>` : ''}
+    </div>`).join('') || '<div class="meta">Aún no hay obras cargadas.</div>';
+
+  $('#out').innerHTML = `
+    <div class="acerca">
+      <div class="ac-head">
+        <svg width="40" height="40" viewBox="0 0 34 34" fill="none" aria-hidden="true" style="color:var(--accent)">
+          <path d="M17 8.5C13.5 6.5 8 6.3 4.5 7.4V26c3.5-1.1 9-0.9 12.5 1.1 3.5-2 9-2.2 12.5-1.1V7.4C25.5 6.3 20 6.5 17 8.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+          <path d="M17 8.7V27" stroke="currentColor" stroke-width="1.7"/>
+        </svg>
+        <div><h2>Textos Sagrados</h2>
+          <div class="meta">Versión ${esc(v)} · Análisis léxico comparado de textos en dominio público</div></div>
+      </div>
+
+      <h3>Créditos</h3>
+      <p>Desarrollo y dirección: <b>Guillermo Aníbal Higuera Gómez</b><br>
+         Asistencia de programación: <b>Claude</b> (Anthropic)</p>
+
+      <h3>Sugerencias y errores</h3>
+      <p>¿Has encontrado un fallo o se te ocurre una mejora? Cuéntamelo. Cada
+         mensaje ayuda a mejorar la aplicación.</p>
+      <div class="form">
+        <select id="fbTipo">
+          <option value="Sugerencia">Sugerencia o idea</option>
+          <option value="Error">Informe de error</option>
+          <option value="Otro">Otro</option>
+        </select>
+        <textarea id="fbMsg" rows="4" placeholder="Escribe aquí tu mensaje…"></textarea>
+        <div class="ops">
+          <button id="fbMail">Enviar por correo</button>
+          <button class="ghost" id="fbCopy">Copiar mensaje</button>
+        </div>
+        <div class="meta">Se enviará a ${esc(CONTACTO)}, junto con el número de
+          versión para poder localizar el problema. No se envía nada más.</div>
+        <div id="fbOK"></div>
+      </div>
+
+      <h3>Privacidad</h3>
+      <p>Todo el análisis funciona en tu propio equipo: las búsquedas no salen de
+         tu ordenador y la aplicación no recopila ningún dato personal. Solo dos
+         funciones opcionales consultan servicios externos cuando decides usarlas
+         —la traducción automática y el contexto externo—; si no las usas, nada
+         sale de tu equipo.</p>
+
+      <h3>Licencia</h3>
+      <p>El código de la aplicación se publica bajo licencia MIT. Todos los textos
+         incluidos están en dominio público, y la procedencia de cada edición se
+         acredita a continuación.</p>
+
+      <h3>Textos y procedencia</h3>
+      ${atribucion}
+    </div>`;
+
+  const tipo = () => (document.getElementById('fbTipo') || {}).value || 'Mensaje';
+  const msg = () => (document.getElementById('fbMsg') || {}).value.trim();
+  const asunto = () => `Textos Sagrados ${v} — ${tipo()}`;
+  const cuerpo = () => `${msg()}\n\n—\nEnviado desde Textos Sagrados\nVersión: ${v}`;
+  const aviso = t => { const o = document.getElementById('fbOK'); if(o) o.innerHTML = `<div class="fb-ok">${esc(t)}</div>`; };
+
+  document.getElementById('fbMail').onclick = () => {
+    if(!msg()){ aviso('Escribe un mensaje primero.'); return; }
+    location.href = `mailto:${CONTACTO}?subject=${encodeURIComponent(asunto())}&body=${encodeURIComponent(cuerpo())}`;
+    aviso('Se abrirá tu programa de correo con el mensaje listo.');
+  };
+  document.getElementById('fbCopy').onclick = async () => {
+    if(!msg()){ aviso('Escribe un mensaje primero.'); return; }
+    const txt = `Para: ${CONTACTO}\nAsunto: ${asunto()}\n\n${cuerpo()}`;
+    try{ await navigator.clipboard.writeText(txt); aviso('Copiado. Pégalo en tu correo y envíalo.'); }
+    catch(e){ aviso(`No se pudo copiar. El correo es ${CONTACTO}`); }
+  };
+}
+
+async function run(){
+  // Panorama y bienvenida no dependen del término léxico.
+  if(!['sem','perfil','guia','panorama','acerca'].includes(STATE.tab) && !STATE.term && !STATE.field){
+    if(STATE.tab === 'freq') bienvenida();
+    return;
+  }
+  $('#err').innerHTML = '';
+  $('#out').innerHTML = '<div class="spin"></div>';
+  try{
+    if(STATE.tab === 'guia'){ viewGuia(); return; }
+    else if(STATE.tab === 'acerca'){ viewAcerca(); return; }
+    else if(STATE.tab === 'panorama') await viewPanorama();
+    else if(STATE.tab === 'perfil') await viewPerfil();
+    else if(STATE.tab === 'sem')  await viewSem();
+    else if(STATE.tab === 'freq') await viewFreq();
+    else if(STATE.tab === 'conc') await viewConc();
+    else                          await viewPar();
+  }catch(e){
+    $('#out').innerHTML = '';
+    $('#err').innerHTML = `<div class="err">${esc(e.message)}</div>`;
+  }
+}
+
+// ---------- frecuencias ----------
+async function viewFreq(){
+  const d = await post('/frequency', query());
+  const rows = d.results.slice().sort((a,b) => b.per_10k - a.per_10k);
+  const max = Math.max(...rows.map(r => r.per_10k), 0.0001);
+  const keyBy = {}; (d.keyness||[]).forEach(k => keyBy[k.work_id] = k);
+
+  if(!rows.some(r => r.raw_count)){
+    // No basta con decir «sin resultados»: si el usuario escribió en el
+    // idioma de la interfaz, hay que averiguar qué quiso decir.
+    await sinResultados(d);
+    return;
+  }
+
+  let h = `<div class="note"><b>Frecuencia por cada 10.000 palabras.</b>
+    Comparar conteos brutos sería engañoso: la Biblia tiene 791.689 palabras y
+    el Gita 19.369. Además cada texto es una traducción, y el vocabulario del
+    traductor influye en el resultado.
+    <a href="#" id="irGuia" style="color:var(--accent)">Cómo leer estas
+    cifras →</a></div>`;
+
+  h += '<div class="card">';
+  rows.forEach(r => {
+    const k = keyBy[r.work_id] || {};
+    const sig = k.significant
+      ? `<span class="badge hi">${k.direction === 'over'
+          ? 'Distintivamente frecuente' : 'Distintivamente escaso'} · G²=${k.log_likelihood.toFixed(0)}</span>`
+      : '';
+    h += `<div class="bar-row">
+        <div><span class="dot" style="background:${color(r.tradition)}"></span>
+             <b>${esc(TRAD[r.tradition]||r.tradition)}</b>
+             <div class="meta" style="margin-left:16px">${esc(r.work_title)}</div></div>
+        <div class="bar-track"><div class="bar-fill"
+             style="width:${(r.per_10k/max*100).toFixed(1)}%;background:${color(r.tradition)}"></div></div>
+        <div class="bar-val">${r.per_10k.toFixed(1)}</div>
+      </div>
+      <div style="margin:-4px 0 6px 0">
+        <span class="badge clic" data-d="forms"  data-w="${r.work_id}"
+              title="Ver qué formas de la palabra componen el total"
+              >${r.raw_count.toLocaleString('es')} apariciones</span>
+        <span class="badge clic" data-d="verses" data-w="${r.work_id}"
+              title="Ver los versículos donde aparece"
+              >${r.verse_count.toLocaleString('es')} versículos</span>
+        <span class="badge clic" data-d="books"  data-w="${r.work_id}"
+              title="Ver en qué libros aparece"
+              >presente en ${r.divisions_present}/${r.divisions_total} libros</span>
+        ${sig}
+      </div>
+      <div id="det-${r.work_id}"></div>`;
+  });
+  h += `<div class="meta" style="margin-top:8px">Raíces buscadas:
+        ${esc(d.resolved_stems.join(', '))}</div></div>`;
+
+  h += '<h3>Comparación entre las partes de cada obra</h3>';
+  h += `<div class="meta" style="margin:0 0 10px">Dentro de una misma obra el
+        traductor es el mismo, así que las diferencias son del texto original y
+        no de la traducción. Es la comparación más sólida que ofrece la app.</div>`;
+  h += '<div class="card" id="seccs"><div class="meta">Calculando…</div></div>';
+
+  h += '<h3>Palabras que lo acompañan</h3>';
+  h += `<div class="meta" style="margin:0 0 10px">Vecinos frecuentes dentro del
+        mismo versículo. Revelan con qué se asocia el concepto en cada
+        tradición.</div>`;
+  h += '<div class="card" id="colocs"><div class="meta">Calculando…</div></div>';
+
+  h += '<h3>Dónde se concentra dentro de cada obra</h3>';
+  h += '<div class="card" id="heats"><div class="meta">Cargando distribución…</div></div>';
+  $('#out').innerHTML = h;
+  activarDetalles(rows);
+  const enlace = document.getElementById('irGuia');
+  if(enlace) enlace.onclick = e => {
+    e.preventDefault();
+    document.querySelector('.tab[data-t="guia"]').click();
+  };
+  pintarSecciones(present0(rows));
+  pintarColocaciones(present0(rows));
+
+  // Mapas de calor: una petición por obra, en paralelo.
+  const present = present0(rows);
+  const heats = await Promise.all(present.map(r =>
+    post('/frequency/'+r.work_id+'/divisions', query()).then(x => [r, x]).catch(() => null)));
+
+  let hh = '';
+  heats.filter(Boolean).forEach(([r, divs]) => {
+    const mx = Math.max(...divs.map(d => d.per_10k), 0.0001);
+    hh += `<div style="margin-bottom:18px">
+      <div><span class="dot" style="background:${color(r.tradition)}"></span>
+           <b>${esc(r.work_title)}</b></div>
+      <div class="heat">` +
+      divs.map(d => `<div class="cell" title="${esc(d.name)}: ${d.raw_count} apariciones, ${d.per_10k.toFixed(1)} por 10k"
+           style="background:${color(r.tradition)};opacity:${(0.10+0.90*d.per_10k/mx).toFixed(3)}"></div>`).join('') +
+      `</div><div class="meta">Cada cuadro es un libro o sura, en orden canónico.
+       Más intenso = mayor densidad. Pasa el ratón por encima.</div></div>`;
+  });
+  $('#heats').innerHTML = hh || '<div class="meta">Sin distribución que mostrar.</div>';
+}
+
+// Las vistas nuevas necesitan el identificador de obra; se normaliza aquí
+// para no depender del nombre exacto del campo en cada respuesta.
+const present0 = rows => rows.filter(r => r.raw_count > 0)
+                             .map(r => ({...r, workId0: r.work_id}));
+
+// ---------- qué hacer cuando no hay resultados ----------
+// Antes se mostraba «sin resultados» y un consejo genérico. Pero si alguien
+// escribe «pecado» teniendo toda la interfaz en español, el problema no es
+// suyo: lo razonable es averiguar qué quiso decir y ofrecérselo.
+async function sinResultados(d){
+  const termino = (STATE.term || '').trim();
+  let h = `<div class="empty" style="padding-bottom:20px">
+    <p style="font-size:17px">Sin resultados</p>
+    <p style="font-size:13.5px">Ningún texto contiene
+    «${esc(d.resolved_stems.join(', '))}».</p></div>`;
+
+  if(!termino || IDIOMA_UI === STATE.lang){ $('#out').innerHTML = h; return; }
+
+  $('#out').innerHTML = h +
+    '<div class="rescate"><span class="meta">Buscando alternativas…</span></div>';
+
+  let r;
+  try{
+    r = await api(`/resolver-termino?q=${encodeURIComponent(termino)}` +
+                  `&desde=${IDIOMA_UI}&hasta=${STATE.lang}`);
+  }catch(e){ $('#out').innerHTML = h; return; }
+
+  const hayCampo = (r.campos || []).length;
+  if(!hayCampo && !r.traduccion){ $('#out').innerHTML = h; return; }
+
+  let ayuda = `<div class="rescate">
+    <h4>Escribiste «${esc(termino)}», y los textos están en inglés</h4>`;
+
+  if(hayCampo){
+    ayuda += `<p style="margin:0">Esa palabra pertenece a un concepto que ya
+      tengo preparado, con todas sus variantes en inglés. Es la mejor opción:</p>
+      <div class="ops">` +
+      r.campos.map(c => `<button data-campo="${esc(c.key)}">
+        ${esc(c.label)}</button>`).join('') + '</div>';
+  }
+
+  if(r.traduccion){
+    // Marcar SIEMPRE que la palabra es inglesa. «pecado» se traduce como
+    // «sin», que en español significa algo distinto: sin avisar del idioma,
+    // el botón parecía decir «buscar sin» y no se entendía nada.
+    ayuda += `<p style="margin:${hayCampo ? '16px' : '0'} 0 0">
+      ${hayCampo ? 'O buscar solo esa palabra suelta.' : 'Su traducción es:'}
+      En inglés, «${esc(termino)}» se dice
+      <b class="ing">${esc(r.traduccion)}</b>.</p>
+      <div class="ops"><button class="ghost" data-trad-term="${esc(r.traduccion)}">
+        Buscar la palabra inglesa «${esc(r.traduccion)}»</button></div>`;
+  }
+
+  ayuda += '</div>';
+  $('#out').innerHTML = ayuda + h;
+
+  document.querySelectorAll('[data-campo]').forEach(b => b.onclick = () => {
+    $('#q').value = '';
+    STATE.term = '';
+    STATE.field = b.dataset.campo;
+    document.querySelectorAll('[data-f]').forEach(x =>
+      x.classList.toggle('on', x.dataset.f === STATE.field));
+    run();
+  });
+  document.querySelectorAll('[data-trad-term]').forEach(b => b.onclick = () => {
+    $('#q').value = b.dataset.tradTerm;
+    STATE.term = b.dataset.tradTerm;
+    STATE.field = null;
+    document.querySelectorAll('[data-f]').forEach(x => x.classList.remove('on'));
+    run();
+  });
+}
+
+// ---------- comparación entre secciones ----------
+async function pintarSecciones(rows){
+  const caja = $('#seccs');
+  if(!rows.length){ caja.innerHTML = '<div class="meta">Sin datos.</div>'; return; }
+
+  const datos = await Promise.all(rows.map(r =>
+    post('/frequency/' + r.workId0 + '/sections', query())
+      .then(d => [r, d.results]).catch(() => null)));
+
+  let h = '';
+  datos.filter(Boolean).forEach(([r, secs]) => {
+    const utiles = (secs || []).filter(x => x.total_tokens > 0);
+    // Con una sola sección no hay nada que comparar.
+    if(utiles.length < 2) return;
+    const max = Math.max(...utiles.map(x => x.per_10k), 0.0001);
+    h += `<div style="margin-bottom:18px">
+      <div style="margin-bottom:8px"><span class="dot"
+        style="background:${color(r.tradition)}"></span><b>${esc(r.work_title)}</b></div>`;
+    utiles.forEach(x => {
+      h += `<div class="secc">
+        <div class="n">${esc(x.section)}</div>
+        <div class="bar-track" style="height:20px"><div class="bar-fill"
+          style="width:${(x.per_10k/max*100).toFixed(1)}%;background:${color(r.tradition)}"></div></div>
+        <div class="meta" style="text-align:right">${x.per_10k.toFixed(1)} /10k
+          ${x.significant ? `<b style="color:var(--txt)"> ·
+            ${x.direction === 'over' ? '↑' : '↓'}</b>` : ''}</div></div>`;
+    });
+    const destaca = utiles.filter(x => x.significant && x.direction === 'over');
+    if(destaca.length){
+      h += `<div class="meta" style="margin-top:4px">La diferencia es
+        estadísticamente significativa: se concentra en
+        <b>${destaca.map(x => esc(x.section)).join(', ')}</b>.</div>`;
+    }
+    h += '</div>';
+  });
+  caja.innerHTML = h || '<div class="meta">Estas obras no tienen partes comparables.</div>';
+}
+
+// ---------- colocaciones ----------
+async function pintarColocaciones(rows){
+  const caja = $('#colocs');
+  if(!rows.length){ caja.innerHTML = '<div class="meta">Sin datos.</div>'; return; }
+
+  const datos = await Promise.all(rows.map(r =>
+    post('/collocations?window=6&min_freq=2&limit=14',
+         {...query(), work_ids:[r.workId0]})
+      .then(d => [r, d.results]).catch(() => null)));
+
+  let h = '<div class="cols">';
+  let alguno = false;
+  datos.filter(Boolean).forEach(([r, cols]) => {
+    if(!cols || !cols.length) return;
+    alguno = true;
+    h += `<div><div style="margin-bottom:6px"><span class="dot"
+      style="background:${color(r.tradition)}"></span><b>${esc(TRAD[r.tradition] || r.tradition)}</b></div>
+      <div class="nube">` +
+      cols.map(c => `<div class="pal" data-buscar="${esc(c.example || c.lemma)}"
+        title="Aparece ${c.joint_count} veces cerca. Pulsa para buscarla.">
+        <b>${esc(c.example || c.lemma)}</b><span>${c.joint_count}</span></div>`).join('') +
+      '</div></div>';
+  });
+  caja.innerHTML = alguno ? h + '</div>'
+    : '<div class="meta">No hay suficientes coincidencias para calcularlo.</div>';
+  activarBusquedaDePalabra();
+}
+
+function activarBusquedaDePalabra(){
+  document.querySelectorAll('[data-buscar]').forEach(el => el.onclick = () => {
+    $('#q').value = el.dataset.buscar;
+    STATE.term = el.dataset.buscar;
+    STATE.field = null;
+    document.querySelectorAll('[data-f]').forEach(x => x.classList.remove('on'));
+    window.scrollTo({top:0, behavior:'smooth'});
+    run();
+  });
+}
+
+// ---------- guía de interpretación ----------
+// La guía existía solo como documento suelto, que nadie que use la aplicación
+// va a abrir. Las advertencias importan en el momento de mirar los números,
+// no en un archivo aparte.
+function viewGuia(){
+  $('#out').innerHTML = `<div class="guia">
+
+  <div class="clave">
+    <b>Lo esencial en una frase:</b> esta aplicación mide con qué frecuencia
+    aparecen ciertas palabras en cuatro traducciones al inglés. No mide qué
+    creen las religiones ni qué importancia dan a cada tema.
+  </div>
+
+  <h2>Frecuencia por 10.000 palabras</h2>
+  <p>Los textos tienen tamaños muy distintos. La Biblia King James tiene
+  791.689 palabras; el Bhagavad Gita, 19.369. Es cuarenta veces más larga, así
+  que menciona más de todo.</p>
+  <p>Decir «la Biblia nombra el amor 300 veces y el Gita 40» no informa de
+  nada. Por eso todo se expresa como densidad: cuántas veces aparece por cada
+  10.000 palabras. Así son comparables.</p>
+
+  <h2>G², la significación estadística</h2>
+  <p>Una diferencia entre dos textos puede ser real o puede ser casualidad.
+  G² responde a eso. Es el contraste estándar en lingüística de corpus desde
+  1993.</p>
+  <table>
+    <tr><th>G²</th><th>Qué significa</th></tr>
+    <tr><td>menos de 3,8</td><td>Sin evidencia. Puede ser azar.</td></tr>
+    <tr><td>3,8 – 15,1</td><td>Indicio débil. No lo presentes como hallazgo.</td></tr>
+    <tr><td>más de 15,1</td><td>Diferencia sólida. La app la marca.</td></tr>
+    <tr><td>más de 100</td><td>Diferencia muy marcada.</td></tr>
+  </table>
+  <p>Cuidado: G² crece con el tamaño del texto. En corpus grandes, diferencias
+  pequeñas salen significativas. Que algo sea estadísticamente seguro no
+  significa que sea importante.</p>
+
+  <h2>Dispersión: «presente en 55 de 114 libros»</h2>
+  <p>Cincuenta apariciones concentradas en un capítulo no dicen lo mismo que
+  cincuenta repartidas por toda la obra. Lo primero señala un pasaje concreto;
+  lo segundo, una preocupación que recorre el texto entero.</p>
+
+  <h2>Un ejemplo real, paso a paso</h2>
+  <p>Buscando el campo «Mujer y feminidad» aparece esto:</p>
+  <table>
+    <tr><th>Obra</th><th>Por 10.000</th><th>G²</th></tr>
+    <tr><td>Tanaj (JPS 1917)</td><td>26,7</td><td>28</td></tr>
+    <tr><td>Biblia (King James)</td><td>26,2</td><td>29</td></tr>
+    <tr><td>Corán (Pickthall 1930)</td><td>17,3</td><td>36</td></tr>
+    <tr><td>Bhagavad Gita (Arnold)</td><td>2,6</td><td>61</td></tr>
+  </table>
+  <p><b>Qué se puede decir:</b> en estas cuatro traducciones concretas, el
+  vocabulario sobre mujeres es aproximadamente un tercio menos denso en la
+  versión de Pickthall del Corán que en las dos biblias, y la diferencia no
+  parece casual.</p>
+  <div class="aviso">
+    <b>Qué NO se puede decir:</b> que el Corán hable menos de las mujeres.
+    Estamos midiendo la traducción de Marmaduke Pickthall de 1930, no el árabe
+    original. Otra traducción, con otras decisiones de vocabulario, daría otra
+    cifra. Y el Corán tiene una sura entera titulada «Las mujeres»: la
+    importancia de un tema no se mide contando palabras.
+  </div>
+
+  <h2>Lo que esta aplicación no puede decirte</h2>
+
+  <p><b>No compara religiones, compara traducciones.</b> Todo el corpus son
+  versiones al inglés hechas entre 1611 y 1930, cada traductor con sus
+  preferencias. Que la King James use <i>charity</i> donde otra usaría
+  <i>love</i> es un dato sobre la King James, no sobre el cristianismo.</p>
+
+  <p><b>No mide importancia.</b> Un concepto puede ser central y expresarse
+  mediante relatos en vez de mediante una palabra concreta. La frecuencia
+  capta una capa del texto, no su teología.</p>
+
+  <p><b>No entiende el sentido.</b> El motor cuenta formas, no significados.
+  «No matarás» y «matarás» contienen la misma palabra. La negación, la ironía
+  y las palabras puestas en boca de un adversario cuentan igual que una
+  afirmación.</p>
+
+  <p><b>No sustituye al contexto.</b> Un versículo separado de su época, su
+  género literario y su tradición interpretativa puede sostener casi cualquier
+  lectura. La concordancia te da el pasaje; entenderlo requiere lo demás.</p>
+
+  <p><b>No es neutral por ser cuantitativa.</b> Qué palabras forman cada campo
+  semántico lo decidió una persona. Los números dependen de esa decisión, que
+  puedes revisar y cambiar.</p>
+
+  <h2>Cómo citar un resultado</h2>
+  <div class="mal">
+    <div class="et">Mal</div>
+    El Corán habla menos de las mujeres que la Biblia.
+  </div>
+  <div class="bien">
+    <div class="et">Bien</div>
+    En la traducción de Pickthall (1930), el campo semántico de la mujer
+    aparece con una densidad de 17,3 por cada 10.000 palabras, frente a 26,2
+    en la King James (1611). La diferencia es estadísticamente significativa
+    (G² = 36). Ambas cifras se refieren a estas traducciones concretas, no a
+    los textos originales.
+  </div>
+  <p>La segunda es más larga y menos rotunda. También es la única
+  defendible.</p>
+
+  </div>`;
+}
+
+// ---------- perfil léxico de cada obra ----------
+async function viewPerfil(){
+  const obras = Object.values(WORKS);
+  if(!obras.length){ $('#out').innerHTML =
+    '<div class="empty">No hay obras cargadas.</div>'; return; }
+
+  if(!STATE.obraPerfil) STATE.obraPerfil = obras[0].id;
+
+  let h = `<div class="note"><b>Qué hace único a cada texto.</b>
+    Estas son las palabras que aparecen en esta obra con una frecuencia
+    anormalmente alta comparada con el resto del corpus. No son las más
+    frecuentes: son las más <i>características</i>. Se calculan con
+    log-likelihood y solo se muestran las estadísticamente significativas.
+    Pulsa cualquiera para analizarla.</div>`;
+
+  h += '<div class="selobra">' + obras.map(w =>
+    `<button class="ghost obra${w.id === STATE.obraPerfil ? ' on' : ''}"
+             data-obra="${w.id}" title="${esc(TRAD[w.tradition] || w.tradition)}">
+      <span class="dot" style="background:${color(w.tradition)}"></span>
+      <span class="ob">${esc(w.title || w.id)}</span>
+      <span class="ed">${esc(w.edition || '')}</span>
+    </button>`).join('') + '</div>';
+  h += '<div class="card" id="perfilCaja"><div class="spin"></div></div>';
+  $('#out').innerHTML = h;
+
+  document.querySelectorAll('[data-obra]').forEach(b => b.onclick = () => {
+    STATE.obraPerfil = b.dataset.obra; viewPerfil();
+  });
+
+  try{
+    const d = await api('/works/' + STATE.obraPerfil + '/distinctive?limit=60');
+    const w = WORKS[STATE.obraPerfil];
+    const res = d.results || [];
+    if(!res.length){
+      $('#perfilCaja').innerHTML = `<div class="meta">Sin vocabulario
+        distintivo suficiente. Ocurre cuando el corpus es pequeño.</div>`;
+      return;
+    }
+    const max = Math.max(...res.map(x => x.log_likelihood));
+    $('#perfilCaja').innerHTML =
+      `<div style="margin-bottom:10px"><span class="dot"
+        style="background:${color(w.tradition)}"></span>
+        <b>${esc([w.title, w.edition].filter(Boolean).join(' — ') || w.id)}</b>
+        <div class="meta" style="margin-left:16px">${res.length} palabras
+        características, de mayor a menor peso</div></div>
+       <div class="nube">` +
+      res.map(x => {
+        const rel = x.log_likelihood / max;
+        return `<div class="pal" data-buscar="${esc(x.lemma)}"
+          style="border-color:${rel > 0.5 ? color(w.tradition) : 'var(--line)'};
+                 font-size:${(12 + rel * 5).toFixed(1)}px"
+          title="${x.count} apariciones · ${x.per_10k.toFixed(1)} por 10k · G²=${x.log_likelihood.toFixed(0)}">
+          <b>${esc(x.lemma)}</b><span>${x.count}</span></div>`;
+      }).join('') + '</div>';
+    activarBusquedaDePalabra();
+  }catch(e){
+    $('#perfilCaja').innerHTML = `<div class="meta">No se pudo cargar: ${esc(e.message)}</div>`;
+  }
+}
+
+// ---------- detalle desplegable de cada contador ----------
+const CACHE = {};   // evita repetir peticiones al abrir y cerrar
+
+function activarDetalles(rows){
+  const info = {}; rows.forEach(r => info[r.work_id] = r);
+
+  document.querySelectorAll('.badge.clic').forEach(b => b.onclick = async () => {
+    const wid = b.dataset.w, tipo = b.dataset.d;
+    const caja = document.getElementById('det-' + wid);
+    const yaAbierto = b.classList.contains('open');
+
+    // Solo un panel abierto por obra: si no, la pantalla se vuelve un caos.
+    document.querySelectorAll(`.badge.clic[data-w="${wid}"]`)
+            .forEach(x => x.classList.remove('open'));
+    if(yaAbierto){ caja.innerHTML = ''; return; }
+    b.classList.add('open');
+
+    caja.innerHTML = '<div class="detail"><div class="meta">Cargando…</div></div>';
+    try{
+      const clave = wid + '|' + tipo + '|' + JSON.stringify(query());
+      if(!CACHE[clave]) CACHE[clave] = await pedirDetalle(tipo, wid);
+      caja.innerHTML = pintarDetalle(tipo, CACHE[clave], info[wid]);
+    }catch(e){
+      const viejo = /not found/i.test(e.message);
+      caja.innerHTML = `<div class="detail" style="border-left-color:#c98a2e">
+        ${viejo
+          ? `<h4>El servidor no conoce esta función</h4>
+             <p class="why" style="margin-bottom:0">Está ejecutando una versión
+             antigua. Cierra la ventana negra del servidor, vuelve a abrir
+             <b>INICIAR-Windows.bat</b> y recarga esta página con F5.</p>`
+          : `<span class="meta">No se pudo cargar: ${esc(e.message)}</span>`}
+      </div>`;
+    }
+  });
+}
+
+function pedirDetalle(tipo, wid){
+  const q = {...query(), work_ids:[wid]};
+  if(tipo === 'forms')  return post('/forms', q);
+  if(tipo === 'books')  return post('/frequency/'+wid+'/divisions', query());
+  return post('/concordance?limit=400', q);
+}
+
+function pintarDetalle(tipo, data, r){
+  const c = color(r.tradition);
+
+  // --- APARICIONES: qué formas concretas componen el total ---
+  if(tipo === 'forms'){
+    const f = data.results || [];
+    if(!f.length) return '';
+    const max = Math.max(...f.map(x => x.count));
+    return `<div class="detail" style="border-left-color:${c}">
+      <h4>Las ${r.raw_count.toLocaleString('es')} apariciones, por forma de la palabra</h4>
+      <p class="why">Una búsqueda agrupa todas las variantes de una raíz.
+         Aquí ves el reparto real: dos textos pueden empatar en frecuencia
+         y usar formas muy distintas.</p>
+      <div class="dlist">` +
+      f.map(x => `<div class="k"><b>${esc(x.surface)}</b>
+          <span class="minibar" style="width:${(x.count/max*110).toFixed(0)}px;background:${c}"></span></div>
+        <div class="v">${x.count.toLocaleString('es')} · ${x.share}%</div>`).join('') +
+      `</div></div>`;
+  }
+
+  // --- LIBROS: dónde aparece y con qué densidad ---
+  if(tipo === 'books'){
+    const con = (data || []).filter(d => d.raw_count > 0);
+    const sin = (data || []).length - con.length;
+    if(!con.length) return '';
+    con.sort((a,b) => b.per_10k - a.per_10k);
+    const max = con[0].per_10k || 1;
+    return `<div class="detail" style="border-left-color:${c}">
+      <h4>Aparece en ${con.length} de ${(data||[]).length} libros</h4>
+      <p class="why">Ordenados por densidad, no por número de apariciones: un
+         libro corto con pocas menciones puede estar más centrado en el tema
+         que uno largo con muchas. Entre paréntesis, las apariciones.</p>
+      <div class="dlist">` +
+      con.map(d => `<div class="k">${esc(d.name)}
+          ${d.section ? `<span class="meta"> · ${esc(d.section)}</span>` : ''}
+          <span class="minibar" style="width:${(d.per_10k/max*100).toFixed(0)}px;background:${c}"></span></div>
+        <div class="v">${d.per_10k.toFixed(1)} /10k (${d.raw_count})</div>`).join('') +
+      `</div>` +
+      (sin ? `<p class="why" style="margin:10px 0 0">No aparece en los otros
+              ${sin} libros de esta obra.</p>` : '') + `</div>`;
+  }
+
+  // --- VERSÍCULOS: el texto, uno por uno ---
+  const items = data.items || [];
+  if(!items.length) return '';
+  const varios = items.filter(v => v.hits > 1).length;
+  return `<div class="detail" style="border-left-color:${c}">
+    <h4>${r.verse_count.toLocaleString('es')} versículos lo contienen</h4>
+    <p class="why">${items.length < r.verse_count
+        ? `Se muestran los primeros ${items.length}. `
+        : ''}${varios
+        ? `En ${varios} de ellos aparece más de una vez, por eso hay
+           ${r.raw_count.toLocaleString('es')} apariciones y solo
+           ${r.verse_count.toLocaleString('es')} versículos.`
+        : 'Cada versículo lo contiene una sola vez.'}</p>
+    <div class="scroll">` +
+    items.map(v => `<div class="dverse">
+        <div class="r">${esc(v.ref)}
+          <span class="meta" style="font-weight:400"> · ${esc(v.division)}</span>
+          ${v.hits > 1 ? `<span class="badge" style="margin-left:6px">×${v.hits}</span>` : ''}</div>
+        <div class="t">${highlight(v.text, v.matched_forms)}</div></div>`).join('') +
+    `</div></div>`;
+}
+
+// ---------- búsqueda por significado ----------
+async function viewSem(){
+  const q = ($('#qs').value || '').trim();
+  if(!q){
+    $('#out').innerHTML = `<div class="note">
+      <b>Busca ideas, no palabras.</b> Esta búsqueda compara el significado de
+      tu frase con el de cada versículo mediante un modelo matemático del
+      lenguaje. Encuentra pasajes afines aunque no compartan contigo ni una
+      palabra. Escribe arriba o pulsa uno de los ejemplos.</div>`;
+    return;
+  }
+
+  $('#out').innerHTML = '<div class="spin"></div>';
+  let d;
+  try{
+    d = await api('/semantic-search?top_k=30&q=' + encodeURIComponent(q));
+  }catch(e){
+    const noInstalado = /no disponible|not available|503/i.test(e.message);
+    $('#out').innerHTML = noInstalado
+      ? `<div class="note" style="border-left-color:#c98a2e">
+           <b>La búsqueda por significado no está instalada.</b>
+           <p style="margin:9px 0 0">Es un extra que hay que instalar aparte
+           porque descarga unos 2 GB. Todo lo demás funciona sin ella.</p>
+           <p style="margin:9px 0 0">Para activarla, doble clic en
+           <b>INSTALAR-BUSQUEDA-Windows.bat</b> y reinicia el servidor.</p></div>`
+      : `<div class="err">${esc(e.message)}</div>`;
+    return;
+  }
+
+  if(!d.results.length){
+    $('#out').innerHTML = `<div class="empty">
+      <p style="font-size:17px">Ningún pasaje supera el umbral de parecido</p>
+      <p style="font-size:13.5px">Prueba a describir la idea de forma más concreta.</p></div>`;
+    return;
+  }
+
+  let h = `<div class="note"><b>Aviso importante:</b> esto mide parecido
+    lingüístico, no equivalencia doctrinal. Dos pasajes muy parecidos pueden
+    significar cosas distintas dentro de sus tradiciones. Es una herramienta
+    para descubrir, no para demostrar.</div>`;
+
+  h += `<div class="meta" style="margin:0 0 10px">${d.results.length} pasajes,
+        ordenados por proximidad a «${esc(d.query)}»</div>`;
+
+  d.results.forEach(v => {
+    h += `<div class="verse" style="border-left-color:${color(v.tradition)}">
+      <div class="ref">
+        <span class="dot" style="background:${color(v.tradition)}"></span>
+        ${esc(v.ref)}
+        <span class="meta" style="font-weight:400;margin-left:6px">
+          ${esc(TRAD[v.tradition] || v.tradition)}</span>
+        <span style="flex:1"></span>
+        <span class="simil">${(v.similarity * 100).toFixed(0)}%</span>
+      </div>
+      <div class="txt">${esc(v.text)}</div>
+      ${(v.tambien_en || []).length ? `<div class="dup">
+        <div class="cab">El mismo pasaje aparece también en:</div>
+        ${v.tambien_en.map(o => `<div class="otro">
+          <span class="dot" style="background:${color(o.tradition)}"></span>
+          <b>${esc(o.ref)}</b>
+          <span class="meta">· ${esc(TRAD[o.tradition] || o.tradition)}</span>
+        </div>`).join('')}</div>` : ''}
+      <div style="margin-top:9px;display:flex;gap:7px;flex-wrap:wrap">
+        <button class="par-btn" data-trad="${v.verse_id}">Traducir</button>
+        <button class="par-btn" data-par="${v.verse_id}">
+          Ver qué dicen las otras tradiciones</button>
+      </div>
+      <div id="trad-${v.verse_id}"></div>
+      <div id="par-${v.verse_id}"></div></div>`;
+  });
+  $('#out').innerHTML = h;
+  activarParalelos();
+  activarTraduccion();
+  traducirTodoLoVisible();
+}
+
+// ---------- traducción bajo demanda ----------
+// Se muestra SIEMPRE debajo del original y marcada como automática. Nunca lo
+// sustituye: el texto de la edición es el dato, la traducción es una ayuda.
+const IDIOMA_UI = (document.documentElement.lang || 'es').slice(0, 2);
+
+// La preferencia se recuerda entre sesiones: quien no lee inglés no quiere
+// activarla cada vez que abre la aplicación.
+let AUTOTRAD = localStorage.getItem('autotrad') === '1';
+
+// Traduce de golpe todos los versículos visibles. Se hace por lotes porque
+// el proveedor limita el tamaño de cada petición, y lo ya traducido se sirve
+// de la caché sin volver a pedirlo.
+// Cuántos versículos se traducen de golpe. El traductor gratuito tiene cuota
+// diaria y una concordancia puede traer 150 resultados: traducirlos todos la
+// agotaría de una sola búsqueda. Se traducen los primeros y el resto queda a
+// un clic, que es lo que la gente lee de todas formas.
+const TOPE_AUTOTRAD = 20;
+
+async function traducirTodoLoVisible(){
+  if(!AUTOTRAD) return;
+  const cajas = [...document.querySelectorAll('[id^="trad-"]')];
+  const todos = cajas.map(c => Number(c.id.slice(5))).filter(Boolean);
+  if(!todos.length) return;
+
+  const ids = todos.slice(0, TOPE_AUTOTRAD);
+  if(todos.length > TOPE_AUTOTRAD){
+    const nota = document.createElement('div');
+    nota.className = 'note';
+    nota.style.marginTop = '10px';
+    nota.innerHTML = `Traducidos automáticamente los primeros
+      <b>${ids.length}</b> de ${todos.length} versículos. El traductor gratuito
+      tiene cuota diaria; para el resto usa el botón «Traducir» de cada uno.`;
+    $('#out').prepend(nota);
+  }
+
+  cajas.slice(0, TOPE_AUTOTRAD).forEach(c => { if(!c.innerHTML) c.innerHTML =
+    '<div class="trad"><div class="et">Traduciendo…</div></div>'; });
+
+  const LOTE = 25;
+  let errores = [];
+  for(let i = 0; i < ids.length; i += LOTE){
+    const trozo = ids.slice(i, i + LOTE);
+    try{
+      const d = await post('/translate?lang=' + IDIOMA_UI, trozo);
+      errores = errores.concat(d.errors || []);
+      trozo.forEach(id => {
+        const caja = document.getElementById('trad-' + id);
+        if(!caja) return;
+        const texto = (d.results || {})[id];
+        caja.innerHTML = texto
+          ? `<div class="trad"><div class="et">Traducción automática · ${esc(d.provider || '')}</div>
+             <div class="tx">${esc(texto)}</div></div>`
+          : '';
+      });
+    }catch(e){ errores.push(e.message); }
+  }
+
+  if(errores.length){
+    const limite = errores.some(x => /limit|quota|cuota|exceed/i.test(x));
+    const aviso = document.createElement('div');
+    aviso.className = 'cuota';
+    aviso.innerHTML = limite
+      ? `<b>Se ha agotado la cuota diaria del traductor gratuito.</b>
+         Lo ya traducido se guarda y sigue disponible. Mañana se renueva.
+         Para ampliarla, pon tu correo en <code>TS_TRANSLATE_EMAIL</code>
+         dentro del archivo <code>backend\\.env</code>.`
+      : `Algunos versículos no se pudieron traducir: ${esc(errores[0])}`;
+    $('#out').prepend(aviso);
+  }
+}
+
+function activarTraduccion(){
+  document.querySelectorAll('[data-trad]').forEach(b => b.onclick = async () => {
+    const id = Number(b.dataset.trad);
+    const caja = document.getElementById('trad-' + id);
+    if(caja.innerHTML){ caja.innerHTML = ''; b.textContent = 'Traducir'; return; }
+
+    b.textContent = 'Traduciendo…'; b.disabled = true;
+    try{
+      const d = await post('/translate?lang=' + IDIOMA_UI, [id]);
+      const texto = (d.results || {})[id];
+      if(texto){
+        caja.innerHTML = `<div class="trad">
+          <div class="et">Traducción automática · ${esc(d.provider || '')}</div>
+          <div class="tx">${esc(texto)}</div></div>`;
+        b.textContent = 'Ocultar traducción';
+      } else {
+        const motivo = (d.errors || [])[0] || 'El traductor no devolvió nada.';
+        caja.innerHTML = `<div class="trad"><div class="et">No se pudo traducir</div>
+          <div class="meta">${esc(motivo)}</div></div>`;
+        b.textContent = 'Traducir';
+      }
+    }catch(e){
+      caja.innerHTML = `<div class="trad"><div class="et">No se pudo traducir</div>
+        <div class="meta">${esc(e.message)}</div></div>`;
+      b.textContent = 'Traducir';
+    }finally{ b.disabled = false; }
+  });
+}
+
+function activarParalelos(){
+  document.querySelectorAll('[data-par]').forEach(b => b.onclick = async () => {
+    const id = b.dataset.par, caja = document.getElementById('par-' + id);
+    if(caja.innerHTML){ caja.innerHTML = ''; b.textContent =
+      'Ver qué dicen las otras tradiciones'; return; }
+
+    caja.innerHTML = '<div class="detail"><span class="meta">Buscando…</span></div>';
+    b.textContent = 'Ocultar';
+    try{
+      const d = await api('/verses/' + id + '/parallels?top_k=2');
+      if(!(d.traditions || []).length){
+        caja.innerHTML = '<div class="detail"><span class="meta">Sin equivalentes claros.</span></div>';
+        return;
+      }
+      caja.innerHTML = `<div class="detail">
+        <h4>Lo más próximo en las otras tradiciones</h4>
+        <p class="why">Ordenadas por parecido. Un porcentaje alto indica
+        formulación similar, no que digan lo mismo.</p>` +
+        d.traditions.map(t => t.matches.map(m => `
+          <div class="dverse">
+            <div class="r"><span class="dot" style="background:${color(t.tradition)}"></span>
+              ${esc(m.ref)}
+              <span class="meta" style="font-weight:400"> · ${esc(TRAD[t.tradition] || t.tradition)}</span>
+              <span class="simil" style="margin-left:8px">${(m.similarity*100).toFixed(0)}%</span></div>
+            <div class="t">${esc(m.text)}</div></div>`).join('')).join('') +
+        `</div>`;
+    }catch(e){
+      caja.innerHTML = `<div class="detail"><span class="meta">No se pudo cargar: ${esc(e.message)}</span></div>`;
+    }
+  });
+}
+
+// ---------- concordancia ----------
+async function viewConc(){
+  const d = await post('/concordance?limit=150', query());
+  if(!d.items.length){ $('#out').innerHTML =
+    '<div class="empty">Sin apariciones.</div>'; return; }
+
+  let h = `<div class="note">${d.total.toLocaleString('es')} versículos contienen el término.
+           Se muestran los primeros ${d.items.length}.</div>`;
+  let last = null;
+  d.items.forEach(v => {
+    if(v.work_id !== last){
+      h += `<h3><span class="dot" style="background:${color(v.tradition)}"></span>${esc(v.work_title)}</h3>`;
+      last = v.work_id;
+    }
+    h += `<div class="verse" style="border-left-color:${color(v.tradition)}">
+        <div class="ref">${esc(v.ref)}
+          <span class="meta" style="font-weight:400;margin-left:8px">${esc(v.division)}</span></div>
+        <div class="txt">${highlight(v.text, v.matched_forms)}</div>
+        <div style="margin-top:8px">
+          <button class="par-btn" data-trad="${v.verse_id}">Traducir</button></div>
+        <div id="trad-${v.verse_id}"></div></div>`;
+  });
+  $('#out').innerHTML = h;
+  activarTraduccion();
+  traducirTodoLoVisible();
+}
+
+// ---------- lado a lado ----------
+async function viewPar(){
+  const d = await post('/parallel', {...query(), limit_per_work: 8});
+  const cols = (d.columns||[]).filter(c => c.verses.length);
+  if(!cols.length){ $('#out').innerHTML =
+    '<div class="empty">Sin pasajes que comparar.</div>'; return; }
+
+  let h = `<div class="note">Cómo aborda cada tradición el mismo concepto.
+           Recuerda que la proximidad de palabras no implica equivalencia doctrinal.</div>
+           <div class="cols">`;
+  cols.forEach(c => {
+    h += `<div class="card"><div style="margin-bottom:10px">
+      <span class="dot" style="background:${color(c.tradition)}"></span>
+      <b>${esc(TRAD[c.tradition]||c.tradition)}</b>
+      <div class="meta" style="margin-left:16px">${esc(c.title)}</div></div>`;
+    c.verses.forEach(v => {
+      h += `<div class="verse" style="border-left-color:${color(c.tradition)}">
+        <div class="ref">${esc(v.ref)}</div>
+        <div class="txt" style="font-size:14.5px">${highlight(v.text, v.matched_forms)}</div>
+        <div style="margin-top:7px">
+          <button class="par-btn" data-trad="${v.verse_id}">Traducir</button></div>
+        <div id="trad-${v.verse_id}"></div></div>`;
+    });
+    h += '</div>';
+  });
+  $('#out').innerHTML = h + '</div>';
+  activarTraduccion();
+  traducirTodoLoVisible();
+}
+
+// ---------- eventos ----------
+$('#go').onclick = () => {
+  STATE.term = $('#q').value.trim();
+  if(STATE.term){ STATE.field = null;
+    document.querySelectorAll('[data-f]').forEach(x => x.classList.remove('on')); }
+  run();
+};
+$('#q').addEventListener('keydown', e => { if(e.key === 'Enter') $('#go').click(); });
+$('#lang').onchange = e => {
+  STATE.lang = e.target.value;
+  aplicarIdioma();
+  run();
+};
+document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
+  document.querySelectorAll('.tab').forEach(x => x.classList.remove('on'));
+  t.classList.add('on');
+  STATE.tab = t.dataset.t;
+  const sem = STATE.tab === 'sem';
+  const sinBuscador = ['sem', 'perfil', 'guia', 'panorama', 'acerca'].includes(STATE.tab);
+  $('#cajaSem').style.display = sem ? 'block' : 'none';
+  $('#cajaLex').style.display = sinBuscador ? 'none' : 'block';
+  run();
+});
+
+$('#autotrad').checked = AUTOTRAD;
+$('#autotrad').onchange = e => {
+  AUTOTRAD = e.target.checked;
+  localStorage.setItem('autotrad', AUTOTRAD ? '1' : '0');
+  if(AUTOTRAD) traducirTodoLoVisible();
+  else document.querySelectorAll('[id^="trad-"]').forEach(c => c.innerHTML = '');
+};
+
+$('#gos').onclick = () => run();
+$('#qs').addEventListener('keydown', e => { if(e.key === 'Enter') run(); });
+
+init();
+</script>
+</body>
+</html>

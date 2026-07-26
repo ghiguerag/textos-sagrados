@@ -1,0 +1,5 @@
+# Búsqueda por significado. Instalar solo si se va a usar.
+#   pip install --only-binary=:all: -r requirements-semantic.txt
+#   python scripts/build_embeddings.py
+-r requirements-base.txt
+sentence-transformers>=3.3,<4.0
