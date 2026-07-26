@@ -243,6 +243,42 @@ textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
 .cred-obra{padding:7px 0;border-bottom:1px solid var(--line);font-size:14px}
 .cred-obra:last-child{border-bottom:0}
 .cred-obra a{color:var(--accent)}
+
+/* ---------- Móvil: pantallas estrechas (vertical) ----------
+   Apila lo que en escritorio va en filas de ancho fijo, para que en el
+   teléfono se lea sin distorsión ni recortes. */
+@media (max-width:640px){
+  main{padding:16px 13px 48px}
+  header{padding:13px 15px;gap:10px}
+  h1{font-size:20px}
+  .card{padding:14px 14px}
+
+  /* Búsqueda: campo, selector y botón a lo ancho, uno bajo otro. */
+  .row{gap:8px}
+  .row input[type=text]{min-width:0;flex:1 1 100%;width:100%}
+  .row select,.row button{width:100%}
+
+  /* Pestañas: una sola fila que se desliza, en vez de amontonarse. */
+  .tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+        gap:0;margin:18px 0 16px}
+  .tab{padding:9px 13px;font-size:14px;white-space:nowrap;flex:none}
+
+  /* Barras de frecuencia y de secciones: nombre arriba, barra y cifra debajo. */
+  .bar-row{grid-template-columns:1fr 52px;gap:5px 10px;margin-bottom:14px}
+  .secc{grid-template-columns:1fr 48px;gap:4px 8px}
+  .bar-row>div:first-child,.secc>div:first-child{grid-column:1 / -1}
+  .bar-val{font-size:14px}
+
+  /* Panorama: etiqueta más estrecha y celdas compactas para que quepan. */
+  .pano{--pl:80px;gap:3px}
+  .pano-l{font-size:11px;padding-right:5px}
+  .pano-c{height:38px}
+  .pano-c .pu{font-size:8px}
+
+  /* Tablas de la guía: se deslizan si no caben, sin romper la página. */
+  .guia table{display:block;overflow-x:auto;white-space:nowrap;font-size:13px}
+  .verse .txt{font-size:15px}
+}
 </style>
 </head>
 <body>
@@ -671,7 +707,7 @@ async function viewPanorama(){
   h += `<div class="note">Cada número es una <b>densidad</b>: cuántas de cada
     10.000 palabras pertenecen a ese concepto (no es un conteo ni un porcentaje
     directo). Toca una casilla para verla en detalle.</div>`;
-  h += `<div class="pano" style="grid-template-columns:150px repeat(${cols.length},1fr)">`;
+  h += `<div class="pano" style="grid-template-columns:var(--pl,150px) repeat(${cols.length},1fr)">`;
   h += `<div></div>`;
   cols.forEach(w => {
     h += `<div class="pano-h">${EMBLEMA(w.tradition,18)}<span>${esc(w.title || w.id)}</span></div>`;
