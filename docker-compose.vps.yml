@@ -1,0 +1,26 @@
+# Despliegue en un VPS con Docker (p. ej. Hostinger KVM).
+#
+# Uso en el servidor, dentro de la carpeta del repositorio:
+#     docker compose -f docker-compose.vps.yml up -d --build
+#
+# Construye la imagen con el motor de significado "ligero" (buena calidad, cabe
+# holgado en 4 GB de RAM) y publica la app en el puerto 8080 del servidor. Con
+# esto la app queda accesible en  http://IP_DEL_SERVIDOR:8080
+#
+# (Traefik, que viene con la plantilla de Hostinger, ocupa los puertos 80 y 443;
+# por eso publicamos en 8080. Para un enlace https con el nombre del servidor se
+# integra con Traefik en un segundo paso.)
+
+services:
+  textos-sagrados:
+    build:
+      context: .
+      args:
+        EMB_ENGINE: ligero
+    image: textos-sagrados:latest
+    container_name: textos-sagrados
+    restart: unless-stopped
+    environment:
+      - PORT=7860
+    ports:
+      - "8080:7860"
