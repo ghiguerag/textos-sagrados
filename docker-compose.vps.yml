@@ -24,6 +24,10 @@ services:
       - PORT=7860
     ports:
       - "8080:7860"
+    # La interfaz (HTML/CSS/JS) se monta desde el repositorio, de modo que un
+    # simple `git pull` actualiza la web sin reconstruir ni copiar archivos.
+    volumes:
+      - ./backend/app/static:/app/app/static:ro
 
   caddy:
     image: caddy:2
