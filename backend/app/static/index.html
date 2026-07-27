@@ -1726,11 +1726,33 @@ async function viewPar(){
   traducirTodoLoVisible();
 }
 
+// El corpus está en inglés. Si el usuario escribe en el idioma de la interfaz
+// (p. ej. "amor"), se traduce o se mapea a un campo ANTES de buscar, para que
+// funcione en TODAS las pestañas y no solo en Frecuencias. Si la palabra
+// corresponde a un campo semántico curado, se usa ese campo (más completo);
+// si no, su traducción.
+async function resolverEntrada(){
+  if(!STATE.term || IDIOMA_UI === STATE.lang) return;
+  try{
+    const r = await api(`/resolver-termino?q=${encodeURIComponent(STATE.term)}`
+                      + `&desde=${IDIOMA_UI}&hasta=${STATE.lang}`);
+    if(r.campos && r.campos.length){
+      STATE.field = r.campos[0].key; STATE.term = '';
+      document.querySelectorAll('[data-f]').forEach(x =>
+        x.classList.toggle('on', x.dataset.f === STATE.field));
+    } else if(r.traduccion){
+      STATE.term = r.traduccion;
+      $('#q').value = r.traduccion;
+    }
+  }catch(e){ /* si falla, se busca el término tal cual */ }
+}
+
 // ---------- eventos ----------
-$('#go').onclick = () => {
+$('#go').onclick = async () => {
   STATE.term = $('#q').value.trim();
   if(STATE.term){ STATE.field = null;
     document.querySelectorAll('[data-f]').forEach(x => x.classList.remove('on')); }
+  await resolverEntrada();
   run();
 };
 $('#q').addEventListener('keydown', e => { if(e.key === 'Enter') $('#go').click(); });
