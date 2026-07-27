@@ -1689,8 +1689,12 @@ async function viewConc(){
 // ---------- lado a lado ----------
 async function viewPar(){
   const d = await post('/parallel', {...query(), limit_per_work: 8});
-  const cols = (d.columns||[]).filter(c => c.verses.length);
-  if(!cols.length){ $('#out').innerHTML =
+  // Mostrar TODAS las tradiciones, incluso las que no tienen pasajes para este
+  // término: ocultarlas hacía creer que faltaba una tradición (p. ej. el
+  // judaísmo), cuando en realidad esa palabra no aparece en ese texto. Que un
+  // concepto esté ausente en una tradición también es información útil.
+  const cols = d.columns || [];
+  if(!cols.some(c => c.verses.length)){ $('#out').innerHTML =
     '<div class="empty">Sin pasajes que comparar.</div>'; return; }
 
   let h = cabecera('columnas', 'Cómo lo aborda cada tradición',
@@ -1702,14 +1706,19 @@ async function viewPar(){
       <span class="dot" style="background:${color(c.tradition)}"></span>
       <b style="color:${color(c.tradition)}">${esc(TRAD[c.tradition]||c.tradition)}</b>
       <div class="meta" style="margin-left:16px">${esc(c.title)}</div></div>`;
-    c.verses.forEach(v => {
-      h += `<div class="verse" style="border-left-color:${color(c.tradition)}">
-        <div class="ref">${esc(v.ref)}</div>
-        <div class="txt" style="font-size:14.5px">${highlight(v.text, v.matched_forms)}</div>
-        <div style="margin-top:7px">
-          <button class="par-btn" data-trad="${v.verse_id}">Traducir</button></div>
-        <div id="trad-${v.verse_id}"></div></div>`;
-    });
+    if(c.verses.length){
+      c.verses.forEach(v => {
+        h += `<div class="verse" style="border-left-color:${color(c.tradition)}">
+          <div class="ref">${esc(v.ref)}</div>
+          <div class="txt" style="font-size:14.5px">${highlight(v.text, v.matched_forms)}</div>
+          <div style="margin-top:7px">
+            <button class="par-btn" data-trad="${v.verse_id}">Traducir</button></div>
+          <div id="trad-${v.verse_id}"></div></div>`;
+      });
+    } else {
+      h += `<div class="meta" style="padding:10px 2px 4px">Sin pasajes con este
+        término en esta obra.</div>`;
+    }
     h += '</div>';
   });
   $('#out').innerHTML = h + '</div>';
