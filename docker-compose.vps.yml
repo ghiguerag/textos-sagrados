@@ -1,15 +1,15 @@
-# Despliegue en un VPS con Docker (p. ej. Hostinger KVM).
+# Despliegue en un VPS con Docker (p. ej. Hostinger KVM), con https automático.
 #
 # Uso en el servidor, dentro de la carpeta del repositorio:
-#     docker compose -f docker-compose.vps.yml up -d --build
+#     docker stop traefik-traefik-1          # libera los puertos 80 y 443
+#     docker compose -f docker-compose.vps.yml up -d
 #
-# Construye la imagen con el motor de significado "ligero" (buena calidad, cabe
-# holgado en 4 GB de RAM) y publica la app en el puerto 8080 del servidor. Con
-# esto la app queda accesible en  http://IP_DEL_SERVIDOR:8080
-#
-# (Traefik, que viene con la plantilla de Hostinger, ocupa los puertos 80 y 443;
-# por eso publicamos en 8080. Para un enlace https con el nombre del servidor se
-# integra con Traefik en un segundo paso.)
+# - "textos-sagrados": la aplicación, con el motor de significado "ligero"
+#   (buena calidad, cabe holgado en 4 GB). Queda también accesible directo en
+#   http://IP:8080 como respaldo.
+# - "caddy": un proxy minúsculo que sirve el nombre del servidor por HTTPS con
+#   un certificado que gestiona solo (Let's Encrypt). Con esto la app queda en:
+#       https://srv1860395.hstgr.cloud
 
 services:
   textos-sagrados:
@@ -24,3 +24,17 @@ services:
       - PORT=7860
     ports:
       - "8080:7860"
+
+  caddy:
+    image: caddy:2
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    command: caddy reverse-proxy --from srv1860395.hstgr.cloud --to textos-sagrados:7860
+    volumes:
+      - caddy_data:/data
+
+volumes:
+  caddy_data:
