@@ -313,7 +313,16 @@ def concordance(
     work_ids: Sequence[str] | None = None,
     limit: int = 100,
     offset: int = 0,
+    per_work: int = 40,
 ) -> list[dict[str, Any]]:
+    """Versículos donde aparece el término, repartidos de forma justa entre obras.
+
+    Antes, un LIMIT global ordenado por tradición se llenaba entero con la
+    Biblia —que es enorme— y las demás tradiciones no aparecían nunca en la
+    concordancia. `per_work` acota cuántos versículos se toman de cada obra
+    (con una función de ventana) para que las cuatro tradiciones estén
+    representadas.
+    """
     stems = list(stems)
     if not stems:
         return []
@@ -323,21 +332,32 @@ def concordance(
     if work_ids:
         work_filter = f" AND v.work_id IN ({','.join('?' * len(work_ids))})"
         params += list(work_ids)
-    params += [limit, offset]
+    params += [per_work, limit, offset]
 
     rows = conn.execute(
         f"""
-        SELECT v.id, v.ref, v.text, v.work_id, w.title, w.tradition,
-               d.name AS division_name,
-               GROUP_CONCAT(DISTINCT li.surface) AS matched_forms,
-               COUNT(li.position) AS hits
-        FROM lemma_index li
-        JOIN verses v    ON v.id = li.verse_id
-        JOIN works w     ON w.id = v.work_id
-        JOIN divisions d ON d.id = v.division_id
-        WHERE li.lemma IN ({placeholders}){work_filter}
-        GROUP BY v.id
-        ORDER BY w.tradition, d.ordinal, v.chapter, v.number
+        WITH coincidencias AS (
+            SELECT v.id, v.ref, v.text, v.work_id, v.chapter, v.number,
+                   w.title, w.tradition,
+                   d.name AS division_name, d.ordinal AS division_ordinal,
+                   GROUP_CONCAT(DISTINCT li.surface) AS matched_forms,
+                   COUNT(li.position) AS hits
+            FROM lemma_index li
+            JOIN verses v    ON v.id = li.verse_id
+            JOIN works w     ON w.id = v.work_id
+            JOIN divisions d ON d.id = v.division_id
+            WHERE li.lemma IN ({placeholders}){work_filter}
+            GROUP BY v.id
+        ),
+        ordenadas AS (
+            SELECT *, ROW_NUMBER() OVER (
+                PARTITION BY work_id ORDER BY division_ordinal, chapter, number
+            ) AS pos_en_obra
+            FROM coincidencias
+        )
+        SELECT * FROM ordenadas
+        WHERE pos_en_obra <= ?
+        ORDER BY tradition, division_ordinal, chapter, number
         LIMIT ? OFFSET ?
         """,
         params,
